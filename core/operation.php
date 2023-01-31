@@ -8,8 +8,12 @@ if (isset($_GET['op']) && $_GET['op']== 'barcode') {
 } else if (isset($_GET['op']) && $_GET['op']== 'info') {
     $command = escapeshellcmd('./devices_script/scanner/getUserData.py');
     $output = shell_exec('python ' . $command);
-    $list = explode(' ',$output);
-    echo json_encode($list);
+    if(isset($output)){
+        $list = explode(' ',$output);
+        echo json_encode($list);
+    } else {
+        echo 'error';
+    }
 
 } else if (isset($_GET['op']) && $_GET['op']== 'print') {
     echo $_GET['name'];

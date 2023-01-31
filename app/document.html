@@ -61,22 +61,27 @@
             }, ).done((message) => {
                 console.log(`message1: ${message}`);
                 $('#cf-field p').text(message);
-                localStorage.setItem('code',message)
-                
+                localStorage.setItem('code', message)
+
                 $.get("../core/operation.php", {
                     op: "info",
                     type: "id"
                 }, ).done((message) => {
                     console.log(`message: ${message}`);
-                    message = JSON.parse(message);
-                    localStorage.setItem('name',message[0] + ' ' + message[1])
-                    localStorage.setItem('nation',message[3])
-                    localStorage.setItem('sex',message[2])
+                    if (!(message != 'error')) {
+                        console.log(`errore scanner`);
+                        // TODO impostare i dati a mano
+                    } else {
+                        message = JSON.parse(message);
+                        localStorage.setItem('name', message[0] + ' ' + message[1])
+                        localStorage.setItem('nation', message[3])
+                        localStorage.setItem('sex', message[2])
 
-                    console.log(`message2: ${message}`);
-                    $('#name-field p').text(message[0] + ' ' + message[1]);
-                    $('#nation-field p').text(message[3]);
-                    $('#sex-field p').text(message[2]);
+                        console.log(`message2: ${message}`);
+                        $('#name-field p').text(message[0] + ' ' + message[1]);
+                        $('#nation-field p').text(message[3]);
+                        $('#sex-field p').text(message[2]);
+                    }
                     $('#position-modal').addClass('hidden');
                     $('#response-modal').removeClass('hidden');
                 })
