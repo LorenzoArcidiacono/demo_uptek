@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
@@ -14,7 +15,7 @@
     <div class="portrait">
         <div class="sliding-menu">
             <img src="./calendar.png" alt="" class="hidden">
-            <button class="circle"> > </button>
+            <button class="circle"> <span class="material-symbols-outlined">chevron_right</span> </button>
             <div>
                 <h1 class="hidden">
                     Come Funziona
@@ -28,22 +29,34 @@
             </div>
         </div>
     </div>
+    <div id="paginator">
+        <span class="material-symbols-outlined">chevron_left</span>
+        <div class="container">
+            <button class="small selected">1</button>
+            <button class="small">2</button>
+            <button class="small">3</button>
+            <button class="small">4</button>
+        </div>
+        <span class="material-symbols-outlined">chevron_right</span>
+    </div>
     <script>
+        let delay = 1000;
+
         $('.circle').click(() => {
             $('.sliding-menu').animate({
                 height: '100%',
                 borderBottomLeftRadius: '0px',
                 borderBottomRightRadius: '0px'
-            }, 2000, () => {
-                $('img').fadeIn('slow')
-                $('h1').fadeIn('slow')
-                $('ul').fadeIn('slow')
+            }, delay, () => {
+                $('img').fadeIn('fast')
+                $('h1').fadeIn('fast')
+                $('ul').fadeIn('fast')
             })
             $('.circle').animate({
                 width: '300px',
                 height: '100px',
-            }, 2000,()=>{
-                $(".circle").text('check-in >')
+            }, delay,()=>{
+                $(".circle").text('check-in').append('<span class="material-symbols-outlined">chevron_right</span> ')
             })
         })
     </script>
