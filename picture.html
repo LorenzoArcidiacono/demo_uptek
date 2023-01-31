@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="camera">
+            <video id="webcam" autoplay playsinline width="640" height="480"></video>
+            <canvas id="canvas" class="d-none"></canvas>
+        </div>
+
+        <div class="buttons">
+            <button id="start-btn" onclick="start()">Start</button>
+            <button id="stop-btn" onclick="stop()">Stop</button>
+            <button id="snap-btn" onclick="snap()">Snap</button>
+            <button id="save-btn" onclick="save()">Save</button>
+        </div>
+
+
+        <script>
+            const webcamElement = document.getElementById('webcam');
+            const canvasElement = document.getElementById('canvas');
+            const snapSoundElement = document.getElementById('snapSound');
+            const webcam = new Webcam(webcamElement, 'user', canvasElement);
+            let picture;
+
+            downloadImage = function (url, name) {
+                const link = document.createElement("a");
+                link.href = url;
+                link.download = name;
+                link.click();
+            }
+
+            start = function () {
+                console.log(`start`);
+                webcam.start()
+                    .then(result => {
+                        console.log("webcam started");
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+
+                $('#start-btn').hide();
+                $('#save-btn').hide();
+                $('#stop-btn').show();
+                $('#snap-btn').show();
+                $('#canvas').hide();
+                $('#webcam').show();
+            }
+
+            snap = function () {
+                picture = webcam.snap();
+                $('#start-btn').show();
+                $('#stop-btn').hide();
+                $('#snap-btn').hide();
+                $('#save-btn').show();
+                $('#webcam').hide();
+                $('#canvas').show();
+
+            }
+
+            save = function () {
+                console.log(picture);
+                downloadImage(picture, './picture/img1.png')
+            }
+
+            stop = function () {
+                webcam.stop();
+                $('#start-btn').show();
+                $('#stop-btn').hide();
+                $('#snap-btn').hide();
+                $('#save-btn').hide();
+                $('#webcam').hide();
+                $('#canvas').hide();
+            }
+        </script>
+    </div>
+</body>
+
+</html>

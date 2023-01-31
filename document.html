@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="modal hidden" id="position-modal">
+        <div class="card">
+            <p>posiziona la carta sotto al sensore</p>
+            <button>fatto</button>
+        </div>
+    </div>
+    <div class="modal hidden" id="response-modal">
+        <div class="card">
+            <div class="fields">
+                <fieldset id="name-field">
+                    <legend>Nome</legend>
+                    <p>-</p>
+                </fieldset>
+                <fieldset id="nation-field">
+                    <legend>Nazionalit&agrave;</legend>
+                    <p>-</p>
+                </fieldset>
+                <fieldset id="sex-field">
+                    <legend>Sesso</legend>
+                    <p>-</p>
+                </fieldset>
+                <fieldset id="cf-field">
+                    <legend>CF</legend>
+                    <p>-</p>
+                </fieldset>
+            </div>
+            <button id="step-2-btn">Avanti</button>
+        </div>
+    </div>
+    </div>
+    <div class="main-container">
+        <div class="flex-container">
+            <button>Carta Identità</button>
+            <button>Passaporto</button>
+            <button>Patente</button>
+            <button>Tessera Sanitaria</button>
+        </div>
+    </div>
+
+    <script>
+        $('.flex-container button').click(() => {
+            $('#position-modal').removeClass('hidden');
+        })
+
+        $('#position-modal button').click(() => {
+            $.get("./operation.php", {
+                op: "barcode"
+            }, ).done((message) => {
+                console.log(`message1: ${message}`);
+                $('#cf-field p').text(message);
+                $.get("./operation.php", {
+                    op: "info"
+                }, ).done((message) => {
+                    // console.log(`message: ${message}`);
+                    message = JSON.parse(message);
+                    console.log(`message2: ${message}`);
+                    $('#name-field p').text(message[0] + ' ' + message[1]);
+                    $('#nation-field p').text(message[3]);
+                    $('#sex-field p').text(message[2]);
+                    $('#position-modal').addClass('hidden');
+                    $('#response-modal').removeClass('hidden');
+                })
+            })
+        })
+
+        $('#response-modal button').click(() => {
+            // $('#response-modal').addClass('hidden');
+            window.location = './picture.html';
+        })
+    </script>
+</body>
+
+</html>
