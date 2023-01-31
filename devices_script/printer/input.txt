@@ -1,4 +1,0 @@
-Welcome to LiveSignage
-
-id: $CODE$
-pwd: $PWD$

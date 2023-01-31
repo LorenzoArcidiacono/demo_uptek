@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style/style.css">
     <title>Document</title>
 </head>
 
@@ -86,7 +86,7 @@
             }
 
             print = function () {
-                $.get("./operation.php", {
+                $.get("../core/operation.php", {
                     op: "print",
                     name: localStorage.getItem('name'),
                     nation: localStorage.getItem('nation'),
@@ -94,6 +94,7 @@
                     code: localStorage.getItem('code'),
                 }).done((message) => {
                     console.log(`message: ${message}`);
+                    // window.location = 'index.html';
                 })
             }
         </script>
