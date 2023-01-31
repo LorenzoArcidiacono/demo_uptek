@@ -23,6 +23,7 @@
             <button id="stop-btn" onclick="stop()">Stop</button>
             <button id="snap-btn" onclick="snap()">Snap</button>
             <button id="save-btn" onclick="save()">Save</button>
+            <button id="print-btn" onclick="print()">Print</button>
         </div>
 
 
@@ -82,6 +83,18 @@
                 $('#save-btn').hide();
                 $('#webcam').hide();
                 $('#canvas').hide();
+            }
+
+            print = function () {
+                $.get("./operation.php", {
+                    op: "print",
+                    name: localStorage.getItem('name'),
+                    nation: localStorage.getItem('nation'),
+                    sex: localStorage.getItem('sex'),
+                    code: localStorage.getItem('code'),
+                }).done((message) => {
+                    console.log(`message: ${message}`);
+                })
             }
         </script>
     </div>

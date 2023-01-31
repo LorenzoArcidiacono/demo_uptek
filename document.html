@@ -61,11 +61,17 @@
             }, ).done((message) => {
                 console.log(`message1: ${message}`);
                 $('#cf-field p').text(message);
+                localStorage.setItem('code',message)
+                
                 $.get("./operation.php", {
                     op: "info"
                 }, ).done((message) => {
-                    // console.log(`message: ${message}`);
+                    console.log(`message: ${message}`);
                     message = JSON.parse(message);
+                    localStorage.setItem('name',message[0] + ' ' + message[1])
+                    localStorage.setItem('nation',message[3])
+                    localStorage.setItem('sex',message[2])
+
                     console.log(`message2: ${message}`);
                     $('#name-field p').text(message[0] + ' ' + message[1]);
                     $('#nation-field p').text(message[3]);

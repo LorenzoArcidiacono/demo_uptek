@@ -2,8 +2,7 @@ import win32print as printer
 import win32api
 import sys
 
-print ('Number of arguments:', len(sys.argv), 'arguments.')
-print ('Argument List:', str(sys.argv))
+# print ('Number of arguments:', len(sys.argv), 'arguments.')
 
 PRINTER_ERROR_STATES = (
     printer.PRINTER_STATUS_NO_TONER, #262144
@@ -16,6 +15,7 @@ PRINTER_ERROR_STATES = (
     printer.PRINTER_STATUS_PAPER_OUT, #16
     printer.PRINTER_STATUS_PAPER_PROBLEM, #64
 )
+
 
 def printer_errorneous_state(prn, error_states=PRINTER_ERROR_STATES):
     prn_opts = printer.GetPrinter(prn)
@@ -33,19 +33,24 @@ def startPrint():
     if error:
         print("ERROR occurred: ", error)
     else:
-        print("Printer OK...")
+        print("Printer OK")
         #  Do the real work
         win32api.ShellExecute(0, "print", 'output.txt', None,  ".",  0)
     printer.ClosePrinter(prn)
 
 
 def writeFile(id,pwd):
-    with open('input.txt', 'r') as f:
+
+    with open('devices_script/printer/input.txt', 'r') as f:
         str = f.read()
 
     str = str.replace('$CODE$', id)
     str = str.replace('$PWD$', pwd)
 
-    with open('output.txt', 'w') as f:
+    with open('devices_script/printer/output.txt', 'w') as f:
         f.write(str);
 
+
+
+writeFile(sys.argv[1]+' '+sys.argv[2], sys.argv[3])
+print ('Argument List:', str(sys.argv))
