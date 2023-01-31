@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="portrait">
+        <div class="sliding-menu">
+            <img src="./calendar.png" alt="" class="hidden">
+            <button class="circle"> > </button>
+            <div>
+                <h1 class="hidden">
+                    Come Funziona
+                </h1>
+                <ul class="hidden">
+                    <li>Scegli il tuo documento</li>
+                    <li>Scansionalo</li>
+                    <li>Scatta una foto</li>
+                    <li>Stampa il tuo check-in</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('.circle').click(() => {
+            $('.sliding-menu').animate({
+                height: '100%',
+                borderBottomLeftRadius: '0px',
+                borderBottomRightRadius: '0px'
+            }, 2000, () => {
+                $('img').fadeIn('slow')
+                $('h1').fadeIn('slow')
+                $('ul').fadeIn('slow')
+            })
+            $('.circle').animate({
+                width: '300px',
+                height: '100px',
+            }, 2000,()=>{
+                $(".circle").text('check-in >')
+            })
+        })
+    </script>
+</body>
+
+</html>
