@@ -25,7 +25,6 @@ def printer_errorneous_state(prn, error_states=PRINTER_ERROR_STATES):
             return error_state
     return 0
 
-print(' ok0')
 def startPrint():
     printer_name = "BK-C310(U) 1" # or get_printer_names()[0]
     prn = printer.OpenPrinter(printer_name)
@@ -40,20 +39,14 @@ def startPrint():
 
 
 def writeFile(id,pwd):
-    print(' ok1')
     with open('./devices_script/printer/input.txt', 'r') as f:
         str = f.read()
-    print(' ok2')
 
     str = str.replace('$NAME$', id)
     str = str.replace('$NATION$', pwd)
 
-    print(' ok3')
     with open('./devices_script/printer/output.txt', 'w') as f:
         f.write(str);
-    print(' ok4')
-
-
 
 writeFile(sys.argv[1]+' '+sys.argv[2], sys.argv[3])
 print ('Argument List:', str(sys.argv))
