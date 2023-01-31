@@ -64,7 +64,8 @@
                 localStorage.setItem('code',message)
                 
                 $.get("../core/operation.php", {
-                    op: "info"
+                    op: "info",
+                    type: "id"
                 }, ).done((message) => {
                     console.log(`message: ${message}`);
                     message = JSON.parse(message);

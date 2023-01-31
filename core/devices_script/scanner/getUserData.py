@@ -1,3 +1,5 @@
+#https://pypi.org/project/mrz/
+
 import serial
 from mrz.checker.td1 import TD1CodeChecker, get_country
 

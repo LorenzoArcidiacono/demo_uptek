@@ -7,6 +7,10 @@
     --orange: #ff721f;
 }
 
+body{
+    margin: 0;
+}
+
 .portrait{
     width: 1080px;
     height: 1920px;
