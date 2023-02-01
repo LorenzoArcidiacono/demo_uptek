@@ -22,19 +22,19 @@
             <div class="fields">
                 <fieldset id="name-field">
                     <legend>Nome</legend>
-                    <p>-</p>
+                    <input type="text" name="" id="name-input">
                 </fieldset>
                 <fieldset id="nation-field">
                     <legend>Nazionalit&agrave;</legend>
-                    <p>-</p>
+                    <input type="text" name="" id="nation-input">
                 </fieldset>
                 <fieldset id="sex-field">
                     <legend>Sesso</legend>
-                    <p>-</p>
+                    <input type="text" name="" id="sex-input">
                 </fieldset>
                 <fieldset id="cf-field">
                     <legend>CF</legend>
-                    <p>-</p>
+                    <input type="text" name="" id="code-input">
                 </fieldset>
             </div>
             <button id="step-2-btn">Avanti</button>
@@ -49,7 +49,6 @@
             <button>Tessera Sanitaria</button>
         </div>
     </div>
-    <button onclick="saveData()">SaveData</button>
 
     <script>
         $('.flex-container button').click(() => {
@@ -61,8 +60,7 @@
                 op: "barcode"
             }, ).done((message) => {
                 console.log(`message1: ${message}`);
-                $('#cf-field p').text(message);
-                localStorage.setItem('code', message)
+                $('#cf-field input').text(message);
 
                 $.get("../core/operation.php", {
                     op: "info",
@@ -74,14 +72,12 @@
                         // TODO impostare i dati a mano
                     } else {
                         message = JSON.parse(message);
-                        localStorage.setItem('name', message[0] + ' ' + message[1])
-                        localStorage.setItem('nation', message[3])
-                        localStorage.setItem('sex', message[2])
 
                         console.log(`message2: ${message}`);
-                        $('#name-field p').text(message[0] + ' ' + message[1]);
-                        $('#nation-field p').text(message[3]);
-                        $('#sex-field p').text(message[2]);
+                        $('#name-field input').text(message[0] + ' ' + message[1]);
+                        $('#nation-field input').text(message[3]);
+                        $('#sex-field input').text(message[2]);
+
                     }
                     $('#position-modal').addClass('hidden');
                     $('#response-modal').removeClass('hidden');
@@ -91,22 +87,26 @@
 
         $('#response-modal button').click(() => {
             // $('#response-modal').addClass('hidden');
+            localStorage.setItem('name', $('#name-input').val());
+            localStorage.setItem('nation', $('#nation-input').val())
+            localStorage.setItem('sex', $('#sex-input').val())
+            localStorage.setItem('code', $('#code-input').val())
+
             window.location = './picture.html';
         })
 
-        saveData = function(){
+        saveData = function () {
             $.post("../core/operation.php", {
-                    op: "saveData",
-                    name: localStorage.getItem('name'),
-                    nation: localStorage.getItem('nation'),
-                    sex: localStorage.getItem('sex'),
-                    code: localStorage.getItem('code'),
-                }).done((message) => {
-                    console.log(`message: ${message}`);
-                    // window.location = 'index.html';
-                })
+                op: "saveData",
+                name: localStorage.getItem('name'),
+                nation: localStorage.getItem('nation'),
+                sex: localStorage.getItem('sex'),
+                code: localStorage.getItem('code'),
+            }).done((message) => {
+                console.log(`message: ${message}`);
+                // window.location = 'index.html';
+            })
         }
-
     </script>
 </body>
 
