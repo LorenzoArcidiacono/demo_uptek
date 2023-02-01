@@ -32,12 +32,12 @@
 }
 
 /* --- SELECT --- */
-.select{
+.select {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    @include font-dimension(600,48px);
+    @include font-dimension(600, 48px);
 }
 
 .select-button {
@@ -52,13 +52,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
-    p:not(.selected){
+
+    p:not(.selected) {
         display: none;
     }
 }
 
-.select-dropdown{
+.select-dropdown {
     width: 500px;
     height: 0;
     background-color: white;
@@ -69,45 +69,61 @@
     top: -40px;
     border-radius: 30px;
 
-    p{
+    p {
         display: none;
         padding: 10px 0;
         margin: 20px 0;
     }
 
-    p:not(:last-child){
+    p:not(:last-child) {
         border-bottom: 1px solid black;
     }
 
-    .selected{
+    .selected {
         display: none;
     }
 }
 
-
-/* --- PAGINATOR --- */
-.pagination{
+/* --- PAGINATION --- */
+.pagination {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 50px;
 
-    .stream{
-        width: 400px;
+    .stream {
+        width: 469px;
         height: 120px;
         border: 3px solid $dark-gray;
+        padding: 0;
         border-radius: 100px;
         display: flex;
-        justify-content: flex-start;
+        justify-content: space-between;
         align-items: center;
     }
-    .circle-button{
+    .circle-button {
         z-index: 2;
-        @include font-dimension(600,60px)
+        @include font-dimension(600, 60px);
     }
-    .circle-button:not(.selected){
+    .circle-button:not(.selected) {
         background-color: transparent;
         color: $dark-gray;
     }
+}
 
+/* --- DIV ONLY CORNER BORDER */
+.corner-border {
+    @include corner-border();
+    width: 850px;
+    height: 850px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .element-display{
+        background-color: $dark-blue;
+        width: 695px;
+        height: 695px;
+        border-radius: 30px;
+    }
 }

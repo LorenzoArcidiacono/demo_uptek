@@ -128,7 +128,7 @@ body {
   display: none;
 }
 
-/* --- PAGINATOR --- */
+/* --- PAGINATION --- */
 .pagination {
   display: flex;
   justify-content: center;
@@ -136,12 +136,13 @@ body {
   gap: 50px;
 }
 .pagination .stream {
-  width: 400px;
+  width: 469px;
   height: 120px;
   border: 3px solid #414141;
+  padding: 0;
   border-radius: 100px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 }
 .pagination .circle-button, .pagination .large-circle-button {
@@ -152,6 +153,23 @@ body {
 .pagination .circle-button:not(.selected), .pagination .large-circle-button:not(.selected) {
   background-color: transparent;
   color: #414141;
+}
+
+/* --- DIV ONLY CORNER BORDER */
+.corner-border {
+  background-image: url("./corners.svg");
+  background-size: contain;
+  width: 850px;
+  height: 850px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.corner-border .element-display {
+  background-color: #081e75;
+  width: 695px;
+  height: 695px;
+  border-radius: 30px;
 }
 
 /* sass --watch idea/style:idea/ */

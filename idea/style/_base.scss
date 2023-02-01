@@ -53,9 +53,6 @@ $work-sans: "Work Sans", sans-serif;
 }
 
 
-
-
-
 // BUTTONS
 @mixin circle($width){
     width: $width;
@@ -73,3 +70,8 @@ $work-sans: "Work Sans", sans-serif;
     align-items: center;
 }
 
+// DIV WITH BORDER ON CORNER
+@mixin corner-border{
+    background-image: url('./corners.svg');
+    background-size: contain;
+}
