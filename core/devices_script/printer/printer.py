@@ -30,9 +30,8 @@ def startPrint():
     prn = printer.OpenPrinter(printer_name)
     error = printer_errorneous_state(prn)
     if error:
-        print("ERROR occurred: ", error)
+        print("error occurred: ", error)
     else:
-        print("Printer OK")
         #  Do the real work
         win32api.ShellExecute(0, "print", 'output.txt', None,  ".",  0)
     printer.ClosePrinter(prn)
@@ -49,4 +48,5 @@ def writeFile(id,pwd):
         f.write(str);
 
 writeFile(sys.argv[1]+' '+sys.argv[2], sys.argv[3])
-print ('Argument List:', str(sys.argv))
+# startPrint();
+# print ('Argument List:', str(sys.argv))

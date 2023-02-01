@@ -78,8 +78,14 @@
                     image: picture,
                     name: localStorage.getItem('name')
                 }).done((message) => {
-                    console.log(`message: ${message}`);
-                    // window.location = 'index.html';
+                    message = JSON.parse(message);
+                    if (message['result'] == false) {
+                        console.log(`ERRORE`);
+                        //TODO show error message
+                    } else {
+                        console.log(`tutto ok`);
+                        // window.location = 'index.html';
+                    }
                 })
             }
 
@@ -102,7 +108,13 @@
                     code: localStorage.getItem('code'),
                 }).done((message) => {
                     console.log(`message: ${message}`);
-                    window.location = 'index.html';
+                    message = JSON.parse(message);
+                    if (message['result'] == false) {
+                        console.log(`ERRORE`);
+                        //TODO show error message
+                    } else {
+                        // window.location = 'index.html';
+                    }
                 })
             }
         </script>
