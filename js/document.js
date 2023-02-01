@@ -84,6 +84,7 @@ $('#response-modal button').click(() => {
 })
 
 saveData = function () {
+    console.log(`salvo i dati`);
     return $.post("../core/operation.php", {
         op: "saveData",
         name: localStorage.getItem('name'),

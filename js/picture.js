@@ -55,7 +55,7 @@ savePhoto = function () {
             //TODO show error message
         } else {
             console.log(`Immagine salvata`);
-            window.location = 'index.html';
+            // window.location = 'index.html';
         }
     })
 }
@@ -84,7 +84,7 @@ printInformation = function () {
             console.log(`${message['data']}`);
             //TODO show error message
         } else {
-            window.location = 'index.html';
+            // window.location = 'index.html';
         }
     })
 }

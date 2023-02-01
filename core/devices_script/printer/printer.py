@@ -67,6 +67,7 @@ def writeFile(id,pwd):
 
     with open('./devices_script/printer/output.txt', 'w') as f:
         f.write(str);
+    print(' Printed')
 
 writeFile(sys.argv[1]+' '+sys.argv[2], sys.argv[3])
 # startPrint();
