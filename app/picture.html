@@ -71,8 +71,16 @@
             }
 
             save = function () {
-                console.log(picture);
-                downloadImage(picture, './picture/img1.png')
+                // console.log(picture);
+                // downloadImage(picture, './picture/img1.png')
+                $.post("../core/operation.php", {
+                    op: "saveImage",
+                    image: picture,
+                    name: localStorage.getItem('name')
+                }).done((message) => {
+                    console.log(`message: ${message}`);
+                    // window.location = 'index.html';
+                })
             }
 
             stop = function () {
@@ -86,7 +94,7 @@
             }
 
             print = function () {
-                $.get("../core/operation.php", {
+                $.post("../core/operation.php", {
                     op: "print",
                     name: localStorage.getItem('name'),
                     nation: localStorage.getItem('nation'),
