@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    
     <title>Document</title>
 </head>
 
@@ -48,109 +49,8 @@
         </div>
     </div>
 
-    <script>
-        let type = ''
-
-        $('.flex-container button').click(() => {
-            $('#position-modal').removeClass('hidden');
-        })
-
-        $('#scan-card').click(() => type = 'card')
-        $('#scan-passport').click(() => type = 'passport')
-
-
-        $('#position-modal button').click(() => {
-            console.log(`Scan: ${type}`);
-            if (type == 'card') {
-                $.get("../core/operation.php", {
-                    op: "barcode"
-                }, ).done((message) => {
-                    message = JSON.parse(message);
-                    if (message['result'] == false) {
-                        console.log(message['data']);
-                    } else {
-                        $('#cf-field input').val(message['data']);
-                    }
-
-                    $.get("../core/operation.php", {
-                        op: "info",
-                        type: "card"
-                    }, ).done((message) => {
-                        // console.log(`message: ${message}`);
-
-                        message = JSON.parse(message);
-                        if (message['result'] == false) {
-                            console.log(message['data']);
-                        } else {
-                            message = message['data'];
-                            // console.log(`message2: ${message}`);
-                            $('#name-field input').val(message[0] + ' ' + message[1]);
-                            $('#nation-field input').val(message[3]);
-                            $('#sex-field input').val(message[2]);
-                        }
-
-                        $('#position-modal').addClass('hidden');
-                        $('#response-modal').removeClass('hidden');
-                    })
-                })
-            } else {
-                $.get("../core/operation.php", {
-                    op: "info",
-                    type: "passport"
-                }, ).done((message) => {
-                    // console.log(`message: ${message}`);
-
-                    message = JSON.parse(message);
-                    if (message['result'] == false) {
-                        console.log(message['data']);
-                    } else {
-                        message = message['data'];
-                        // console.log(`message2: ${message}`);
-                        $('#name-field input').val(message[0] + ' ' + message[1]);
-                        $('#nation-field input').val(message[3]);
-                        $('#sex-field input').val(message[2]);
-                    }
-
-                    $('#position-modal').addClass('hidden');
-                    $('#response-modal').removeClass('hidden');
-                })
-            }
-
-        })
-
-
-
-
-        $('#response-modal button').click(() => {
-            // $('#response-modal').addClass('hidden');
-            localStorage.setItem('name', $('#name-input').val());
-            localStorage.setItem('nation', $('#nation-input').val())
-            localStorage.setItem('sex', $('#sex-input').val())
-            localStorage.setItem('code', $('#code-input').val())
-            saveData().then((message) => {
-                message = JSON.parse(message);
-                if (message['result'] == false) {
-                    console.log(`ERRORE`);
-                    //TODO show error message
-                } else {
-                    window.location = './picture.html';
-                }
-            });
-        })
-
-        saveData = function () {
-            return $.post("../core/operation.php", {
-                op: "saveData",
-                name: localStorage.getItem('name'),
-                nation: localStorage.getItem('nation'),
-                sex: localStorage.getItem('sex'),
-                code: localStorage.getItem('code'),
-            }).done((message) => {
-                console.log(`message: ${message}`);
-                // window.location = 'index.html';
-            })
-        }
-    </script>
+    <script src="../js/document.js"></script>
+    
 </body>
 
 </html>
