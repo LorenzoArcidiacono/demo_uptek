@@ -16,6 +16,27 @@ PRINTER_ERROR_STATES = (
     printer.PRINTER_STATUS_PAPER_PROBLEM, #64
 )
 
+def codeToString(code):
+    match code:
+        case printer.PRINTER_STATUS_NO_TONER:
+            return 'Out of toner'
+        case printer.PRINTER_STATUS_NOT_AVAILABLE:
+            return 'Printer not available'
+        case printer.PRINTER_STATUS_OFFLINE:
+            return 'Printer offline'
+        case printer.PRINTER_STATUS_OUT_OF_MEMORY:
+            return 'Printer out of memory'
+        case printer.PRINTER_STATUS_OUTPUT_BIN_FULL:
+            return 'Printer bin is full'
+        case printer.PRINTER_STATUS_PAGE_PUNT:
+            return 'Printer page punt'
+        case printer.PRINTER_STATUS_PAPER_JAM:
+            return 'Printer paper jam'
+        case printer.PRINTER_STATUS_PAPER_OUT:
+            return 'Printer out of paper'  
+        case printer.PRINTER_STATUS_PAPER_PROBLEM:
+            return 'Printer paper problem'    
+        
 
 def printer_errorneous_state(prn, error_states=PRINTER_ERROR_STATES):
     prn_opts = printer.GetPrinter(prn)
@@ -30,7 +51,7 @@ def startPrint():
     prn = printer.OpenPrinter(printer_name)
     error = printer_errorneous_state(prn)
     if error:
-        print("error occurred: ", error)
+        print("error occurred: ", codeToString(error))
     else:
         #  Do the real work
         win32api.ShellExecute(0, "print", 'output.txt', None,  ".",  0)

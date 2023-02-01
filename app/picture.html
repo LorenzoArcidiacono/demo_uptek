@@ -110,10 +110,10 @@
                     console.log(`message: ${message}`);
                     message = JSON.parse(message);
                     if (message['result'] == false) {
-                        console.log(`ERRORE`);
+                        console.log(`${message['data']}`);
                         //TODO show error message
                     } else {
-                        // window.location = 'index.html';
+                        window.location = 'index.html';
                     }
                 })
             }
