@@ -1,0 +1,159 @@
+/* --- COLORS --- */
+/* --- FONT --- */
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+/* --- ICONS ---- */
+.material-symbols-outlined {
+  transform: scale(3.5);
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
+/* --- MIXINS --- */
+body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #9f9f9f;
+  font-family: "Work Sans", sans-serif;
+}
+
+.container {
+  border: 2px solid #ff721f;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  font-family: "Work Sans", sans-serif;
+}
+
+/* --- BUTTONS --- */
+.circle-button, .large-circle-button {
+  width: 142px;
+  aspect-ratio: 1/1;
+  border-radius: 200px;
+  background-color: #ff721f;
+  outline: none;
+  border: none;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.camera-button {
+  width: 228px;
+  aspect-ratio: 1/1;
+  border-radius: 200px;
+  border: 10px solid #ff721f;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.camera-button .circle-button, .camera-button .large-circle-button {
+  width: 165px;
+  aspect-ratio: 1/1;
+  border-radius: 200px;
+  background-color: white;
+}
+
+.inverse-button {
+  width: 228px;
+  aspect-ratio: 1/1;
+  border-radius: 200px;
+  background-color: white;
+  outline: none;
+  border: none;
+  color: #ff721f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.large-circle-button {
+  width: 170px;
+  aspect-ratio: 1/1;
+  border-radius: 200px;
+}
+
+/* --- SELECT --- */
+.select {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 48px;
+}
+
+.select-button {
+  z-index: 2;
+  width: 500px;
+  height: 130px;
+  background-color: #ff721f;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.select-button p:not(.selected) {
+  display: none;
+}
+
+.select-dropdown {
+  width: 500px;
+  height: 0;
+  background-color: white;
+  color: black;
+  padding: 0px 40px;
+  padding-top: 20px;
+  position: relative;
+  top: -40px;
+  border-radius: 30px;
+}
+.select-dropdown p {
+  display: none;
+  padding: 10px 0;
+  margin: 20px 0;
+}
+.select-dropdown p:not(:last-child) {
+  border-bottom: 1px solid black;
+}
+.select-dropdown .selected {
+  display: none;
+}
+
+/* --- PAGINATOR --- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.pagination .stream {
+  width: 400px;
+  height: 120px;
+  border: 3px solid #414141;
+  border-radius: 100px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.pagination .circle-button, .pagination .large-circle-button {
+  z-index: 2;
+  font-weight: 600;
+  font-size: 60px;
+}
+.pagination .circle-button:not(.selected), .pagination .large-circle-button:not(.selected) {
+  background-color: transparent;
+  color: #414141;
+}
+
+/* sass --watch idea/style:idea/ */
+
+/*# sourceMappingURL=main.css.map */

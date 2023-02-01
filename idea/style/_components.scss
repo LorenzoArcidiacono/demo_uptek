@@ -1,0 +1,113 @@
+@use "base" as *;
+
+/* --- BUTTONS --- */
+
+.circle-button {
+    @include circle(142px);
+    @include base-button($orange, white);
+}
+
+.camera-button {
+    @include circle(228px);
+    border: 10px solid $orange;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .circle-button {
+        @include circle(165px);
+        background-color: white;
+    }
+}
+
+.inverse-button {
+    @include circle(228px);
+    @include base-button(white, $orange);
+}
+
+.large-circle-button {
+    @extend .circle-button;
+    @include circle(170px);
+}
+
+/* --- SELECT --- */
+.select{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include font-dimension(600,48px);
+}
+
+.select-button {
+    z-index: 2;
+    width: 500px;
+    height: 130px;
+    background-color: $orange;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    p:not(.selected){
+        display: none;
+    }
+}
+
+.select-dropdown{
+    width: 500px;
+    height: 0;
+    background-color: white;
+    color: black;
+    padding: 0px 40px;
+    padding-top: 20px;
+    position: relative;
+    top: -40px;
+    border-radius: 30px;
+
+    p{
+        display: none;
+        padding: 10px 0;
+        margin: 20px 0;
+    }
+
+    p:not(:last-child){
+        border-bottom: 1px solid black;
+    }
+
+    .selected{
+        display: none;
+    }
+}
+
+
+/* --- PAGINATOR --- */
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+
+    .stream{
+        width: 400px;
+        height: 120px;
+        border: 3px solid $dark-gray;
+        border-radius: 100px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .circle-button{
+        z-index: 2;
+        @include font-dimension(600,60px)
+    }
+    .circle-button:not(.selected){
+        background-color: transparent;
+        color: $dark-gray;
+    }
+
+}
