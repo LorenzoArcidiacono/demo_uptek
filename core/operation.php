@@ -60,7 +60,7 @@ else if (isset($_POST['op']) && $_POST['op'] == 'saveImage') {
     $imgData = base64_decode($imgData);
 
     // Path where the image is going to be saved
-    $filePath = $_SERVER['DOCUMENT_ROOT'] . '//memory/client-pictures/' . $title . '.jpeg';
+    $filePath = $_SERVER['DOCUMENT_ROOT'] . '/demo_uptek/memory/client-pictures/' . $title . '.jpeg';
     // Write $imgData into the image file
     $file = @fopen($filePath, 'w');
 
