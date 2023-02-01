@@ -49,6 +49,7 @@
             <button>Tessera Sanitaria</button>
         </div>
     </div>
+    <button onclick="saveData()">SaveData</button>
 
     <script>
         $('.flex-container button').click(() => {
@@ -92,6 +93,20 @@
             // $('#response-modal').addClass('hidden');
             window.location = './picture.html';
         })
+
+        saveData = function(){
+            $.post("../core/operation.php", {
+                    op: "saveData",
+                    name: localStorage.getItem('name'),
+                    nation: localStorage.getItem('nation'),
+                    sex: localStorage.getItem('sex'),
+                    code: localStorage.getItem('code'),
+                }).done((message) => {
+                    console.log(`message: ${message}`);
+                    // window.location = 'index.html';
+                })
+        }
+
     </script>
 </body>
 
