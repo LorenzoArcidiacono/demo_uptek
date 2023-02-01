@@ -68,10 +68,30 @@ displayReadValues = function (name, nation, sex, code) {
 // SAVE DATA
 $('#response-modal button').click(() => {
     // $('#response-modal').addClass('hidden');
+
+    //check if every input has been filled
+    var error = false;
+    var identifiers = ['#name-input','#nation-input','#sex-input','#code-input']
+
+    identifiers.forEach(id => {
+        if($(id).val() == ''){
+            $(id).css('border', '1px solid red');
+            error = true;
+        }else{
+            $(id).css('border', '1px solid black');
+        }
+    });
+
+    if(error){
+        return;
+    }
+
+    // save the information on the local storage
     localStorage.setItem('name', $('#name-input').val());
     localStorage.setItem('nation', $('#nation-input').val())
     localStorage.setItem('sex', $('#sex-input').val())
     localStorage.setItem('code', $('#code-input').val())
+
     saveData().then((message) => {
         message = JSON.parse(message);
         if (message['result'] == false) {
