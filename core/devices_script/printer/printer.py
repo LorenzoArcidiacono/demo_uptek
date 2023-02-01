@@ -47,6 +47,7 @@ def printer_errorneous_state(prn, error_states=PRINTER_ERROR_STATES):
     return 0
 
 def startPrint():
+    print('ok1')
     printer_name = "BK-C310(U) 1" # or get_printer_names()[0]
     prn = printer.OpenPrinter(printer_name)
     error = printer_errorneous_state(prn)
@@ -54,11 +55,12 @@ def startPrint():
         print("error occurred: ", codeToString(error))
     else:
         #  Do the real work
-        win32api.ShellExecute(0, "print", 'output.txt', None,  ".",  0)
+        print( win32api.ShellExecute(0, "print", 'output.txt', None,  "./devices_script/printer",  0) )
     printer.ClosePrinter(prn)
+    print('Printed')
 
-
-def writeFile(id,pwd):
+def writeToFile(id,pwd):
+    
     with open('./devices_script/printer/input.txt', 'r') as f:
         str = f.read()
 
@@ -67,8 +69,8 @@ def writeFile(id,pwd):
 
     with open('./devices_script/printer/output.txt', 'w') as f:
         f.write(str);
-    print(' Printed')
+    print('File written')
 
-writeFile(sys.argv[1]+' '+sys.argv[2], sys.argv[3])
-# startPrint();
+writeToFile(sys.argv[1]+' '+sys.argv[2], sys.argv[3])
+startPrint();
 # print ('Argument List:', str(sys.argv))
