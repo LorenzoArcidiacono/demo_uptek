@@ -43,39 +43,69 @@
     </div>
     <div class="main-container">
         <div class="flex-container">
-            <button>Carta Identità</button>
-            <button>Passaporto</button>
+            <button id="scan-card">Carta Identità</button>
+            <button id="scan-passport">Passaporto</button>
         </div>
     </div>
 
     <script>
+        let type = ''
+
         $('.flex-container button').click(() => {
             $('#position-modal').removeClass('hidden');
         })
 
-        $('#position-modal button').click(() => {
-            $.get("../core/operation.php", {
-                op: "barcode"
-            }, ).done((message) => {
-                message = JSON.parse(message);
-                if(message['result'] == false){
-                    console.log(message['data']);
-                }else{
-                    $('#cf-field input').val(message['data']);
-                }
+        $('#scan-card').click(() => type = 'card')
+        $('#scan-passport').click(() => type = 'passport')
 
+
+        $('#position-modal button').click(() => {
+            console.log(`Scan: ${type}`);
+            if (type == 'card') {
+                $.get("../core/operation.php", {
+                    op: "barcode"
+                }, ).done((message) => {
+                    message = JSON.parse(message);
+                    if (message['result'] == false) {
+                        console.log(message['data']);
+                    } else {
+                        $('#cf-field input').val(message['data']);
+                    }
+
+                    $.get("../core/operation.php", {
+                        op: "info",
+                        type: "card"
+                    }, ).done((message) => {
+                        // console.log(`message: ${message}`);
+
+                        message = JSON.parse(message);
+                        if (message['result'] == false) {
+                            console.log(message['data']);
+                        } else {
+                            message = message['data'];
+                            // console.log(`message2: ${message}`);
+                            $('#name-field input').val(message[0] + ' ' + message[1]);
+                            $('#nation-field input').val(message[3]);
+                            $('#sex-field input').val(message[2]);
+                        }
+
+                        $('#position-modal').addClass('hidden');
+                        $('#response-modal').removeClass('hidden');
+                    })
+                })
+            } else {
                 $.get("../core/operation.php", {
                     op: "info",
-                    type: "id"
+                    type: "passport"
                 }, ).done((message) => {
-                    console.log(`message: ${message}`);
+                    // console.log(`message: ${message}`);
 
                     message = JSON.parse(message);
                     if (message['result'] == false) {
                         console.log(message['data']);
                     } else {
                         message = message['data'];
-                        console.log(`message2: ${message}`);
+                        // console.log(`message2: ${message}`);
                         $('#name-field input').val(message[0] + ' ' + message[1]);
                         $('#nation-field input').val(message[3]);
                         $('#sex-field input').val(message[2]);
@@ -84,8 +114,12 @@
                     $('#position-modal').addClass('hidden');
                     $('#response-modal').removeClass('hidden');
                 })
-            })
+            }
+
         })
+
+
+
 
         $('#response-modal button').click(() => {
             // $('#response-modal').addClass('hidden');
@@ -95,10 +129,10 @@
             localStorage.setItem('code', $('#code-input').val())
             saveData().then((message) => {
                 message = JSON.parse(message);
-                if(message['result'] == false){
+                if (message['result'] == false) {
                     console.log(`ERRORE`);
                     //TODO show error message
-                }else{
+                } else {
                     window.location = './picture.html';
                 }
             });

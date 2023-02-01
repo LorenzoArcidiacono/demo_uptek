@@ -9,7 +9,7 @@ if (isset($_GET['op']) && $_GET['op'] == 'barcode') {
 // READ MRZ
 else if (isset($_GET['op']) && $_GET['op'] == 'info') {
     $command = escapeshellcmd('./devices_script/scanner/getUserData.py');
-    $output = shell_exec('python ' . $command);
+    $output = shell_exec('python ' . $command.' '.$_GET['type'] );
     if (isset($output)) {
         $list = explode(' ', $output);
         echo json_encode(['result'=>true, 'data'=>$list]);
@@ -17,6 +17,7 @@ else if (isset($_GET['op']) && $_GET['op'] == 'info') {
         echo json_encode(['result'=>false, 'data'=>'Error while reading user data']);
     }
 } 
+
 //PRINT RECEIPT
 else if (isset($_POST['op']) && $_POST['op'] == 'print') {
     // echo $_GET['name'].','. $_GET['nation'].','. $_GET['sex'].','. $_GET['code'];

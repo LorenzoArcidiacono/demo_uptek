@@ -4,7 +4,7 @@ import serial
 ser = serial.Serial( port="COM130", baudrate=9600, bytesize=8, timeout=2, stopbits=serial.STOPBITS_ONE )
 ser.write(b'\x16M\rallena1!') #enable all symbols
 ser.read(10)
-ser.write(b'\x16M\rcbrena0!') #disable OCR
+ser.write(b'\x16M\rocrena0!') #disable OCR
 ser.read(10)
 
 ser.write(b'\x16T\r') #trigger
