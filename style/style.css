@@ -156,6 +156,22 @@ li {
 
 /* ---- WEBCAM ---- */
 
+.webcam-div{
+    border: 2px solid blue;
+    width: 480px;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1000px;
+}
+
+#webcam,#canvas{
+    width: 800px;
+    aspect-ratio: 4/3;
+}
+
 .camera{
     width: 1080px;
     height: 800px;
