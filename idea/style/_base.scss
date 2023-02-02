@@ -72,6 +72,6 @@ $work-sans: "Work Sans", sans-serif;
 
 // DIV WITH BORDER ON CORNER
 @mixin corner-border{
-    background-image: url('./corners.svg');
+    background-image: url('./round-corner.svg');
     background-size: contain;
 }

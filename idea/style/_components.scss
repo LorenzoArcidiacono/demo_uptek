@@ -3,12 +3,12 @@
 /* --- BUTTONS --- */
 
 .circle-button {
-    @include circle(142px);
+    @include circle(145px);
     @include base-button($orange, white);
 }
 
 .camera-button {
-    @include circle(228px);
+    @include circle(220px);
     border: 10px solid $orange;
     background-color: transparent;
     display: flex;
@@ -16,7 +16,7 @@
     align-items: center;
 
     .circle-button {
-        @include circle(165px);
+        @include circle(180px);
         background-color: white;
     }
 }
@@ -120,10 +120,62 @@
     justify-content: center;
     align-items: center;
 
-    .element-display{
+    .element-display {
         background-color: $dark-blue;
         width: 695px;
         height: 695px;
         border-radius: 30px;
+    }
+}
+
+/* --- WEBCAM --- */
+.camera {
+    z-index: 1;
+    width: 1080px;
+    height: 1920px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid black;
+
+    video {
+        z-index: 1;
+        width: 1080px;
+        height: 1920px;
+        object-fit: cover;
+    }
+
+    .display {
+        position: fixed;
+        z-index: 10;
+        display: contents;
+
+        p{
+            width: 442px;
+            text-align: center;
+            z-index: 11;
+            @include normal-font();
+            color: white;
+            position: fixed;
+            top: 100px;
+        }
+
+        .corner-border {
+            position: fixed;
+            z-index: 11;
+            width: 700px;
+            height: 700px;
+            top: 400px;
+        }
+
+        .button-container {
+            z-index: 11;
+            position: fixed;
+            top: 1500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 70px;
+        }
     }
 }

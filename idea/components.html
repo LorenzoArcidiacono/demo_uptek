@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="./main.css">
@@ -50,10 +51,25 @@
             <span class="material-symbols-outlined">chevron_right</span>
         </div>
     </div>
-    
+
     <div class="container">
         <div class="corner-border">
             <div class="element-display"></div>
+        </div>
+    </div>
+
+    <div class="portrait">
+        <div class="camera">
+            <video id="webcam" autoplay playsinline></video>
+            <div class="display">
+                <p>Posizionati davanti alla telecamera</p>
+                <div class="corner-border"></div>
+                <div class="button-container">
+                    <button class="circle-button"><span class="material-symbols-outlined">chevron_left</span></button>
+                    <div class="camera-button"><button class="circle-button"></button></div>
+                    <button class="circle-button"><span class="material-symbols-outlined">forward_media</span></button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -90,6 +106,22 @@
             $(`.select-dropdown #d-${id}`).hide();
 
             $('.select-dropdown p:not(.selected)').show(duration)
+        }
+
+        // CAMERA
+        const webcamElement = document.getElementById('webcam');
+        const canvasElement = document.getElementById('canvas');
+        const snapSoundElement = document.getElementById('snapSound');
+        const webcam = new Webcam(webcamElement, 'user', canvasElement);
+        let picture;
+        window.onload = () => {
+            webcam.start()
+                .then(result => {
+                    console.log("webcam started");
+                })
+                .catch(err => {
+                    console.log(err);
+                });
         }
     </script>
 </body>

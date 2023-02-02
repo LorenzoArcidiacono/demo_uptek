@@ -28,9 +28,15 @@ body {
   font-family: "Work Sans", sans-serif;
 }
 
+.portrait {
+  width: 1080px;
+  height: 1920px;
+  border: 2px solid #103ce9;
+}
+
 /* --- BUTTONS --- */
 .circle-button, .large-circle-button {
-  width: 142px;
+  width: 145px;
   aspect-ratio: 1/1;
   border-radius: 200px;
   background-color: #ff721f;
@@ -43,7 +49,7 @@ body {
 }
 
 .camera-button {
-  width: 228px;
+  width: 220px;
   aspect-ratio: 1/1;
   border-radius: 200px;
   border: 10px solid #ff721f;
@@ -53,7 +59,7 @@ body {
   align-items: center;
 }
 .camera-button .circle-button, .camera-button .large-circle-button {
-  width: 165px;
+  width: 180px;
   aspect-ratio: 1/1;
   border-radius: 200px;
   background-color: white;
@@ -157,7 +163,7 @@ body {
 
 /* --- DIV ONLY CORNER BORDER */
 .corner-border {
-  background-image: url("./corners.svg");
+  background-image: url("./round-corner.svg");
   background-size: contain;
   width: 850px;
   height: 850px;
@@ -170,6 +176,54 @@ body {
   width: 695px;
   height: 695px;
   border-radius: 30px;
+}
+
+/* --- WEBCAM --- */
+.camera {
+  z-index: 1;
+  width: 1080px;
+  height: 1920px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid black;
+}
+.camera video {
+  z-index: 1;
+  width: 1080px;
+  height: 1920px;
+  object-fit: cover;
+}
+.camera .display {
+  position: fixed;
+  z-index: 10;
+  display: contents;
+}
+.camera .display p {
+  width: 442px;
+  text-align: center;
+  z-index: 11;
+  font-weight: 500;
+  font-size: 48px;
+  color: white;
+  position: fixed;
+  top: 100px;
+}
+.camera .display .corner-border {
+  position: fixed;
+  z-index: 11;
+  width: 700px;
+  height: 700px;
+  top: 400px;
+}
+.camera .display .button-container {
+  z-index: 11;
+  position: fixed;
+  top: 1500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
 }
 
 /* sass --watch idea/style:idea/ */
