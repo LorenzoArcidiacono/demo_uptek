@@ -37,7 +37,6 @@ body{
 
     p{
         width: 680px;
-        @include normal-font()
     }
 
     .large-circle-button{
@@ -61,11 +60,6 @@ body{
         margin-bottom: 170px;
     }
 
-    h1{
-        @include large-font();
-        line-height: 117px;
-    }
-
     button{
         position: fixed;
         top: 1380px;
@@ -76,13 +70,9 @@ body{
     @extend .flex-layout;
     color: $dark-gray;
     gap: 70px;
-    .title{
-        @include large-font();
-    }
 
     .subtitle{
         width: 883px;
-        @include normal-font();
         text-align: center;
     }
 
@@ -95,7 +85,21 @@ body{
 .page-4{
     @extend .flex-layout;
     color: $dark-gray;
+    text-align: center;
+    gap: 70px;
 
+    .desc{
+        width: 550px;
+    }
+
+    .corner-border-black{
+        margin-top: 80px;
+    }
+
+    button{
+        position: fixed;
+        top: 1800px;
+    }
 
 }
 
@@ -112,6 +116,6 @@ body{
 
 .portrait{
     width: 1080px;
-    height: 1920px;
+    height: 1500px;
     border: 2px solid $blue;
 }

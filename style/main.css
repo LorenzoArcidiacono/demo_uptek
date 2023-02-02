@@ -42,8 +42,6 @@ body {
 }
 .page-1 p {
   width: 680px;
-  font-weight: 500;
-  font-size: 48px;
 }
 .page-1 .large-circle-button {
   position: fixed;
@@ -63,11 +61,6 @@ body {
   border-radius: 30px;
   margin-bottom: 170px;
 }
-.page-2 h1 {
-  font-weight: 600;
-  font-size: 100px;
-  line-height: 117px;
-}
 .page-2 button {
   position: fixed;
   top: 1380px;
@@ -77,14 +70,8 @@ body {
   color: #414141;
   gap: 70px;
 }
-.page-3 .title {
-  font-weight: 600;
-  font-size: 100px;
-}
 .page-3 .subtitle {
   width: 883px;
-  font-weight: 500;
-  font-size: 48px;
   text-align: center;
 }
 .page-3 .blue-card {
@@ -93,6 +80,18 @@ body {
 
 .page-4 {
   color: #414141;
+  text-align: center;
+  gap: 70px;
+}
+.page-4 .desc {
+  width: 550px;
+}
+.page-4 .corner-border-black {
+  margin-top: 80px;
+}
+.page-4 button {
+  position: fixed;
+  top: 1800px;
 }
 
 /* --- CONTAINERS --- */
@@ -108,7 +107,7 @@ body {
 
 .portrait {
   width: 1080px;
-  height: 1920px;
+  height: 1500px;
   border: 2px solid #103ce9;
 }
 
@@ -116,6 +115,16 @@ body {
 h1, p {
   margin: 0;
   padding: 0;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 100px;
+}
+
+p {
+  font-weight: 500;
+  font-size: 48px;
 }
 
 /* --- BUTTONS --- */
