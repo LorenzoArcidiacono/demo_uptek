@@ -1,13 +1,19 @@
 @use 'base' as *;
 
 body{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: $medium-gray;
+    width: 1080px;
+    height: 1920px;
+    // display: flex;
+    // flex-direction: row;
+    // flex-wrap: wrap;
+    // justify-content: space-evenly;
+    // align-items: center;
+    // background-color: $medium-gray;
+    background-image: url('../assets/index-bkg.svg');
+    background-size: contain;
+    background-repeat:no-repeat;
     font-family: $work-sans;
+    border: 2px solid black;
 }
 
 .container{

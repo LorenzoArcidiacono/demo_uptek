@@ -9,13 +9,13 @@
 
 /* --- MIXINS --- */
 body {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: #9f9f9f;
+  width: 1080px;
+  height: 1920px;
+  background-image: url("../assets/index-bkg.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
   font-family: "Work Sans", sans-serif;
+  border: 2px solid black;
 }
 
 .container {
