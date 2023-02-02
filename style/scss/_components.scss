@@ -2,10 +2,12 @@
 
 /* --- BASE ELEMENTS --- */
 
-h1 {
+h1,p {
     margin: 0;
     padding: 0;
 }
+
+
 
 /* --- BUTTONS --- */
 
@@ -140,6 +142,18 @@ h1 {
         height: 695px;
         border-radius: 30px;
     }
+
+    .square-element{
+        width: 655px;
+        aspect-ratio: 1/1;
+        border-radius: 50px;
+        background-image: url('../assets/page-1-bkg.svg');
+    }
+}
+
+.corner-border-black{
+    @extend .corner-border;
+    @include corner-border-black();
 }
 
 /* --- WEBCAM --- */
@@ -229,4 +243,54 @@ h1 {
             @include font-dimension(500,50px)
         }
     }
+}
+
+/* --- CARD --- */
+.card{
+    width: 920px;
+    height: 600px;
+    
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-radius: 30px;
+    
+    .text{
+        margin-top: 60px;
+        margin-left: 60px;
+
+        .title{
+            @include font-dimension(600,65px)
+        }
+        .desc{
+            width: 600px;
+            margin-top: 20px;
+            @include small-font()
+        }
+    }
+
+    button{
+        background: transparent;
+        border: none;
+        color: white;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-top: 80px;
+        margin-right: 70px;
+        transform: scale(2);
+    }
+}
+
+.blue-card{
+    @extend .card;
+    background-image: url('../assets/card-blue-bkg.svg');
+}
+
+.orange-card{
+    @extend .card;
+    background-image: url('../assets/card-orange-2-bkg.svg');
+    z-index: 40;
+
 }

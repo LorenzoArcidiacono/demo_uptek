@@ -17,12 +17,12 @@ body {
   overflow: hidden;
 }
 
-.flex-layout, .page-2, .page-1 {
+.flex-layout, .page-4, .page-3, .page-2, .page-1 {
+  border: 2px solid black;
   width: 1080px;
   height: 1920px;
   background-size: cover;
   background-repeat: no-repeat;
-  border: 2px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -73,6 +73,29 @@ body {
   top: 1380px;
 }
 
+.page-3 {
+  color: #414141;
+  gap: 70px;
+}
+.page-3 .title {
+  font-weight: 600;
+  font-size: 100px;
+}
+.page-3 .subtitle {
+  width: 883px;
+  font-weight: 500;
+  font-size: 48px;
+  text-align: center;
+}
+.page-3 .blue-card {
+  margin-top: 100px;
+}
+
+.page-4 {
+  color: #414141;
+}
+
+/* --- CONTAINERS --- */
 .container {
   border: 2px solid #ff721f;
   display: inline-flex;
@@ -90,7 +113,7 @@ body {
 }
 
 /* --- BASE ELEMENTS --- */
-h1 {
+h1, p {
   margin: 0;
   padding: 0;
 }
@@ -227,8 +250,8 @@ h1 {
 }
 
 /* --- DIV ONLY CORNER BORDER */
-.corner-border {
-  background-image: url("./round-corner.svg");
+.corner-border, .corner-border-black {
+  background-image: url("../assets/round-corner.svg");
   background-size: contain;
   width: 850px;
   height: 850px;
@@ -236,11 +259,22 @@ h1 {
   justify-content: center;
   align-items: center;
 }
-.corner-border .element-display {
+.corner-border .element-display, .corner-border-black .element-display {
   background-color: #081e75;
   width: 695px;
   height: 695px;
   border-radius: 30px;
+}
+.corner-border .square-element, .corner-border-black .square-element {
+  width: 655px;
+  aspect-ratio: 1/1;
+  border-radius: 50px;
+  background-image: url("../assets/page-1-bkg.svg");
+}
+
+.corner-border-black {
+  background-image: url("../assets/round-corner-black.svg");
+  background-size: contain;
 }
 
 /* --- WEBCAM --- */
@@ -274,7 +308,7 @@ h1 {
   position: fixed;
   top: 100px;
 }
-.camera .display .corner-border {
+.camera .display .corner-border, .camera .display .corner-border-black {
   position: fixed;
   z-index: 11;
   width: 700px;
@@ -326,6 +360,51 @@ h1 {
 .list .list-element .text {
   font-weight: 500;
   font-size: 50px;
+}
+
+/* --- CARD --- */
+.card, .orange-card, .blue-card {
+  width: 920px;
+  height: 600px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 30px;
+}
+.card .text, .orange-card .text, .blue-card .text {
+  margin-top: 60px;
+  margin-left: 60px;
+}
+.card .text .title, .orange-card .text .title, .blue-card .text .title {
+  font-weight: 600;
+  font-size: 65px;
+}
+.card .text .desc, .orange-card .text .desc, .blue-card .text .desc {
+  width: 600px;
+  margin-top: 20px;
+  font-weight: 400;
+  font-size: 40px;
+}
+.card button, .orange-card button, .blue-card button {
+  background: transparent;
+  border: none;
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 80px;
+  margin-right: 70px;
+  transform: scale(2);
+}
+
+.blue-card {
+  background-image: url("../assets/card-blue-bkg.svg");
+}
+
+.orange-card {
+  background-image: url("../assets/card-orange-2-bkg.svg");
+  z-index: 40;
 }
 
 /* --- UTILITY --- */

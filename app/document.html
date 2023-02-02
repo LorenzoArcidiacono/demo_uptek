@@ -5,52 +5,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    
+    <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
     <title>Document</title>
 </head>
 
 <body>
-    <div class="modal hidden" id="position-modal">
-        <div class="card">
-            <p>posiziona la carta sotto al sensore</p>
-            <button>fatto</button>
-        </div>
-    </div>
-    <div class="modal hidden" id="response-modal">
-        <div class="card">
-            <div class="fields">
-                <fieldset id="name-field">
-                    <legend>Nome</legend>
-                    <input type="text" name="" id="name-input">
-                </fieldset>
-                <fieldset id="nation-field">
-                    <legend>Nazionalit&agrave;</legend>
-                    <input type="text" name="" id="nation-input">
-                </fieldset>
-                <fieldset id="sex-field">
-                    <legend>Sesso</legend>
-                    <input type="text" name="" id="sex-input">
-                </fieldset>
-                <fieldset id="cf-field">
-                    <legend>CF</legend>
-                    <input type="text" name="" id="code-input">
-                </fieldset>
+    <div class="page-3 hidden">
+        <h1 class="title">Iniziamo!</h1>
+        <p class="subtitle">Scegli il tipo di documento</p>
+        <div class="pagination">
+            <span class="material-symbols-outlined">chevron_left</span>
+            <div class="stream">
+                <button class="circle-button selected">1</button>
+                <button class="circle-button ">2</button>
+                <button class="circle-button ">3</button>
             </div>
-            <button id="step-2-btn">Avanti</button>
+            <span class="material-symbols-outlined">chevron_right</span>
+        </div>
+
+        <div class="blue-card">
+            <div class="text">
+                <p class="title">Carta d'identità</p>
+                <p class="desc">Carta di identità elettronica valida, anche estera</p>
+            </div>
+            <button><span class="material-symbols-outlined">chevron_right</span></button>
+        </div>
+        <div class="orange-card">
+            <div class="text">
+                <p class="title">Carta d'identità</p>
+                <p class="desc">Carta di identità elettronica valida, anche estera</p>
+            </div>
+            <button><span class="material-symbols-outlined">chevron_right</span></button>
         </div>
     </div>
-    </div>
-    <div class="main-container">
-        <div class="flex-container">
-            <button id="scan-card">Carta Identità</button>
-            <button id="scan-passport">Passaporto</button>
+    <div class="page-4">
+        <h1>Scannerizza il documento</h1>
+        <p>Posiziona il documento davanti al lettore</p>
+        <div class="corner-border-black">
+            <div class="square-element"></div>
         </div>
     </div>
 
     <script src="../js/document.js"></script>
-    
+
 </body>
 
 </html>

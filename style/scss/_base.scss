@@ -50,7 +50,7 @@ $work-sans: "Work Sans", sans-serif;
 }
 
 @mixin small-font(){
-    @include font-dimension(400,40px )
+    @include font-dimension(400,40px)
 }
 
 
@@ -73,7 +73,11 @@ $work-sans: "Work Sans", sans-serif;
 
 // DIV WITH BORDER ON CORNER
 @mixin corner-border{
-    background-image: url('./round-corner.svg');
+    background-image: url('../assets/round-corner.svg');
     background-size: contain;
 }
 
+@mixin corner-border-black{
+    background-image: url('../assets/round-corner-black.svg');
+    background-size: contain;
+}
