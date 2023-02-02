@@ -1,5 +1,12 @@
 @use "base" as *;
 
+/* --- BASE ELEMENTS --- */
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
 /* --- BUTTONS --- */
 
 .circle-button {
@@ -12,7 +19,7 @@
     border: 10px solid $orange;
     background-color: transparent;
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
 
     .circle-button {
@@ -30,7 +37,7 @@
     @extend .circle-button;
     @include circle(170px);
 
-    span{
+    span {
         position: relative;
         transform: scale(6);
     }
@@ -183,6 +190,43 @@
             justify-content: center;
             align-items: center;
             gap: 70px;
+        }
+    }
+}
+
+/* --- LIST --- */
+.list{
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+
+    .list-element{
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+
+        .circle-div{
+            @include circle(90px);
+            border: 3px solid $dark-gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            p{
+                color: $orange;
+                @include font-dimension(600,55px);
+                padding:0;
+                margin: 0;
+            }
+        }
+
+        .text{
+            @include font-dimension(500,50px)
         }
     }
 }
