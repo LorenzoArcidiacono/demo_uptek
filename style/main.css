@@ -15,10 +15,11 @@ body {
   color: white;
   font-family: "Work Sans", sans-serif;
   overflow: hidden;
+  background-color: #eeeeee;
 }
 
-.flex-layout, .page-4, .page-3, .page-2, .page-1 {
-  border: 2px solid black;
+.flex-layout, .page-5, .page-4, .page-3, .page-2, .page-1 {
+  outline: 2px solid black;
   width: 1080px;
   height: 1920px;
   background-size: cover;
@@ -27,7 +28,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  row-gap: 40px;
+  overflow: hidden;
+  gap: 70px;
   padding: 150px 0;
 }
 
@@ -53,6 +55,7 @@ body {
   background-size: contain;
   background-position: bottom;
   color: #414141;
+  gap: 0;
 }
 .page-2 .logo {
   width: 350px;
@@ -68,7 +71,6 @@ body {
 
 .page-3 {
   color: #414141;
-  gap: 70px;
 }
 .page-3 .subtitle {
   width: 883px;
@@ -81,7 +83,6 @@ body {
 .page-4 {
   color: #414141;
   text-align: center;
-  gap: 70px;
 }
 .page-4 .desc {
   width: 550px;
@@ -92,6 +93,44 @@ body {
 .page-4 button {
   position: fixed;
   top: 1800px;
+}
+
+.page-5 {
+  text-align: center;
+  background-image: url("../assets/page-1-bkg.svg");
+}
+.page-5 .desc {
+  margin-top: 300px;
+}
+.page-5 .corner-border {
+  margin-top: 80px;
+}
+.page-5 .corner-border .square-element {
+  width: 500px;
+  height: 280px;
+  border-radius: 0;
+  background-image: url("../assets/barcode.svg");
+}
+.page-5 .barcode-scan {
+  z-index: 2;
+  position: fixed;
+  width: 700px;
+  top: 900px;
+  border-bottom: 30px solid #ff721f;
+  filter: opacity(0.7);
+  border-radius: 30px;
+  animation: scan 1.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-timing-function: linear;
+}
+@keyframes scan {
+  from {
+    top: 900px;
+  }
+  to {
+    top: 1230px;
+  }
 }
 
 /* --- CONTAINERS --- */
