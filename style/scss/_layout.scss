@@ -1,0 +1,71 @@
+@use 'base' as *;
+
+body{
+    width: 1080px;
+    height: 1920px;
+    margin: 0;
+    color: white;
+    font-family: $work-sans;
+    overflow: hidden;
+
+}
+
+.base-layout{
+    width: 1080px;
+    height: 1920px;
+    background-size: cover;
+    background-repeat:no-repeat;
+    border: 2px solid black;
+}
+
+.page-1{
+    @extend .base-layout;
+    background-image: url('../assets/page-1-bkg.svg');
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    row-gap: 40px;
+    padding: 150px 0;
+
+    h1{
+        margin: 0;
+        padding: 0;
+        @include xlarge-font();
+        line-height: 140px;
+    }
+
+    p{
+        width: 680px;
+        @include normal-font()
+    }
+
+    .large-circle-button{
+        position: fixed;
+        top: 1700px;
+    }
+}
+
+.page-2{
+    @extend .base-layout;
+    background-image: url('../assets/page-2-bkg.svg');
+    background-size: contain;
+    background-position: bottom;
+}
+
+.container{
+    border: 2px solid $orange;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    font-family: $work-sans;
+}
+
+.portrait{
+    width: 1080px;
+    height: 1920px;
+    border: 2px solid $blue;
+}
