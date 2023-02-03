@@ -151,7 +151,7 @@ body {
 
     .second-header {
         .circle-image {
-            border: 2px solid black;
+            // border: 2px solid black;
             @include circle(400px);
             overflow: hidden;
             margin-top: 150px;

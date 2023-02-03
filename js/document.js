@@ -26,7 +26,9 @@ $('.page-4 .back-button').click(() => {
 })
 
 $('.page-4 .start-button').click(() => {
+    //TODO avvio scanner
     swapPages('.page-4','.page-5');
+    // fare await della scann -> salvare sul local storage e quando torna cambiare pagina
 })
 
 $('.page-4 .help-button').click(() => {
@@ -37,9 +39,46 @@ $('.page-4 .close-modal').click(() => {
     $('.page-4 .modal').addClass('hidden');
 })
 
-// SCAN
-$('#position-modal button').click(async () => {
+// SCANNER
 
+startScan = async function(){
+    var code = '';
+    var result;
+
+    //if id-card read barcode
+    if (type == 'card') {
+        console.log(`scan card`);
+
+        await $.get("../core/operation.php", {
+            op: "barcode"
+        }, ).done((message) => {
+
+            message = JSON.parse(message);
+            //error while reading
+            if (message['result'] == false) {
+                console.log(message['data']);
+            } else {
+                code = message['data']
+                console.log(`code:${code}`);
+            }
+        })
+    }
+    
+    // scan user information
+    console.log(`scan user info`);
+    result = await readUserInfo();
+    result = JSON.parse(result);
+    
+    if(result['result'] == false){
+        displayReadValues('','','',code)
+    }else{
+        result = result['data']
+        displayReadValues(result[0] + ' ' + result[1],result[3],result[2],code)
+    }
+}
+
+$('#position-modal button').click(async () => {
+    //TODO quando ritorna salvo i valori sul local storage e faccio la swap alla prossima pagina
     var code = '';
     var result;
 

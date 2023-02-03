@@ -275,7 +275,7 @@ fieldset .material-symbols-outlined {
 
 /* --- LIST --- */
 .list {
-  width: 800px;
+  width: 900px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -560,7 +560,6 @@ body {
   gap: 50px;
 }
 .page-6 .second-header .circle-image {
-  border: 2px solid black;
   width: 400px;
   aspect-ratio: 1/1;
   border-radius: 200px;
@@ -767,7 +766,7 @@ body {
 }
 
 .empty-div {
-  width: 145px;
+  width: 120px;
 }
 
 .empty-div-small {
