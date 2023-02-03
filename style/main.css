@@ -9,7 +9,8 @@
 
 /* --- MIXINS --- */
 /* --- BASE ELEMENTS --- */
-h1, p {
+h1,
+p {
   margin: 0;
   padding: 0;
 }
@@ -69,7 +70,7 @@ fieldset .material-symbols-outlined {
 }
 
 /* --- BUTTONS --- */
-.circle-button, .large-circle-button {
+.circle-button, .circle-button-photo, .large-circle-button {
   width: 145px;
   aspect-ratio: 1/1;
   border-radius: 200px;
@@ -92,7 +93,7 @@ fieldset .material-symbols-outlined {
   justify-content: center;
   align-items: center;
 }
-.camera-button .circle-button, .camera-button .large-circle-button {
+.camera-button .circle-button, .camera-button .circle-button-photo, .camera-button .large-circle-button {
   width: 180px;
   aspect-ratio: 1/1;
   border-radius: 200px;
@@ -100,9 +101,6 @@ fieldset .material-symbols-outlined {
 }
 
 .inverse-button {
-  width: 228px;
-  aspect-ratio: 1/1;
-  border-radius: 200px;
   background-color: white;
   outline: none;
   border: none;
@@ -110,6 +108,12 @@ fieldset .material-symbols-outlined {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 220px;
+  aspect-ratio: 1/1;
+  border-radius: 200px;
+}
+.inverse-button span {
+  transform: scale(6);
 }
 
 .large-circle-button {
@@ -208,12 +212,12 @@ fieldset .material-symbols-outlined {
   justify-content: space-between;
   align-items: center;
 }
-.pagination .circle-button, .pagination .large-circle-button {
+.pagination .circle-button, .pagination .large-circle-button, .pagination .circle-button-photo {
   z-index: 2;
   font-weight: 600;
   font-size: 60px;
 }
-.pagination .circle-button:not(.selected), .pagination .large-circle-button:not(.selected) {
+.pagination .circle-button:not(.selected), .pagination .large-circle-button:not(.selected), .pagination .circle-button-photo:not(.selected) {
   background-color: transparent;
   color: #414141;
 }
@@ -234,7 +238,8 @@ fieldset .material-symbols-outlined {
   height: 695px;
   border-radius: 30px;
 }
-.corner-border .square-element, .corner-border-black .square-element {
+
+.square-element {
   width: 655px;
   aspect-ratio: 1/1;
   border-radius: 50px;
@@ -257,15 +262,6 @@ fieldset .material-symbols-outlined {
   font-weight: 500;
   font-size: 48px;
   color: white;
-}
-.camera .display .button-container {
-  z-index: 11;
-  position: fixed;
-  top: 1500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 70px;
 }
 
 /* --- LIST --- */
@@ -363,10 +359,27 @@ fieldset .material-symbols-outlined {
   justify-content: center;
   align-items: center;
 }
-.modal .circle-button, .modal .large-circle-button {
+.modal .circle-button, .modal .large-circle-button, .modal .circle-button-photo {
   position: fixed;
   z-index: 22;
   top: 1180px;
+}
+
+/* --- LOADER --- */
+.loader {
+  width: 800px;
+}
+.loader .back {
+  width: 100%;
+  height: 100%;
+  background-color: #eeeeee;
+  border-radius: 200px;
+}
+.loader .back .front {
+  width: 10%;
+  height: 100%;
+  background-color: #ff721f;
+  border-radius: 200px;
 }
 
 :root {
@@ -385,7 +398,7 @@ body {
   background-color: #eeeeee;
 }
 
-.flex-layout, .page-7, .page-6, .page-5, .page-4, .page-3, .page-2, .page-1 {
+.flex-layout, .page-10, .page-9, .page-8, .page-7, .page-6, .page-5, .page-4, .page-3, .page-2, .page-1 {
   outline: 2px solid black;
   width: 1080px;
   height: 1780px;
@@ -508,6 +521,30 @@ body {
   color: #414141;
   text-align: center;
 }
+.page-6 .first-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 50px;
+}
+.page-6 .second-header #canvas {
+  border: 2px solid black;
+  width: 400px;
+  aspect-ratio: 1/1;
+  border-radius: 200px;
+  margin-top: 150px;
+}
+.page-6 .second-header .photo-button {
+  position: fixed;
+  top: 320px;
+  left: 650px;
+}
+.page-6 .second-header .next-button {
+  position: fixed;
+  top: 1500px;
+  left: 455px;
+}
 .page-6 #name {
   width: auto;
   max-width: 900px;
@@ -559,14 +596,57 @@ body {
   z-index: 11;
   width: 700px;
   height: 700px;
-  top: 435px;
-}
-.page-7 .camera .display .corner-border {
-  position: fixed;
-  z-index: 11;
-  width: 700px;
-  height: 700px;
   top: 400px;
+}
+
+.page-8 {
+  text-align: center;
+  background-image: url("../assets/page-1-bkg.svg");
+}
+.page-8 p {
+  margin-top: 100px;
+  width: 460px;
+}
+
+.page-9 {
+  color: #414141;
+  text-align: center;
+}
+.page-9 .title {
+  width: 518px;
+}
+.page-9 .desc {
+  width: 883px;
+}
+.page-9 .blue-card {
+  background-image: url("../assets/card-blue-2.svg");
+  background-size: cover;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 200px;
+}
+.page-9 .blue-card .name {
+  font-weight: 700;
+  font-size: 70px;
+}
+.page-9 .blue-card .room {
+  font-weight: 500;
+  font-size: 55px;
+}
+.page-9 .blue-card .room-number {
+  font-weight: 700;
+  font-size: 160px;
+}
+.page-9 .next-button {
+  position: fixed;
+  z-index: 10;
+  top: 1600px;
+}
+
+.page-10 {
+  text-align: center;
+  background-image: url("../assets/page-10-bkg.svg");
 }
 
 /* --- CONTAINERS --- */
@@ -586,9 +666,19 @@ body {
   border: 2px solid #103ce9;
 }
 
+.button-container {
+  z-index: 11;
+  position: fixed;
+  top: 1500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+}
+
 /* --- UTILITY --- */
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 /* sass --watch idea/style:idea/ */

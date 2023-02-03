@@ -15,24 +15,31 @@
 
 <body>
     <div class="page-6 ">
-        <div class="modal">
+        <div class="modal hidden">
             <div class="card">
                 <input type="text" name="" id="" value="Chiara Rossi">
             </div>
             <button class="circle-button"><span class="material-symbols-outlined">chevron_right</span></button>
         </div>
-        <h1>Ecco il tuo documento!</h1>
-        <p class="desc">Correggi eventuali errori</p>
-        <div class="pagination">
-            <span class="material-symbols-outlined">chevron_left</span>
-            <div class="stream">
-                <button class="circle-button">1</button>
-                <button class="circle-button selected">2</button>
-                <button class="circle-button ">3</button>
+        <div class="first-header hidden">
+            <h1>Ecco il tuo documento!</h1>
+            <p class="desc">Correggi eventuali errori</p>
+            <div class="pagination">
+                <span class="material-symbols-outlined">chevron_left</span>
+                <div class="stream">
+                    <button class="circle-button">1</button>
+                    <button class="circle-button selected">2</button>
+                    <button class="circle-button ">3</button>
+                </div>
+                <span class="material-symbols-outlined">chevron_right</span>
             </div>
-            <span class="material-symbols-outlined">chevron_right</span>
+            <button class="circle-button-photo"><span class="material-symbols-outlined">photo_camera</span></button>
         </div>
-        <button class="circle-button-photo"><span class="material-symbols-outlined">photo_camera</span></button>
+        <div class="second-header">
+            <button class="circle-button photo-button"><span class="material-symbols-outlined">photo_camera</span></button>
+            <canvas id="canvas" class="d-none"></canvas>
+            <button class="circle-button next-button"><span class="material-symbols-outlined">chevron_right</span></button>
+        </div>
         <fieldset>
             <p id="name">Chiara Rossi</p>
             <span class="material-symbols-outlined">edit</span>
@@ -72,6 +79,15 @@
                     <button class="circle-button"><span class="material-symbols-outlined">forward_media</span></button>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="page-8 hidden">
+        <p>Scegli o scatta nuovamente la foto</p>
+        <div class="square-element"></div>
+        <div class="button-container">
+            <button class="circle-button"><span class="material-symbols-outlined">chevron_left</span></button>
+            <button class="inverse-button"><span class="material-symbols-outlined">done</span></button>
+            <button class="circle-button"><span class="material-symbols-outlined">forward_media</span></button>
         </div>
     </div>
     <script>
