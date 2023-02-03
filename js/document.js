@@ -14,23 +14,65 @@ $('.pagination .back-button').click(() => {
 
 $('#scan-card').click(() => {
     type = 'card';
-    swapPages('.page-3','.page-4');
+    swapPages('.page-3', '.page-4');
 })
 $('#scan-passport').click(() => {
     type = 'passport';
-    swapPages('.page-3','.page-4');
+    swapPages('.page-3', '.page-4');
 })
 
 $('.page-4 .back-button').click(() => {
-    swapPages('.page-4','.page-3');
+    swapPages('.page-4', '.page-3');
 })
 
 $('.page-4 .start-button').click(() => {
     //TODO avvio scanner
-    startScan().then((message) =>{
+    startScan().then((message) => {
+        console.log(`message: ${JSON.stringify(message)}`);
+        let date = '';
+        if (message['date'] != undefined && message['date'] != '') {
+            date = message['date'].match(/.{1,2}/g)??[];
+            date = date[2] + '.' + date[1] + '.' + date[0]
+        }
+        let name = '';
+        if (message['name'] != undefined && message['name'] != '') {
+            name = message['name'].split(' ');
+            name[0] = name[0][0].toUpperCase() + name[0].slice(1).toLowerCase();
+            name[1] = name[1][0].toUpperCase() + name[1].slice(1).toLowerCase();
+            name = name.join(' ');
+        } 
 
+        let nation = '';
+        if (message['nation'] != undefined && message['nation'] != '') {
+            switch (message['nation']) {
+                case 'Italy':
+                    nation = "Italiana";
+                    break;
+            }
+        }
+
+        let sex = '';
+        if (message['sex'] != undefined && message['sex'] != '') {
+            switch (message['sex']) {
+                case 'M':
+                    sex = 'Uomo';
+                    break;
+                case 'F':
+                    sex = 'Donna';
+                    break;
+            }
+        }
+
+
+        localStorage.setItem('name', name);
+        localStorage.setItem('sex', sex);
+        localStorage.setItem('nation', nation);
+        localStorage.setItem('date', date);
+        localStorage.setItem('code', message['code']);
+
+        window.location = 'picture.html';
     })
-    swapPages('.page-4','.page-5');
+    swapPages('.page-4', '.page-5');
     // fare await della scann -> salvare sul local storage e quando torna cambiare pagina
 })
 
@@ -44,7 +86,7 @@ $('.page-4 .close-modal').click(() => {
 
 // SCANNER
 
-startScan = async function(){
+startScan = async function () {
     var code = '';
     var result;
 
@@ -65,34 +107,34 @@ startScan = async function(){
             }
         })
     }
-    
+
     // scan user information
     console.log(`scan user info`);
     result = await readUserInfo();
     result = JSON.parse(result);
-    
+
     var answer = {}
-    if(result['result'] == false){
+    if (result['result'] == false) {
         // displayReadValues('','','',code)
         answer = {
             name: '',
             nation: '',
-            sex:'',
+            sex: '',
             date: '',
             code: code
         }
         return answer;
-    }else{
+    } else {
         result = result['data']
         // displayReadValues(result[0] + ' ' + result[1],result[3],result[2],code)
         answer = {
             name: result[0] + ' ' + result[1],
             nation: result[3],
-            sex:result[2],
+            sex: result[2],
             date: result[4],
             code: code
         }
-        return 
+        return answer;
     }
 }
 
@@ -119,24 +161,24 @@ $('#position-modal button').click(async () => {
             }
         })
     }
-    
+
     // scan user information
     console.log(`scan user info`);
     result = await readUserInfo();
     result = JSON.parse(result);
-    
-    if(result['result'] == false){
-        displayReadValues('','','',code)
-    }else{
+
+    if (result['result'] == false) {
+        displayReadValues('', '', '', code)
+    } else {
         result = result['data']
-        displayReadValues(result[0] + ' ' + result[1],result[3],result[2],code)
+        displayReadValues(result[0] + ' ' + result[1], result[3], result[2], code)
     }
-    
+
     $('#position-modal').addClass('hidden');
     $('#response-modal').removeClass('hidden');
 })
 
-readUserInfo = function(){
+readUserInfo = function () {
     // request to read user information
     return $.get("../core/operation.php", {
         op: "info",
@@ -158,18 +200,18 @@ $('#response-modal button').click(() => {
 
     //check if every input has been filled
     var error = false;
-    var identifiers = ['#name-input','#nation-input','#sex-input','#code-input']
+    var identifiers = ['#name-input', '#nation-input', '#sex-input', '#code-input']
 
     identifiers.forEach(id => {
-        if($(id).val() == ''){
+        if ($(id).val() == '') {
             $(id).css('border', '1px solid red');
             error = true;
-        }else{
+        } else {
             $(id).css('border', '1px solid black');
         }
     });
 
-    if(error){
+    if (error) {
         return;
     }
 

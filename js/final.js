@@ -1,5 +1,8 @@
-// BUTTON LINKS
+$('.name').text(localStorage.getItem('name'))
+$('.room-number').text(localStorage.getItem('room'))
 
+
+// BUTTON LINKS
 $('.page-9 .back-button').click(() => {
     history.back();
 })

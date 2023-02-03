@@ -1,3 +1,10 @@
+$('#name').text(localStorage.getItem('name'))
+$('#nation').text(localStorage.getItem('nation'))
+$('#sex').text(localStorage.getItem('sex'))
+$('#date').text(localStorage.getItem('date'))
+$('#code').text(localStorage.getItem('code'))
+
+
 // BUTTON LINKS
 $('.pagination .back-button').click(() => history.back())
 
@@ -53,12 +60,24 @@ $('.page-6 .photo-button').click(() => {
 
 $('.page-6 .next-button').click(() => {
     //TODO save all info & photo
-    var room = Math.floor(Math.random()*300).toString().padStart(3,'0')
-    window.location = 'final.html'
+    var room = Math.floor(Math.random() * 300).toString().padStart(3, '0')
+
+    localStorage.setItem('name', $('#name').text());
+    localStorage.setItem('sex', $('#sex').text());
+    localStorage.setItem('nation', $('#nation').text());
+    localStorage.setItem('date', $('#date').text());
+    localStorage.setItem('code', $('#code').text());
+    localStorage.setItem('room', room);
+
+    savePhoto().then(()=>{
+        saveData()
+        // window.location = 'final.html'
+    });
+
 })
 
 showPicture = function () {
-    $('.page-6 #picture').attr('src',picture)
+    $('.page-6 #picture').attr('src', picture)
 }
 
 let lastId = '';
@@ -116,11 +135,23 @@ snapPhoto = function () {
 
 }
 
+
+// SAVE DATA
 savePhoto = function () {
     // console.log(picture);
     // downloadImage(picture, './picture/img1.png')
+    picture = $('#picture').attr('src');
+    console.log(`picture: ${picture}`);
 
-    $.post("../core/operation.php", {
+    // var img = new Image();
+    // img.src = picture;
+    // var ctx = canvas.getContext('2d');
+    // ctx.translate(640, 0);
+    // ctx.scale(-1, 1);
+    // ctx.drawImage(img, 0, 0, 640, 480);
+    // picture =  canvas.toDataURL();
+
+    return $.post("../core/operation.php", {
         op: "saveImage",
         image: picture,
         name: localStorage.getItem('name')
@@ -136,6 +167,23 @@ savePhoto = function () {
     })
 }
 
+saveData = function () {
+    console.log(`salvo i dati`);
+    console.log(`room:${localStorage.getItem('room')}`);
+
+    return $.post("../core/operation.php", {
+        op: "saveData",
+        name: localStorage.getItem('name'),
+        nation: localStorage.getItem('nation'),
+        sex: localStorage.getItem('sex'),
+        date: localStorage.getItem('date'),
+        code: localStorage.getItem('code'),
+        room: localStorage.getItem('room')
+    }).done((message) => {
+        console.log(`message: ${message}`);
+        // window.location = 'index.html';
+    })
+}
 
 
 printInformation = function () {

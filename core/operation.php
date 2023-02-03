@@ -34,7 +34,7 @@ else if (isset($_POST['op']) && $_POST['op'] == 'print') {
 
 // SAVE USER DATA
 else if (isset($_POST['op']) && $_POST['op'] == 'saveData') {
-    $data = [$_POST['name'], $_POST['sex'], $_POST['nation'], $_POST['code']];
+    $data = [$_POST['name'], $_POST['sex'],$_POST['date'], $_POST['nation'], $_POST['code'], $_POST['room']];
     // open csv file for writing
     $f = @fopen($_SERVER['DOCUMENT_ROOT'] . '/demo_uptek/memory/client-info.csv', 'a');
 
@@ -49,7 +49,7 @@ else if (isset($_POST['op']) && $_POST['op'] == 'saveData') {
     }
     // close the file
     fclose($f);
-    echo json_encode(['result'=>true, 'data'=>'']);
+    echo json_encode(['result'=>true, 'data'=>''.$_POST['room']]);
 
 } 
 
