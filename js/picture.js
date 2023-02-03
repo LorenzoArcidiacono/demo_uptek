@@ -51,6 +51,11 @@ $('.page-6 .photo-button').click(() => {
     swapPages('.page-6', '.page-7')
 })
 
+$('.page-6 .next-button').click(() => {
+    //TODO save all info & photo
+    var room = Math.floor(Math.random()*300).toString().padStart(3,'0')
+    window.location = 'final.html'
+})
 
 showPicture = function () {
     $('.page-6 #picture').attr('src',picture)

@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <div class="page-3">
+    <div class="page-3 ">
         <h1 class="title">Iniziamo!</h1>
         <p class="subtitle">Scegli il tipo di documento</p>
         <div class="pagination">
@@ -43,6 +43,12 @@
         </div>
     </div>
     <div class="page-4 hidden">
+        <div class="modal help-modal hidden">
+            <div class="card">
+                <p>Posiziona il barcode presente sul tuo documento di fronte allo scanner per la lettura</p>
+            </div>
+            <button class="circle-button close-modal"><span class="material-symbols-outlined">chevron_right</span></button>
+        </div>
         <h1>Scannerizza il documento</h1>
         <p class="desc">Posiziona il documento davanti al lettore</p>
         <div class="corner-border-black">
@@ -51,7 +57,7 @@
         <div class="button-container">
             <button class="circle-button back-button"><span class="material-symbols-outlined">chevron_left</span></button>
             <button class="inverse-button start-button"><span class="material-symbols-outlined">done</span></button>
-            <button class="circle-button help-button"><span class="material-symbols-outlined">question_mark</span></button>
+            <button class="circle-button help-button"><img src="../assets/icons/question.svg" alt=""></button>
         </div>
     </div>
 

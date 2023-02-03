@@ -29,6 +29,14 @@ $('.page-4 .start-button').click(() => {
     swapPages('.page-4','.page-5');
 })
 
+$('.page-4 .help-button').click(() => {
+    $('.page-4 .modal').removeClass('hidden');
+})
+
+$('.page-4 .close-modal').click(() => {
+    $('.page-4 .modal').addClass('hidden');
+})
+
 // SCAN
 $('#position-modal button').click(async () => {
 
