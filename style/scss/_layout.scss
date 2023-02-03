@@ -1,61 +1,65 @@
-@use 'base' as *;
+@use "base" as *;
+@use "components" as c;
 
-body{
-    width: 1080px;
-    height: 1920px;
+:root {
+    width: 1080px !important;
+    height: 1920px !important;
+}
+body {
+    outline: 100px solid rgba(255, 0, 0, 0.486);
+    width: 1080px !important;
+    height: 1920px !important;
     margin: 0;
     color: white;
     font-family: $work-sans;
     overflow: hidden;
     background-color: $light-gray;
-
 }
 
-.flex-layout{
+.flex-layout {
     outline: 2px solid black;
     width: 1080px;
-    height: 1920px;
+    height: 1780px;
     background-size: cover;
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     overflow: hidden;
     gap: 70px;
-    padding: 150px 0;
+    padding-top: 140px;
 }
 
-.page-1{
+.page-1 {
     @extend .flex-layout;
-    background-image: url('../assets/page-1-bkg.svg');
+    background-image: url("../assets/page-1-bkg.svg");
     text-align: center;
-    
-    h1{
-        
+
+    h1 {
         @include xlarge-font();
         line-height: 140px;
     }
 
-    p{
+    p {
         width: 680px;
     }
 
-    .large-circle-button{
+    .large-circle-button {
         position: fixed;
-        top: 1700px;
+        top: 1500px;
     }
 }
 
-.page-2{
+.page-2 {
     @extend .flex-layout;
-    background-image: url('../assets/page-2-bkg.svg');
+    background-image: url("../assets/page-2-bkg.svg");
     background-size: contain;
     background-position: bottom;
     color: $dark-gray;
     gap: 0;
 
-    .logo{
+    .logo {
         width: 350px;
         height: 150px;
         border: 4px solid $dark-gray;
@@ -63,67 +67,67 @@ body{
         margin-bottom: 170px;
     }
 
-    button{
+    .list {
+        margin-top: 80px;
+    }
+
+    button {
         position: fixed;
-        top: 1380px;
+        top: 1080px;
     }
 }
 
-.page-3{
+.page-3 {
     @extend .flex-layout;
     color: $dark-gray;
+    gap: 50px;
 
-    .subtitle{
+    .subtitle {
         width: 883px;
         text-align: center;
     }
-
-    .blue-card{
-        margin-top: 100px;
-    }
-
 }
 
-.page-4{
+.page-4 {
     @extend .flex-layout;
     color: $dark-gray;
     text-align: center;
+    gap: 50px;
 
-    .desc{
+    .desc {
         width: 550px;
     }
 
-    .corner-border-black{
+    .corner-border-black {
         margin-top: 80px;
     }
 
-    button{
+    button {
         position: fixed;
-        top: 1800px;
+        top: 1560px;
     }
-
 }
 
-.page-5{
+.page-5 {
     @extend .flex-layout;
     text-align: center;
-    background-image: url('../assets/page-1-bkg.svg');
-    
-    .desc{
+    background-image: url("../assets/page-1-bkg.svg");
+
+    .desc {
         margin-top: 300px;
     }
-    .corner-border{
+    .corner-border {
         margin-top: 80px;
-        
-        .square-element{
+
+        .square-element {
             width: 500px;
             height: 280px;
             border-radius: 0;
-            background-image: url('../assets/barcode.svg');
+            background-image: url("../assets/barcode.svg");
         }
     }
 
-    .barcode-scan{
+    .barcode-scan {
         z-index: 2;
         position: fixed;
         width: 700px;
@@ -138,38 +142,32 @@ body{
     }
 
     @keyframes scan {
-        from{
+        from {
             top: 900px;
         }
-        to{
+        to {
             top: 1230px;
         }
     }
-
 }
 
-.page-6{
+.page-6 {
     @extend .flex-layout;
-    background-image: url('../assets/page-6-bkg.svg');
+    background-image: url("../assets/page-6-bkg.svg");
     background-size: contain;
     color: $dark-gray;
     text-align: center;
-    gap: 100px;
 
-    .circle-button{
-        @include circle(363px);
-
-        span{
-            transform: scale(8);
-        }
+    #name {
+        width: auto;
+        max-width: 900px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        @include font-dimension(600, 72px);
     }
 
-    #name{
-        width: 500px;
-        @include font-dimension(600,72px);
-    }
-
-    .information{
+    .information {
         margin-left: 100px;
         display: flex;
         flex-direction: row;
@@ -178,12 +176,58 @@ body{
         align-items: flex-start;
         row-gap: 100px;
         column-gap: 100px;
+    }
+}
 
+.page-7 {
+    @extend .flex-layout;
+    color: $dark-gray;
+    text-align: center;
+    padding: 0;
+    height: 1920px;
+
+    .camera {
+        z-index: 1;
+        width: 1080px;
+        height: 1920px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .display {
+            position: fixed;
+            z-index: 10;
+            display: contents;
+
+            p {
+                width: 442px;
+                text-align: center;
+                z-index: 11;
+                position: fixed;
+                top: 200px;
+            }
+
+            .corner-border {
+                position: fixed;
+                z-index: 11;
+                width: 700px;
+                height: 700px;
+                top: 435px;
+            }
+
+            .corner-border {
+                position: fixed;
+                z-index: 11;
+                width: 700px;
+                height: 700px;
+                top: 400px;
+            }
+        }
     }
 }
 
 /* --- CONTAINERS --- */
-.container{
+.container {
     border: 2px solid $orange;
     display: inline-flex;
     justify-content: center;
@@ -193,7 +237,7 @@ body{
     font-family: $work-sans;
 }
 
-.portrait{
+.portrait {
     width: 1080px;
     height: 1500px;
     border: 2px solid $blue;

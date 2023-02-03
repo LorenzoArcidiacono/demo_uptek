@@ -14,9 +14,12 @@
 </head>
 
 <body>
-    <div class="page-6">
+    <div class="page-6 ">
         <div class="modal">
-            
+            <div class="card">
+                <input type="text" name="" id="" value="Chiara Rossi">
+            </div>
+            <button class="circle-button"><span class="material-symbols-outlined">chevron_right</span></button>
         </div>
         <h1>Ecco il tuo documento!</h1>
         <p class="desc">Correggi eventuali errori</p>
@@ -29,9 +32,9 @@
             </div>
             <span class="material-symbols-outlined">chevron_right</span>
         </div>
-        <button class="circle-button"><span class="material-symbols-outlined">photo_camera</span></button>
+        <button class="circle-button-photo"><span class="material-symbols-outlined">photo_camera</span></button>
         <fieldset>
-            <p>Chiara Rossi</p>
+            <p id="name">Chiara Rossi</p>
             <span class="material-symbols-outlined">edit</span>
         </fieldset>
         <div class="information">
@@ -57,6 +60,37 @@
             </fieldset>
         </div>
     </div>
+    <div class="page-7 hidden">
+        <div class="camera">
+            <video id="webcam" autoplay playsinline></video>
+            <div class="display">
+                <p>Posizionati davanti alla telecamera</p>
+                <div class="corner-border"></div>
+                <div class="button-container">
+                    <button class="circle-button"><span class="material-symbols-outlined">chevron_left</span></button>
+                    <div class="camera-button"><button class="circle-button"></button></div>
+                    <button class="circle-button"><span class="material-symbols-outlined">forward_media</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // CAMERA
+        const webcamElement = document.getElementById('webcam');
+        const canvasElement = document.getElementById('canvas');
+        const snapSoundElement = document.getElementById('snapSound');
+        const webcam = new Webcam(webcamElement, 'user', canvasElement);
+        let picture;
+        // window.onload = () => {
+        //     webcam.start()
+        //         .then(result => {
+        //             console.log("webcam started");
+        //         })
+        //         .catch(err => {
+        //             console.log(err);
+        //         });
+        // }
+    </script>
 </body>
 
 </html>

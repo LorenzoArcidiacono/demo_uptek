@@ -16,10 +16,13 @@ p{
 }
 
 input[type=text]{
-    width: 300px;
+    width: 700px;
+    text-align: center;
+    height: fit-content;
     border: none;
+    
     background-color: transparent;
-    @include font-dimension(400,48px);
+    @include font-dimension(600,48px);
     color: $dark-gray;
     text-overflow: ellipsis;
 }
@@ -92,6 +95,24 @@ fieldset{
         position: relative;
         transform: scale(6);
     }
+}
+
+.circle-button-photo{
+    @include circle(363px);
+
+    span{
+        transform: scale(8);
+    }
+}
+
+.icon-button{
+    background: transparent;
+    border: none;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    transform: scale(2);
 }
 
 /* --- SELECT --- */
@@ -207,13 +228,7 @@ fieldset{
 
 /* --- WEBCAM --- */
 .camera {
-    z-index: 1;
-    width: 1080px;
-    height: 1920px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border: 2px solid black;
+    
 
     video {
         z-index: 1;
@@ -223,26 +238,10 @@ fieldset{
     }
 
     .display {
-        position: fixed;
-        z-index: 10;
-        display: contents;
-
+        
         p {
-            width: 442px;
-            text-align: center;
-            z-index: 11;
             @include normal-font();
-            color: white;
-            position: fixed;
-            top: 100px;
-        }
-
-        .corner-border {
-            position: fixed;
-            z-index: 11;
-            width: 700px;
-            height: 700px;
-            top: 400px;
+            color: white; 
         }
 
         .button-container {
@@ -319,16 +318,9 @@ fieldset{
         }
     }
 
-    button{
-        background: transparent;
-        border: none;
-        color: white;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
+    .icon-button{
         margin-top: 80px;
         margin-right: 70px;
-        transform: scale(2);
     }
 }
 
@@ -349,6 +341,26 @@ fieldset{
     width: 1080px;
     height: 1920px;
     position: fixed;
+    top: 0;
     z-index: 20;
     background-color: $dark-gray-trasparent;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .card{
+        z-index: 21;
+        background-image: url('../assets/page-6-bkg.svg');
+        background-size: cover;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .circle-button{
+        position: fixed;
+        z-index: 22;
+        top: 1180px;
+    }
+
 }
