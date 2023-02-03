@@ -479,6 +479,9 @@ body {
   position: fixed;
   top: 1500px;
 }
+.page-1 .circle-button span {
+  margin-left: 7px;
+}
 
 .page-2 {
   background-image: url("../assets/page-2-bkg.svg");
@@ -499,6 +502,9 @@ body {
 .page-2 button {
   position: fixed;
   top: 1080px;
+}
+.page-2 button span {
+  margin-left: 7px;
 }
 
 .page-3 {
@@ -583,6 +589,9 @@ body {
   position: fixed;
   top: 1500px;
   left: 455px;
+}
+.page-6 .second-header .next-button span {
+  margin-left: 7px;
 }
 .page-6 #name {
   width: auto;
@@ -699,6 +708,9 @@ body {
   position: fixed;
   z-index: 10;
   top: 1600px;
+}
+.page-9 .next-button span {
+  margin-left: 7px;
 }
 
 .page-10 {
