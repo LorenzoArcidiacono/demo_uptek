@@ -297,8 +297,25 @@ body {
 }
 .page-10 {
     @extend .flex-layout;
+    height: 1920px;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
     text-align: center;
-    background-image: url('../assets/page-10-bkg.svg');
+    background-image: url('../assets/page-10-bkg.svg');   
+}
+
+.page-11{
+    @extend .flex-layout;
+    background-image: url('../assets/page-11-bkg.svg');
+    text-align: center;
+    .desc{
+        width: 600px;
+    }
+    .circle-button{
+        position: fixed;
+        top: 1500px;
+    }
 }
 
 /* --- CONTAINERS --- */

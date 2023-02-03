@@ -368,6 +368,7 @@ fieldset .material-symbols-outlined {
 /* --- LOADER --- */
 .loader {
   width: 800px;
+  height: 56px;
 }
 .loader .back {
   width: 100%;
@@ -376,10 +377,26 @@ fieldset .material-symbols-outlined {
   border-radius: 200px;
 }
 .loader .back .front {
-  width: 10%;
+  width: 0%;
   height: 100%;
   background-color: #ff721f;
   border-radius: 200px;
+  animation-name: loader;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+@keyframes loader {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+.loader .percentage {
+  font-weight: 500;
+  font-size: 100px;
+  margin-top: 50px;
 }
 
 :root {
@@ -398,7 +415,7 @@ body {
   background-color: #eeeeee;
 }
 
-.flex-layout, .page-10, .page-9, .page-8, .page-7, .page-6, .page-5, .page-4, .page-3, .page-2, .page-1 {
+.flex-layout, .page-11, .page-10, .page-9, .page-8, .page-7, .page-6, .page-5, .page-4, .page-3, .page-2, .page-1 {
   outline: 2px solid black;
   width: 1080px;
   height: 1780px;
@@ -645,8 +662,24 @@ body {
 }
 
 .page-10 {
+  height: 1920px;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
   text-align: center;
   background-image: url("../assets/page-10-bkg.svg");
+}
+
+.page-11 {
+  background-image: url("../assets/page-11-bkg.svg");
+  text-align: center;
+}
+.page-11 .desc {
+  width: 600px;
+}
+.page-11 .circle-button {
+  position: fixed;
+  top: 1500px;
 }
 
 /* --- CONTAINERS --- */

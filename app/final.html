@@ -32,20 +32,31 @@
         </div>
         <button class="circle-button next-button"><span class="material-symbols-outlined">chevron_right</span></button>
     </div>
-    <div class="page-10">
+    <div class="page-10 hidden">
         <p class="desc">Stampa in corso...</p>
         <div class="loader">
             <div class="back">
                 <div class="front"></div>
             </div>
-            <p class="percentage">50%</p>
+            <p class="percentage">0%</p>
         </div>
     </div>
+    <div class="page-11">
+        <h1 class="title">Fatto!</h1>
+        <p class="desc">Torna all'inizio per ripetere l'operazione</p>
+        <button class="circle-button"><span class="material-symbols-outlined">chevron_left</span></button>
+    </div>
     <script>
+        let animation_time = 2000;
+        let percentage = 0;
+        $('.loader .front').css('animation-duration',animation_time+'ms');
         let interval = setInterval(()=>{
-            var last = $('.loader .front').css('width');
-            console.log(`last:${last}`);
-        },1000)
+            percentage += 1
+            $('.loader .percentage').text(percentage+'%');
+            if(percentage >=100){
+                clearInterval(interval)
+            }
+        },animation_time/100)
     </script>
 </body>
 </html>
