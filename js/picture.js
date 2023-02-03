@@ -1,3 +1,9 @@
+// BUTTON LINKS
+$('.pagination .back-button').click(()=> history.back())
+
+
+// WEBCAM
+
 const webcamElement = document.getElementById('webcam');
 const canvasElement = document.getElementById('canvas');
 const snapSoundElement = document.getElementById('snapSound');

@@ -17,7 +17,7 @@ body {
 }
 
 .flex-layout {
-    outline: 2px solid black;
+    // outline: 2px solid black;
     width: 1080px;
     height: 1780px;
     background-size: cover;
@@ -45,7 +45,7 @@ body {
         width: 680px;
     }
 
-    .large-circle-button {
+    .circle-button {
         position: fixed;
         top: 1500px;
     }
@@ -98,14 +98,7 @@ body {
         width: 550px;
     }
 
-    .corner-border-black {
-        margin-top: 80px;
-    }
-
-    button {
-        position: fixed;
-        top: 1560px;
-    }
+    
 }
 
 .page-5 {
@@ -119,34 +112,9 @@ body {
     .corner-border {
         margin-top: 80px;
 
-        .square-element {
-            width: 500px;
-            height: 280px;
-            border-radius: 0;
-            background-image: url("../assets/barcode.svg");
-        }
-    }
-
-    .barcode-scan {
-        z-index: 2;
-        position: fixed;
-        width: 700px;
-        top: 900px;
-        border-bottom: 30px solid $orange;
-        filter: opacity(0.7);
-        border-radius: 30px;
-        animation: scan 1.5s;
-        animation-iteration-count: infinite;
-        animation-direction: alternate-reverse;
-        animation-timing-function: ease-in-out;
-    }
-
-    @keyframes scan {
-        from {
-            top: 900px;
-        }
-        to {
-            top: 1230px;
+        .barcode-scan {
+            z-index: 2;
+            position: fixed;
         }
     }
 }
@@ -166,18 +134,18 @@ body {
         gap: 50px;
     }
 
-    .second-header{
-        #canvas{
+    .second-header {
+        #canvas {
             border: 2px solid black;
             @include circle(400px);
             margin-top: 150px;
         }
-        .photo-button{
+        .photo-button {
             position: fixed;
             top: 320px;
             left: 650px;
         }
-        .next-button{
+        .next-button {
             position: fixed;
             top: 1500px;
             left: 455px;
@@ -260,36 +228,36 @@ body {
     color: $dark-gray;
     text-align: center;
 
-    .title{
+    .title {
         width: 518px;
     }
-    
-    .desc{
+
+    .desc {
         width: 883px;
     }
 
-    .blue-card{
-        background-image: url('../assets/card-blue-2.svg');
+    .blue-card {
+        background-image: url("../assets/card-blue-2.svg");
         background-size: cover;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
         margin-top: 200px;
 
-        .name{
-            @include font-dimension(700,70px);
+        .name {
+            @include font-dimension(700, 70px);
         }
 
-        .room{
+        .room {
             @include medium-font();
         }
 
-        .room-number{
-            @include font-dimension(700,160px);
+        .room-number {
+            @include font-dimension(700, 160px);
         }
     }
 
-    .next-button{
+    .next-button {
         position: fixed;
         z-index: 10;
         top: 1600px;
@@ -302,17 +270,17 @@ body {
     align-items: center;
     padding: 0;
     text-align: center;
-    background-image: url('../assets/page-10-bkg.svg');   
+    background-image: url("../assets/page-10-bkg.svg");
 }
 
-.page-11{
+.page-11 {
     @extend .flex-layout;
-    background-image: url('../assets/page-11-bkg.svg');
+    background-image: url("../assets/page-11-bkg.svg");
     text-align: center;
-    .desc{
+    .desc {
         width: 600px;
     }
-    .circle-button{
+    .circle-button {
         position: fixed;
         top: 1500px;
     }

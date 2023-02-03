@@ -5,8 +5,29 @@ $('.flex-container button').click(() => {
     $('#position-modal').removeClass('hidden');
 })
 
-$('#scan-card').click(() => type = 'card')
-$('#scan-passport').click(() => type = 'passport')
+
+// BUTTONS LINK
+$('.pagination .back-button').click(() => {
+    console.log(`click`);
+    history.back()
+})
+
+$('#scan-card').click(() => {
+    type = 'card';
+    swapPages('.page-3','.page-4');
+})
+$('#scan-passport').click(() => {
+    type = 'passport';
+    swapPages('.page-3','.page-4');
+})
+
+$('.page-4 .back-button').click(() => {
+    swapPages('.page-4','.page-3');
+})
+
+$('.page-4 .start-button').click(() => {
+    swapPages('.page-4','.page-5');
+})
 
 // SCAN
 $('#position-modal button').click(async () => {

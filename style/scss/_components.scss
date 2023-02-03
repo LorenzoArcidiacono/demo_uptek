@@ -116,7 +116,7 @@ fieldset {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    transform: scale(2);
+    transform: scale(1.3);
 }
 
 /* --- SELECT --- */
@@ -143,6 +143,10 @@ fieldset {
 
         p:not(.selected) {
             display: none;
+        }
+
+        .material-symbols-outlined {
+            transform: scale(3.5);
         }
     }
 
@@ -179,8 +183,14 @@ fieldset {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 40px;
 
+    .icon-button {
+        color: $dark-gray;
+        transform: scale(1);
+        width: 80px;
+        height: 80px;
+    }
     .stream {
         width: 469px;
         height: 120px;
@@ -376,14 +386,50 @@ fieldset {
             animation-timing-function: linear;
 
             @keyframes loader {
-                from {width: 0;}
-                to { width:100%; }
+                from {
+                    width: 0;
+                }
+                to {
+                    width: 100%;
+                }
             }
         }
     }
-    
-    .percentage{
-        @include font-dimension(500,100px);
+
+    .percentage {
+        @include font-dimension(500, 100px);
         margin-top: 50px;
+    }
+}
+
+/* --- BARCODE SCANNER --- */
+
+.barcode {
+
+    .square-element {
+        width: 500px;
+        height: 280px;
+        border-radius: 0;
+        background-image: url("../assets/barcode.svg");
+    }
+
+    .barcode-scan {
+        width: 700px;
+        border-bottom: 20px solid $orange;
+        filter: opacity(0.7);
+        border-radius: 30px;
+        animation: scan 1.5s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate-reverse;
+        animation-timing-function: ease-in-out;
+    }
+
+    @keyframes scan {
+        from {
+            top: 880px;
+        }
+        to {
+            top: 1230px;
+        }
     }
 }
