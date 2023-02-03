@@ -18,7 +18,7 @@ body {
   background-color: #eeeeee;
 }
 
-.flex-layout, .page-5, .page-4, .page-3, .page-2, .page-1 {
+.flex-layout, .page-6, .page-5, .page-4, .page-3, .page-2, .page-1 {
   outline: 2px solid black;
   width: 1080px;
   height: 1920px;
@@ -122,7 +122,7 @@ body {
   animation: scan 1.5s;
   animation-iteration-count: infinite;
   animation-direction: alternate-reverse;
-  animation-timing-function: linear;
+  animation-timing-function: ease-in-out;
 }
 @keyframes scan {
   from {
@@ -131,6 +131,37 @@ body {
   to {
     top: 1230px;
   }
+}
+
+.page-6 {
+  background-image: url("../assets/page-6-bkg.svg");
+  background-size: contain;
+  color: #414141;
+  text-align: center;
+  gap: 100px;
+}
+.page-6 .circle-button {
+  width: 363px;
+  aspect-ratio: 1/1;
+  border-radius: 200px;
+}
+.page-6 .circle-button span {
+  transform: scale(8);
+}
+.page-6 #name {
+  width: 500px;
+  font-weight: 600;
+  font-size: 72px;
+}
+.page-6 .information {
+  margin-left: 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  row-gap: 100px;
+  column-gap: 100px;
 }
 
 /* --- CONTAINERS --- */
@@ -164,6 +195,48 @@ h1 {
 p {
   font-weight: 500;
   font-size: 48px;
+}
+
+input[type=text] {
+  width: 300px;
+  border: none;
+  background-color: transparent;
+  font-weight: 400;
+  font-size: 48px;
+  color: #414141;
+  text-overflow: ellipsis;
+}
+
+input[type=text]:focus {
+  outline: none;
+  border: none;
+}
+
+fieldset {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: start;
+  gap: 30px;
+}
+fieldset legend {
+  color: #414141;
+  text-align: left;
+  font-weight: 600;
+  font-size: 48px;
+  margin-bottom: 30px;
+}
+fieldset p {
+  font-weight: 400;
+  font-size: 48px;
+  width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+fieldset .material-symbols-outlined {
+  transform: scale(2);
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
 }
 
 /* --- BUTTONS --- */
@@ -453,6 +526,15 @@ p {
 .orange-card {
   background-image: url("../assets/card-orange-2-bkg.svg");
   z-index: 40;
+}
+
+/* --- MODAL --- */
+.modal {
+  width: 1080px;
+  height: 1920px;
+  position: fixed;
+  z-index: 20;
+  background-color: rgba(65, 65, 65, 0.5019607843);
 }
 
 /* --- UTILITY --- */

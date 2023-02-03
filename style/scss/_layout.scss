@@ -134,7 +134,7 @@ body{
         animation: scan 1.5s;
         animation-iteration-count: infinite;
         animation-direction: alternate-reverse;
-        animation-timing-function: linear;
+        animation-timing-function: ease-in-out;
     }
 
     @keyframes scan {
@@ -146,6 +146,40 @@ body{
         }
     }
 
+}
+
+.page-6{
+    @extend .flex-layout;
+    background-image: url('../assets/page-6-bkg.svg');
+    background-size: contain;
+    color: $dark-gray;
+    text-align: center;
+    gap: 100px;
+
+    .circle-button{
+        @include circle(363px);
+
+        span{
+            transform: scale(8);
+        }
+    }
+
+    #name{
+        width: 500px;
+        @include font-dimension(600,72px);
+    }
+
+    .information{
+        margin-left: 100px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        row-gap: 100px;
+        column-gap: 100px;
+
+    }
 }
 
 /* --- CONTAINERS --- */

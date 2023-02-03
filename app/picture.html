@@ -7,29 +7,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="../style/main.css">
     <title>Document</title>
 </head>
 
 <body>
-    <div class="main-container">
-        <div class="camera">
-            <div class="webcam-div">
-                <video id="webcam" autoplay playsinline width="640" height="640"></video>
-                <canvas id="canvas" class="d-none"></canvas>
+    <div class="page-6">
+        <div class="modal">
+            
+        </div>
+        <h1>Ecco il tuo documento!</h1>
+        <p class="desc">Correggi eventuali errori</p>
+        <div class="pagination">
+            <span class="material-symbols-outlined">chevron_left</span>
+            <div class="stream">
+                <button class="circle-button">1</button>
+                <button class="circle-button selected">2</button>
+                <button class="circle-button ">3</button>
             </div>
+            <span class="material-symbols-outlined">chevron_right</span>
         </div>
-
-        <div class="buttons">
-            <button id="start-btn" onclick="startWebcam()">Start</button>
-            <button id="stop-btn" onclick="stopWebcam()">Stop</button>
-            <button id="snap-btn" onclick="snapPhoto()">Snap</button>
-            <button id="save-btn" onclick="savePhoto()">Save</button>
-            <button id="print-btn" onclick="printInformation()">Print</button>
+        <button class="circle-button"><span class="material-symbols-outlined">photo_camera</span></button>
+        <fieldset>
+            <p>Chiara Rossi</p>
+            <span class="material-symbols-outlined">edit</span>
+        </fieldset>
+        <div class="information">
+            <fieldset>
+                <legend>Sesso</legend>
+                <p>Donna</p>
+                <span class="material-symbols-outlined">edit</span>
+            </fieldset>
+            <fieldset>
+                <legend>Data di nascita</legend>
+                <p>11.03.1997</p>
+                <span class="material-symbols-outlined">edit</span>
+            </fieldset>
+            <fieldset>
+                <legend>Nazionalità</legend>
+                <p>Italiana</p>
+                <span class="material-symbols-outlined">edit</span>
+            </fieldset>
+            <fieldset>
+                <legend>Codice fiscale</legend>
+                <p>RCDLNZ96A11G702A</p>
+                <span class="material-symbols-outlined">edit</span>
+            </fieldset>
         </div>
-
-        <script src="../js/picture.js"></script>
-        
     </div>
 </body>
 

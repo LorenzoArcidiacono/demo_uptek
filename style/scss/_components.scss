@@ -15,6 +15,48 @@ p{
     @include normal-font();
 }
 
+input[type=text]{
+    width: 300px;
+    border: none;
+    background-color: transparent;
+    @include font-dimension(400,48px);
+    color: $dark-gray;
+    text-overflow: ellipsis;
+}
+
+input[type=text]:focus{
+    outline: none;
+    border: none;
+}
+
+fieldset{
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: start;
+    gap: 30px;
+
+    legend{
+        color: $dark-gray;
+        text-align: left;
+        @include font-dimension(600,48px);
+        margin-bottom: 30px;
+    }
+
+    p{
+        @include font-dimension(400,48px);
+        width: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .material-symbols-outlined{
+        transform: scale(2);
+        font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
+    }
+}
+
 
 /* --- BUTTONS --- */
 
@@ -300,4 +342,13 @@ p{
     background-image: url('../assets/card-orange-2-bkg.svg');
     z-index: 40;
 
+}
+
+/* --- MODAL --- */
+.modal{
+    width: 1080px;
+    height: 1920px;
+    position: fixed;
+    z-index: 20;
+    background-color: $dark-gray-trasparent;
 }
