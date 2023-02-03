@@ -11,10 +11,19 @@ $('.page-9 .next-button').click(() => {
     swapPages('.page-9', '.page-10');
     setTimeout(() => {
         startLoader()
+        printInformation();
     }, 1000)
 })
 
 $('.page-11 .home-button').click(() => {
+    // clean up
+    localStorage.removeItem('name');
+    localStorage.removeItem('date');
+    localStorage.removeItem('room');
+    localStorage.removeItem('code');
+    localStorage.removeItem('nation');
+    localStorage.removeItem('sex');
+
     window.location = 'index.html'
 })
 
@@ -38,7 +47,21 @@ startLoader = function () {
     }, animation_time / 100)
 }
 
-// room number
 
-// ROom number from local storage
-// $('.room-number').text(Math.floor(Math.random()*300).toString().padStart(3,'0'))
+printInformation = function () {
+    console.log('Start Print')
+    $.post("../core/operation.php", {
+        op: "print",
+        name: localStorage.getItem('name'),
+        room: localStorage.getItem('room'),
+    }).done((message) => {
+        console.log(`message: ${message}`);
+        message = JSON.parse(message);
+        if (message['result'] == false) {
+            console.log(`${message['data']}`);
+            //TODO show error message
+        } else {
+            // window.location = 'index.html';
+        }
+    })
+}

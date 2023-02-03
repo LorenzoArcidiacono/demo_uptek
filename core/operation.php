@@ -22,9 +22,8 @@ else if (isset($_GET['op']) && $_GET['op'] == 'info') {
 else if (isset($_POST['op']) && $_POST['op'] == 'print') {
     // echo $_GET['name'].','. $_GET['nation'].','. $_GET['sex'].','. $_GET['code'];
     $command = escapeshellcmd('./devices_script/printer/printer.py');
-    $output = shell_exec('python ' . $command . ' ' . $_POST['name'] . ' ' .  $_POST['nation']);
+    $output = shell_exec('python ' . $command . ' ' . $_POST['name'] . ' ' .  $_POST['room']);
     
-    // echo $output;
     if(!isset($output)|| (strpos($output, 'error')>=0 && strpos($output, 'error') != false)){
         echo json_encode(['result'=>false, 'data'=>$output]);
     }else{

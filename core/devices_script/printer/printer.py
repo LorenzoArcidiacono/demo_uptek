@@ -1,6 +1,7 @@
 import win32print as printer
 import win32api
 import sys
+import os
 
 # print ('Number of arguments:', len(sys.argv), 'arguments.')
 
@@ -57,20 +58,22 @@ def startPrint():
         #  Do the real work
         print( win32api.ShellExecute(0, "print", 'output.txt', None,  "./devices_script/printer",  0) )
     printer.ClosePrinter(prn)
-    print('Printed')
+    if not error:
+        print('Printed')
 
-def writeToFile(id,pwd):
+def writeToFile(name,room):
     
     with open('./devices_script/printer/input.txt', 'r') as f:
         str = f.read()
 
-    str = str.replace('$NAME$', id)
-    str = str.replace('$NATION$', pwd)
+    str = str.replace('$NAME$', name)
+    str = str.replace('$ROOM$', room)
 
     with open('./devices_script/printer/output.txt', 'w') as f:
         f.write(str);
     print('File written')
 
+
 writeToFile(sys.argv[1]+' '+sys.argv[2], sys.argv[3])
-startPrint();
+# startPrint();
 # print ('Argument List:', str(sys.argv))

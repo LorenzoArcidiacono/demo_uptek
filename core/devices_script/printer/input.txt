@@ -1,4 +1,4 @@
-Welcome to LiveSignage
+Benvenuto al nostro showroom!
 
-Name: $NAME$
-Nation: $NATION$
+Nome: $NAME$
+Stanza: $ROOM$

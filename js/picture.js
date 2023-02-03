@@ -69,9 +69,9 @@ $('.page-6 .next-button').click(() => {
     localStorage.setItem('code', $('#code').text());
     localStorage.setItem('room', room);
 
+    saveData();
     savePhoto().then(()=>{
-        saveData()
-        // window.location = 'final.html'
+        window.location = 'final.html'
     });
 
 })
@@ -101,12 +101,12 @@ const snapSoundElement = document.getElementById('snapSound');
 const webcam = new Webcam(webcamElement, 'user', canvasElement);
 let picture;
 
-downloadImage = function (url, name) {
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = name;
-    link.click();
-}
+// downloadImage = function (url, name) {
+//     const link = document.createElement("a");
+//     link.href = url;
+//     link.download = name;
+//     link.click();
+// }
 
 startWebcam = function () {
     console.log(`start`);
@@ -140,8 +140,7 @@ snapPhoto = function () {
 savePhoto = function () {
     // console.log(picture);
     // downloadImage(picture, './picture/img1.png')
-    picture = $('#picture').attr('src');
-    console.log(`picture: ${picture}`);
+    // picture = $('#picture').attr('src');
 
     // var img = new Image();
     // img.src = picture;
@@ -179,28 +178,7 @@ saveData = function () {
         date: localStorage.getItem('date'),
         code: localStorage.getItem('code'),
         room: localStorage.getItem('room')
-    }).done((message) => {
-        console.log(`message: ${message}`);
-        // window.location = 'index.html';
     })
 }
 
 
-printInformation = function () {
-    $.post("../core/operation.php", {
-        op: "print",
-        name: localStorage.getItem('name'),
-        nation: localStorage.getItem('nation'),
-        sex: localStorage.getItem('sex'),
-        code: localStorage.getItem('code'),
-    }).done((message) => {
-        console.log(`message: ${message}`);
-        message = JSON.parse(message);
-        if (message['result'] == false) {
-            console.log(`${message['data']}`);
-            //TODO show error message
-        } else {
-            // window.location = 'index.html';
-        }
-    })
-}
