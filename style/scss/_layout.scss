@@ -135,13 +135,24 @@ body {
     }
 
     .second-header {
-        #canvas {
+        .circle-image {
             border: 2px solid black;
             @include circle(400px);
+            overflow: hidden;
             margin-top: 150px;
+            object-fit: contain;
+
+            img{
+                width: 900px;
+                position: relative;
+                top: -120px;
+                left: -250px;
+                aspect-ratio: 4/3;
+            }
         }
         .photo-button {
             position: fixed;
+            z-index: 3;
             top: 320px;
             left: 650px;
         }
@@ -179,6 +190,14 @@ body {
     text-align: center;
     padding: 0;
     height: 1920px;
+
+    .help-modal{
+        p{
+            width: 535px;
+            color: $dark-gray;
+            @include font-dimension(400,40px);
+        }
+    }
 
     .camera {
         z-index: 1;
@@ -220,6 +239,19 @@ body {
     p {
         margin-top: 100px;
         width: 460px;
+    }
+    .square-element{
+        width: 695px;
+        height: 695px;
+        overflow: hidden;
+        
+        #canvas{
+            position: relative;
+            width: 1920px;
+            aspect-ratio: 4/3;
+            top: -250px;
+            left: -600px;
+        }
     }
 }
 

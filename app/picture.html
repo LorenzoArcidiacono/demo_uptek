@@ -18,9 +18,10 @@
     <div class="page-6 ">
         <div class="modal hidden">
             <div class="card">
-                <input type="text" name="" id="" value="Chiara Rossi">
+                <input type="text" name="" id="text" value="Chiara Rossi">
             </div>
-            <button class="circle-button"><span class="material-symbols-outlined">chevron_right</span></button>
+            <button class="circle-button"><span class="material-symbols-outlined"
+                    onclick="saveValue()">chevron_right</span></button>
         </div>
         <div class="first-header ">
             <h1>Ecco il tuo documento!</h1>
@@ -38,84 +39,81 @@
                 <div class="empty-div-small"></div>
             </div>
             <button class="circle-button-photo"><span class="material-symbols-outlined">photo_camera</span></button>
-            <div class="second-header hidden">
-                <button class="circle-button photo-button"><span
-                        class="material-symbols-outlined">photo_camera</span></button>
-                <canvas id="canvas" class="d-none"></canvas>
-                <button class="circle-button next-button"><span
-                        class="material-symbols-outlined">chevron_right</span></button>
-            </div>
-            <fieldset>
-                <p id="name">Chiara Rossi</p>
-                <span class="material-symbols-outlined">edit</span>
-            </fieldset>
-            <div class="information">
-                <fieldset>
-                    <legend>Sesso</legend>
-                    <p>Donna</p>
-                    <span class="material-symbols-outlined">edit</span>
-                </fieldset>
-                <fieldset>
-                    <legend>Data di nascita</legend>
-                    <p>11.03.1997</p>
-                    <span class="material-symbols-outlined">edit</span>
-                </fieldset>
-                <fieldset>
-                    <legend>Nazionalità</legend>
-                    <p>Italiana</p>
-                    <span class="material-symbols-outlined">edit</span>
-                </fieldset>
-                <fieldset>
-                    <legend>Codice fiscale</legend>
-                    <p>RCDLNZ96A11G702A</p>
-                    <span class="material-symbols-outlined">edit</span>
-                </fieldset>
-            </div>
         </div>
-        <div class="page-7 hidden">
-            <div class="camera">
-                <video id="webcam" autoplay playsinline></video>
-                <div class="display">
-                    <p>Posizionati davanti alla telecamera</p>
-                    <div class="corner-border"></div>
-                    <div class="button-container">
-                        <button class="circle-button"><span
-                                class="material-symbols-outlined">chevron_left</span></button>
-                        <div class="camera-button"><button class="circle-button"></button></div>
-                        <button class="circle-button"><span
-                                class="material-symbols-outlined">forward_media</span></button>
-                    </div>
+        <div class="second-header hidden">
+            <button class="circle-button photo-button"><span
+                    class="material-symbols-outlined">photo_camera</span></button>
+            <div class="circle-image">
+                <image id="picture" class="d-none"></image>
+            </div>
+            <button class="circle-button next-button"><span
+                    class="material-symbols-outlined">chevron_right</span></button>
+        </div>
+        <fieldset>
+            <p id="name">Chiara Rossi</p>
+            <span class="material-symbols-outlined " onclick="displayModal('#name')">edit</span>
+        </fieldset>
+        <div class="information">
+            <fieldset>
+                <legend>Sesso</legend>
+                <p id="sex">Donna</p>
+                <span class="material-symbols-outlined" onclick="displayModal('#sex')">edit</span>
+            </fieldset>
+            <fieldset>
+                <legend>Data di nascita</legend>
+                <p id="date">11.03.1997</p>
+                <span class="material-symbols-outlined" onclick="displayModal('#date')">edit</span>
+            </fieldset>
+            <fieldset>
+                <legend>Nazionalità</legend>
+                <p id="nation">Italiana</p>
+                <span class="material-symbols-outlined" onclick="displayModal('#nation')">edit</span>
+            </fieldset>
+            <fieldset>
+                <legend>Codice fiscale</legend>
+                <p id="code">RCDLNZ96A11G702A</p>
+                <span class="material-symbols-outlined" onclick="displayModal('#code')">edit</span>
+            </fieldset>
+        </div>
+    </div>
+    </div>
+    <div class="page-7 hidden">
+        <div class="modal help-modal hidden">
+            <div class="card">
+                <p>Posizionati di fronte alla fotocamera inquadrando il volto al centro del riquadro contrassegnato e scatta</p>
+            </div>
+            <button class="circle-button close-modal"><span class="material-symbols-outlined">chevron_right</span></button>
+        </div>
+        <div class="camera">
+            <video id="webcam" autoplay playsinline></video>
+            <div class="display">
+                <p>Posizionati davanti alla telecamera</p>
+                <div class="corner-border"></div>
+                <div class="button-container">
+                    <button class="circle-button back-button"><span
+                            class="material-symbols-outlined">chevron_left</span></button>
+                    <div class="camera-button"><button class="circle-button snap-photo"></button></div>
+                    <button class="circle-button help-button"><span class="material-symbols-outlined">question_mark</span></button>
                 </div>
             </div>
         </div>
-        <div class="page-8 hidden">
-            <p>Scegli o scatta nuovamente la foto</p>
-            <div class="square-element"></div>
-            <div class="button-container">
-                <button class="circle-button"><span class="material-symbols-outlined">chevron_left</span></button>
-                <button class="inverse-button"><span class="material-symbols-outlined">done</span></button>
-                <button class="circle-button"><span class="material-symbols-outlined">forward_media</span></button>
-            </div>
+    </div>
+    <div class="page-8 hidden">
+        <p>Scegli o scatta nuovamente la foto</p>
+        <div class="square-element">
+            <canvas id="canvas" class="d-none"></canvas>
         </div>
+        <div class="button-container">
+            <button class="circle-button back-button"><span
+                    class="material-symbols-outlined">chevron_left</span></button>
+            <button class="inverse-button done-button"><span class="material-symbols-outlined">done</span></button>
+            <button class="circle-button redo-button"><span
+                    class="material-symbols-outlined">forward_media</span></button>
+        </div>
+    </div>
 
-        <script src="../js/picture.js"></script>
-        <script>
-            // CAMERA
-            const webcamElement = document.getElementById('webcam');
-            const canvasElement = document.getElementById('canvas');
-            const snapSoundElement = document.getElementById('snapSound');
-            const webcam = new Webcam(webcamElement, 'user', canvasElement);
-            let picture;
-            // window.onload = () => {
-            //     webcam.start()
-            //         .then(result => {
-            //             console.log("webcam started");
-            //         })
-            //         .catch(err => {
-            //             console.log(err);
-            //         });
-            // }
-        </script>
+    <script src="../js/picture.js"></script>
+
 </body>
 
 </html>

@@ -549,15 +549,25 @@ body {
   justify-content: flex-start;
   gap: 50px;
 }
-.page-6 .second-header #canvas {
+.page-6 .second-header .circle-image {
   border: 2px solid black;
   width: 400px;
   aspect-ratio: 1/1;
   border-radius: 200px;
+  overflow: hidden;
   margin-top: 150px;
+  object-fit: contain;
+}
+.page-6 .second-header .circle-image img {
+  width: 900px;
+  position: relative;
+  top: -120px;
+  left: -250px;
+  aspect-ratio: 4/3;
 }
 .page-6 .second-header .photo-button {
   position: fixed;
+  z-index: 3;
   top: 320px;
   left: 650px;
 }
@@ -591,6 +601,12 @@ body {
   text-align: center;
   padding: 0;
   height: 1920px;
+}
+.page-7 .help-modal p {
+  width: 535px;
+  color: #414141;
+  font-weight: 400;
+  font-size: 40px;
 }
 .page-7 .camera {
   z-index: 1;
@@ -627,6 +643,18 @@ body {
 .page-8 p {
   margin-top: 100px;
   width: 460px;
+}
+.page-8 .square-element {
+  width: 695px;
+  height: 695px;
+  overflow: hidden;
+}
+.page-8 .square-element #canvas {
+  position: relative;
+  width: 1920px;
+  aspect-ratio: 4/3;
+  top: -250px;
+  left: -600px;
 }
 
 .page-9 {

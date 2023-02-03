@@ -1,6 +1,73 @@
 // BUTTON LINKS
-$('.pagination .back-button').click(()=> history.back())
+$('.pagination .back-button').click(() => history.back())
 
+$('.circle-button-photo').click(() => {
+    startWebcam()
+    swapPages('.page-6', '.page-7')
+})
+
+$('.page-7 .back-button').click(() => {
+    $('.page-6 .first-header').removeClass('hidden')
+    $('.page-6 .second-header').addClass('hidden')
+    swapPages('.page-7', '.page-6')
+    stopWebcam()
+})
+
+$('.page-7 .help-button').click(() => {
+    $('.page-7 .modal').removeClass('hidden')
+})
+
+$('.page-7 .close-modal').click(() => {
+    $('.page-7 .modal').addClass('hidden')
+})
+
+$('.page-7 .snap-photo').click(() => {
+    snapPhoto();
+    stopWebcam();
+    // $('.page-8')
+    swapPages('.page-7', '.page-8')
+})
+
+$('.page-8 .back-button').click(() => {
+    swapPages('.page-8', '.page-6')
+    stopWebcam()
+})
+
+$('.page-8 .redo-button').click(() => {
+    startWebcam()
+    swapPages('.page-8', '.page-7')
+})
+
+$('.page-8 .done-button').click(() => {
+    $('.page-6 .first-header').addClass('hidden')
+    $('.page-6 .second-header').removeClass('hidden')
+    showPicture();
+
+    swapPages('.page-8', '.page-6')
+})
+
+$('.page-6 .photo-button').click(() => {
+    startWebcam()
+    swapPages('.page-6', '.page-7')
+})
+
+
+showPicture = function () {
+    $('.page-6 #picture').attr('src',picture)
+}
+
+let lastId = '';
+displayModal = function (identifier) {
+    console.log(`click`);
+    lastId = identifier;
+    $('.page-6 .modal #text').val($(identifier).text())
+    $('.page-6 .modal').removeClass('hidden')
+}
+
+saveValue = function () {
+    $(lastId).text($('.modal #text').val())
+    $('.modal').addClass('hidden')
+}
 
 // WEBCAM
 
@@ -26,23 +93,21 @@ startWebcam = function () {
         .catch(err => {
             console.log(err);
         });
+}
 
-    $('#start-btn').hide();
-    $('#save-btn').hide();
-    $('#stop-btn').show();
-    $('#snap-btn').show();
-    $('#canvas').hide();
-    $('#webcam').show();
+stopWebcam = function () {
+    console.log(`webcam stop`);
+    webcam.stop();
 }
 
 snapPhoto = function () {
     picture = webcam.snap();
-    $('#start-btn').show();
-    $('#stop-btn').hide();
-    $('#snap-btn').hide();
-    $('#save-btn').show();
-    $('#webcam').hide();
-    $('#canvas').show();
+    // $('#start-btn').show();
+    // $('#stop-btn').hide();
+    // $('#snap-btn').hide();
+    // $('#save-btn').show();
+    // $('#webcam').hide();
+    // $('#canvas').show();
 
 }
 
@@ -57,7 +122,7 @@ savePhoto = function () {
     }).done((message) => {
         message = JSON.parse(message);
         if (message['result'] == false) {
-            console.log('Error: '+ message['data']);
+            console.log('Error: ' + message['data']);
             //TODO show error message
         } else {
             console.log(`Immagine salvata`);
@@ -66,15 +131,7 @@ savePhoto = function () {
     })
 }
 
-stopWebcam = function () {
-    webcam.stop();
-    $('#start-btn').show();
-    $('#stop-btn').hide();
-    $('#snap-btn').hide();
-    $('#save-btn').hide();
-    $('#webcam').hide();
-    $('#canvas').hide();
-}
+
 
 printInformation = function () {
     $.post("../core/operation.php", {
