@@ -2,14 +2,31 @@
 // READ BARCODE
 if (isset($_GET['op']) && $_GET['op'] == 'barcode') {
     $command = escapeshellcmd('./devices_script/scanner/readBarCode.py');
-    $output = shell_exec('python ' . $command);
-    echo json_encode(['result'=>true, 'data'=>$output]);
+    $output = shell_exec('python ' . $command); 
+    if(!isset($output)|| (strpos($output, 'error')>=0 && strpos($output, 'error') !== false) || $output == "\n"){
+        if($output == "\n"){
+            echo json_encode(['result'=>false, 'data'=>'Error while reading bar code']);
+        }else{
+            echo json_encode(['result'=>false, 'data'=>$output]);
+        }
+    }else{
+        echo json_encode(['result'=>true, 'data'=>$output]);
+    }
 } 
 
 // READ MRZ
 else if (isset($_GET['op']) && $_GET['op'] == 'info') {
     $command = escapeshellcmd('./devices_script/scanner/getUserData.py');
     $output = shell_exec('python ' . $command.' '.$_GET['type'] );
+    if(!isset($output)|| (strpos($output, 'error')>=0 && strpos($output, 'error') !== false )){
+        if($output == null){
+            echo json_encode(['result'=>false, 'data'=>'Error while reading OCR code']);
+            return;
+        }else{
+            echo json_encode(['result'=>false, 'data'=>$output]);
+            return;
+        }
+    }
     if (isset($output)) {
         $list = explode(' ', $output);
         echo json_encode(['result'=>true, 'data'=>$list]);
@@ -22,10 +39,11 @@ else if (isset($_GET['op']) && $_GET['op'] == 'info') {
 else if (isset($_POST['op']) && $_POST['op'] == 'print') {
     // echo $_GET['name'].','. $_GET['nation'].','. $_GET['sex'].','. $_GET['code'];
     $command = escapeshellcmd('./devices_script/printer/printer.py');
-    $output = shell_exec('python ' . $command . ' ' . $_POST['name'] . ' ' .  $_POST['nation']);
+    $output = shell_exec('python ' . $command . ' ' . $_POST['name'] . ' ' .  $_POST['room']);
     
-    // echo $output;
-    if(!isset($output)|| (strpos($output, 'error')>=0 && strpos($output, 'error') != false)){
+    // echo 'recived:'.$output;
+
+    if(!isset($output)|| (strpos($output, 'error')>=0 && strpos($output, 'error') !== false)){
         echo json_encode(['result'=>false, 'data'=>$output]);
     }else{
         echo json_encode(['result'=>true, 'data'=>$output]);
@@ -34,7 +52,7 @@ else if (isset($_POST['op']) && $_POST['op'] == 'print') {
 
 // SAVE USER DATA
 else if (isset($_POST['op']) && $_POST['op'] == 'saveData') {
-    $data = [$_POST['name'], $_POST['sex'], $_POST['nation'], $_POST['code']];
+    $data = [$_POST['name'], $_POST['sex'],$_POST['date'], $_POST['nation'], $_POST['code'], $_POST['room']];
     // open csv file for writing
     $f = @fopen($_SERVER['DOCUMENT_ROOT'] . '/demo_uptek/memory/client-info.csv', 'a');
 
@@ -49,7 +67,7 @@ else if (isset($_POST['op']) && $_POST['op'] == 'saveData') {
     }
     // close the file
     fclose($f);
-    echo json_encode(['result'=>true, 'data'=>'']);
+    echo json_encode(['result'=>true, 'data'=>''.$_POST['room']]);
 
 } 
 

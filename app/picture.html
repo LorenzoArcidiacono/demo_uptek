@@ -7,30 +7,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="../style/main.css">
+    <script src="../js/animations.js"></script>
     <title>Document</title>
 </head>
 
 <body>
-    <div class="main-container">
+    <div class="page-6 ">
+        <div class="modal hidden">
+            <div class="card">
+                <input type="text" name="" id="text" value="Chiara Rossi" placeholder="Empty">
+            </div>
+            <button class="circle-button"><span class="material-symbols-outlined"
+                    onclick="saveValue()">chevron_right</span></button>
+        </div>
+        <div class="first-header ">
+            <h1>Ecco il tuo documento!</h1>
+            <p class="desc">Correggi eventuali errori</p>
+            <div class="pagination">
+                <button class="icon-button back-button"><span
+                        class="material-symbols-outlined">chevron_left</span></button>
+                <div class="stream">
+                    <div class="stream">
+                        <button class="circle-button">1</button>
+                        <button class="circle-button selected">2</button>
+                        <button class="circle-button ">3</button>
+                    </div>
+                </div>
+                <div class="empty-div-small"></div>
+            </div>
+            <button class="circle-button-photo"><img src="../assets/icons/camera.svg" alt=""></button>
+        </div>
+        <div class="second-header hidden">
+            <button class="circle-button photo-button"><img src="../assets/icons/camera.svg" alt=""></button>
+            <div class="circle-image">
+                <image id="picture" class="d-none"></image>
+            </div>
+            <button class="circle-button next-button"><span
+                    class="material-symbols-outlined">chevron_right</span></button>
+        </div>
+        <fieldset>
+            <p id="name">Chiara Rossi</p>
+            <span class="material-symbols-outlined " onclick="displayModal('#name')">edit</span>
+        </fieldset>
+        <div class="information">
+            <fieldset>
+                <legend>Sesso</legend>
+                <p id="sex">Donna</p>
+                <span class="material-symbols-outlined" onclick="displayModal('#sex')">edit</span>
+            </fieldset>
+            <fieldset>
+                <legend>Data di nascita</legend>
+                <p id="date">11.03.1997</p>
+                <span class="material-symbols-outlined" onclick="displayModal('#date')">edit</span>
+            </fieldset>
+            <fieldset>
+                <legend>Nazionalità</legend>
+                <p id="nation">Italiana</p>
+                <span class="material-symbols-outlined" onclick="displayModal('#nation')">edit</span>
+            </fieldset>
+            <fieldset>
+                <legend>Codice fiscale</legend>
+                <p id="code">RCDLNZ96A11G702A</p>
+                <span class="material-symbols-outlined" onclick="displayModal('#code')">edit</span>
+            </fieldset>
+        </div>
+    </div>
+    </div>
+    <div class="page-7 hidden">
+        <div class="modal help-modal hidden">
+            <div class="card">
+                <p>Posizionati di fronte alla fotocamera inquadrando il volto al centro del riquadro contrassegnato e
+                    scatta</p>
+            </div>
+            <button class="circle-button close-modal"><span
+                    class="material-symbols-outlined">chevron_right</span></button>
+        </div>
         <div class="camera">
-            <div class="webcam-div">
-                <video id="webcam" autoplay playsinline width="640" height="640"></video>
-                <canvas id="canvas" class="d-none"></canvas>
+            <video id="webcam" autoplay playsinline></video>
+            <div class="display">
+                <p>Posizionati davanti alla telecamera</p>
+                <div class="corner-border"></div>
+                <div class="button-container">
+                    <button class="circle-button back-button"><span
+                            class="material-symbols-outlined">chevron_left</span></button>
+                    <div class="camera-button"><button class="circle-button snap-photo"></button></div>
+                    <button class="circle-button help-button"><img src="../assets/icons/question.svg" alt=""></button>
+                </div>
             </div>
         </div>
-
-        <div class="buttons">
-            <button id="start-btn" onclick="startWebcam()">Start</button>
-            <button id="stop-btn" onclick="stopWebcam()">Stop</button>
-            <button id="snap-btn" onclick="snapPhoto()">Snap</button>
-            <button id="save-btn" onclick="savePhoto()">Save</button>
-            <button id="print-btn" onclick="printInformation()">Print</button>
-        </div>
-
-        <script src="../js/picture.js"></script>
-        
     </div>
+    <div class="page-8 hidden">
+        <p>Scegli o scatta nuovamente la foto</p>
+        <div class="square-element">
+            <canvas id="canvas" class="d-none"></canvas>
+        </div>
+        <div class="button-container">
+            <button class="circle-button back-button"><span
+                    class="material-symbols-outlined">chevron_left</span></button>
+            <button class="inverse-button done-button"><span class="material-symbols-outlined">done</span></button>
+            <button class="circle-button redo-button"><img src="../assets/icons/refresh.svg" alt=""></button>
+        </div>
+    </div>
+
+
+    <script src="../js/picture.js"></script>
+
 </body>
 
 </html>

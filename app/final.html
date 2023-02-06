@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="../style/main.css">
+    <script src="../js/animations.js"></script>
+    
+    <title>Demo UpTek</title>
+</head>
+<body>
+    <div class="page-9 ">
+        <h1 class="title">Ecco il tuo ticket!</h1>
+        <p class="desc">Prosegui per stampare il tuo ticket o torna indietro per correggere eventuali errori</p>
+        <div class="pagination">
+            <button class="icon-button back-button"><span class="material-symbols-outlined">chevron_left</span></button>
+            <div class="stream">
+                <button class="circle-button">1</button>
+                <button class="circle-button ">2</button>
+                <button class="circle-button selected">3</button>
+            </div>
+            <div class="empty-div"></div>
+            
+        </div>
+        <div class="blue-card">
+            <p class="name">Chiara Rossi</p>
+            <div>
+                <p class="room">Stanza</p>
+                <p class="room-number"></p>
+            </div>
+        </div>
+        <button class="circle-button next-button"><span class="material-symbols-outlined">chevron_right</span></button>
+    </div>
+    <div class="page-10 hidden">
+        <p class="desc">Stampa in corso...</p>
+        <div class="loader">
+            <div class="back">
+                <div class="front"></div>
+            </div>
+            <p class="percentage">0%</p>
+        </div>
+    </div>
+    <div class="page-11 hidden">
+        <h1 class="title">Fatto!</h1>
+        <p class="desc">Torna all'inizio per ripetere l'operazione</p>
+        <button class="circle-button home-button"><span class="material-symbols-outlined">chevron_left</span></button>
+    </div>
+    <script src="../js/final.js"></script>
+    <script>
+        
+    </script>
+</body>
+</html>

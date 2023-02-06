@@ -1,0 +1,20 @@
+/* --- UTILITY --- */
+.hidden {
+    display: none !important;
+}
+
+.empty-div {
+    width: 120px;
+}
+
+.empty-div-small {
+    width: 70px;
+}
+
+.touch-overlay {
+    width: 100%;
+    height: 100%;
+    background-color:transparent;
+    position: fixed;
+    z-index: 3;
+}

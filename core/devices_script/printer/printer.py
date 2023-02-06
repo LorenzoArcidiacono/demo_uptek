@@ -1,8 +1,8 @@
 import win32print as printer
 import win32api
 import sys
+import os
 
-# print ('Number of arguments:', len(sys.argv), 'arguments.')
 
 PRINTER_ERROR_STATES = (
     printer.PRINTER_STATUS_NO_TONER, #262144
@@ -47,7 +47,7 @@ def printer_errorneous_state(prn, error_states=PRINTER_ERROR_STATES):
     return 0
 
 def startPrint():
-    print('ok1')
+    # print('ok1')
     printer_name = "BK-C310(U) 1" # or get_printer_names()[0]
     prn = printer.OpenPrinter(printer_name)
     error = printer_errorneous_state(prn)
@@ -57,20 +57,37 @@ def startPrint():
         #  Do the real work
         print( win32api.ShellExecute(0, "print", 'output.txt', None,  "./devices_script/printer",  0) )
     printer.ClosePrinter(prn)
-    print('Printed')
+    if not error:
+        print('Printed')
 
-def writeToFile(id,pwd):
-    
-    with open('./devices_script/printer/input.txt', 'r') as f:
-        str = f.read()
+def writeToFile(name,room):
+    try:
+        with open('./devices_script/printer/input.txt', 'r') as f:
+            str = f.read()
+    except:
+        return False
 
-    str = str.replace('$NAME$', id)
-    str = str.replace('$NATION$', pwd)
+    str = str.replace('$NAME$', name)
+    str = str.replace('$ROOM$', room)
 
-    with open('./devices_script/printer/output.txt', 'w') as f:
-        f.write(str);
+    try:
+        with open('./devices_script/printer/output.txt', 'w') as f:
+            f.write(str)
+    except:
+        return False
     print('File written')
+    return True
 
-writeToFile(sys.argv[1]+' '+sys.argv[2], sys.argv[3])
-startPrint();
+
 # print ('Argument List:', str(sys.argv))
+# print ('Number of arguments:', len(sys.argv), 'arguments.')
+
+if len(sys.argv) == 3:
+    result = writeToFile(sys.argv[1], sys.argv[2])
+else:
+    result = writeToFile(sys.argv[1]+' '+sys.argv[2], sys.argv[3])
+
+if result:
+    startPrint()
+else:
+    print('error writing to file')

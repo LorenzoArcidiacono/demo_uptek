@@ -6,13 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 
 <body>
-    <div class="portrait">
+    <div class="portrait hidden">
         <div class="sliding-menu">
             <img src="./calendar.png" alt="" class="hidden">
             <button class="circle"> <span class="material-symbols-outlined">chevron_right</span> </button>
@@ -29,7 +32,7 @@
             </div>
         </div>
     </div>
-    <div id="paginator">
+    <div id="paginator ji">
         <span class="material-symbols-outlined">chevron_left</span>
         <div class="container">
             <button class="small selected">1</button>
@@ -55,8 +58,9 @@
             $('.circle').animate({
                 width: '300px',
                 height: '100px',
-            }, delay,()=>{
-                $(".circle").text('check-in').append('<span class="material-symbols-outlined">chevron_right</span> ')
+            }, delay, () => {
+                $(".circle").text('check-in').append(
+                    '<span class="material-symbols-outlined">chevron_right</span> ')
             })
         })
     </script>

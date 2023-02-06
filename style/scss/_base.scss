@@ -1,0 +1,86 @@
+/* --- COLORS --- */
+$dark-blue: #081e75;
+$blue: #103ce9;
+$medium-blue-1: #385ded;
+$medium-blue-2: #889ef4;
+$light-blue: #d7defb;
+
+$orange: #ff721f;
+$dark-orange: #be5518;
+
+$dark-gray: #414141;
+$medium-gray: #9f9f9f;
+$gray: #d4d4d4;
+$light-gray: #eeeeee;
+
+$dark-gray-trasparent: #414141c1;
+
+
+/* --- FONT --- */
+
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+$work-sans: "Work Sans", sans-serif;
+
+/* --- ICONS ---- */
+
+.material-symbols-outlined {
+    transform: scale(5);
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
+
+/* --- MIXINS --- */
+// FONT
+@mixin font-dimension($weight, $size) {
+    font-weight: $weight;
+    font-size: $size;
+}
+
+@mixin xlarge-font() {
+    @include font-dimension(600, 120px);
+}
+
+@mixin large-font() {
+    @include font-dimension(600, 100px);
+}
+
+@mixin medium-font() {
+    @include font-dimension(500, 55px);
+}
+
+@mixin normal-font() {
+    @include font-dimension(500, 48px);
+}
+
+@mixin small-font() {
+    @include font-dimension(400, 40px);
+}
+
+// BUTTONS
+@mixin circle($width) {
+    width: $width;
+    aspect-ratio: 1/1;
+    border-radius: 200px;
+}
+
+@mixin base-button($background, $color) {
+    background-color: $background;
+    outline: none;
+    border: none;
+    color: $color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// DIV WITH BORDER ON CORNER
+@mixin corner-border {
+    background-image: url("../assets/round-corner.svg");
+    background-size: contain;
+}
+
+@mixin corner-border-black {
+    background-image: url("../assets/round-corner-black.svg");
+    background-size: contain;
+}
