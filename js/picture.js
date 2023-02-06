@@ -180,13 +180,14 @@ savePhoto = function () {
     // downloadImage(picture, './picture/img1.png')
     // picture = $('#picture').attr('src');
 
-    // var img = new Image();
-    // img.src = picture;
-    // var ctx = canvas.getContext('2d');
-    // ctx.translate(640, 0);
-    // ctx.scale(-1, 1);
-    // ctx.drawImage(img, 0, 0, 640, 480);
-    // picture =  canvas.toDataURL();
+    var img = new Image();
+    img.src = picture;
+    var ctx = canvas.getContext('2d');
+    canvas.width = 1024;
+    canvas.height = 768;
+
+    ctx.drawImage(img, 0, 0, 1024, 768);
+    picture =  canvas.toDataURL();
     
     return $.post("../core/operation.php", {
         op: "saveImage",
