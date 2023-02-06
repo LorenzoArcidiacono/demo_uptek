@@ -79,9 +79,14 @@ $('.page-6 .next-button').click(() => {
     localStorage.setItem('room', room);
 
     saveData();
-    savePhoto().then(()=>{
+    if(picture == undefined){
         window.location = 'final.html'
-    });
+    }else{
+
+        savePhoto().then(()=>{
+            window.location = 'final.html'
+        });
+    }
 
 })
 
@@ -90,7 +95,7 @@ $('.page-6 .next-button').click(() => {
 
 showPicture = function () {
     if(picture == undefined) {
-        console.log('error')
+        console.log('error: picture undefined')
     }else{
 
         $('.page-6 #picture').attr('src', picture)
@@ -182,7 +187,7 @@ savePhoto = function () {
     // ctx.scale(-1, 1);
     // ctx.drawImage(img, 0, 0, 640, 480);
     // picture =  canvas.toDataURL();
-
+    
     return $.post("../core/operation.php", {
         op: "saveImage",
         image: picture,
@@ -194,7 +199,6 @@ savePhoto = function () {
             //TODO show error message
         } else {
             console.log(`Immagine salvata`);
-            // window.location = 'index.html';
         }
     })
 }
