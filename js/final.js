@@ -29,7 +29,7 @@ $('.page-11 .home-button').click(() => {
 
 // loader animation
 startLoader = function () {
-    let animation_time = 2000;
+    let animation_time = 4000;
     let percentage = 0;
     $('.loader .front').css('width', '0px');
     $('.loader .front').css('animation-name', 'loader');

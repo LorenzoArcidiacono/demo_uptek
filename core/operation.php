@@ -41,7 +41,9 @@ else if (isset($_POST['op']) && $_POST['op'] == 'print') {
     $command = escapeshellcmd('./devices_script/printer/printer.py');
     $output = shell_exec('python ' . $command . ' ' . $_POST['name'] . ' ' .  $_POST['room']);
     
-    if(!isset($output)|| (strpos($output, 'error')>=0 && strpos($output, 'error') != false)){
+    // echo 'recived:'.$output;
+
+    if(!isset($output)|| (strpos($output, 'error')>=0 && strpos($output, 'error') !== false)){
         echo json_encode(['result'=>false, 'data'=>$output]);
     }else{
         echo json_encode(['result'=>true, 'data'=>$output]);
