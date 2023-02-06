@@ -1,36 +1,21 @@
 $('.main-container').css('background-image', 'url("../assets/bkg-hotel.png")')
 
 let idle_timeout = 5000;
-let animation_delay = 1000;
+// let animation_delay = 1000;
 
 // start slider after 5s
-// let timeout = setTimeout(() => window.location = '../slider/slider.html', idle_timeout)
+let slider_timeout = setTimeout(() => window.location = './slider.html', idle_timeout)
 
-// ANIMATION MENU
-// $('.circle-btn').click(() => {
-//     // delete slide timeout and set a new timeout if nothing happens
-//     clearTimeout(timeout)
-//     setTimeout(() => window.location.reload(), idle_timeout)
-//     $('.sliding-menu').animate({
-//         height: '100%',
-//         borderBottomLeftRadius: '0px',
-//         borderBottomRightRadius: '0px'
-//     }, animation_delay, () => {
-//         $('img').fadeIn('fast')
-//         $('h1').fadeIn('fast')
-//         $('ul').fadeIn('fast')
-//     })
-//     $('.circle-btn').animate({
-//         width: '300px',
-//         height: '100px',
-//     }, animation_delay, () => {
-//         $(".circle-btn").text('check-in').append('<span class="material-symbols-outlined btn-icon">chevron_right</span> ').attr('onclick', "window.location='./document.html'")
-//     })
-// })
 
 // BUTTONS LINK
 $('#page-1-btn').click(() => {
     swapPages('.page-1','.page-2')
+    clearTimeout(slider_timeout)
+    setTimeout(() => {
+        swapPages('.page-2','.page-1')
+        slider_timeout = setTimeout(() => window.location = './slider.html', idle_timeout)
+
+    },idle_timeout)
 })
 
 $('#page-2-btn').click(() => {
@@ -42,6 +27,10 @@ let open = false;
 let duration = 500;
 let lastSelected = 'IT';
 $('.select-button').on('click', () => {
+    //delete timeout
+    clearTimeout(slider_timeout)
+    
+
     if (!open) {
         $('.select-dropdown').animate({
             height: '320px',
@@ -50,6 +39,9 @@ $('.select-button').on('click', () => {
         $('.select-button span').text('expand_less')
         open = true;
     } else {
+        // Restart timeout
+        slider_timeout = setTimeout(() => window.location = './slider.html', idle_timeout)
+        
         $('.select-dropdown').animate({
             height: '0px',
         }, duration)
@@ -60,6 +52,7 @@ $('.select-button').on('click', () => {
 })
 
 swapTo = function (id) {
+
     console.log('click');
     $('.select-button .selected').removeClass('selected');
     $(`.select-button #${id}`).addClass('selected');
