@@ -66,6 +66,10 @@ fieldset {
 .circle-button {
     @include circle(145px);
     @include base-button($orange, white);
+
+    &:disabled{
+        background-color: $dark-orange;
+    }
 }
 
 .camera-button {

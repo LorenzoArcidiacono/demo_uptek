@@ -8,9 +8,15 @@ $('#code').text(localStorage.getItem('code'))
 // BUTTON LINKS
 $('.pagination .back-button').click(() => history.back())
 
-$('.circle-button-photo').click(() => {
-    startWebcam()
-    swapPages('.page-6', '.page-7')
+$('.circle-button-photo').click(async () => {
+    var result = await startWebcam()
+    if(result == false){
+        $('.page-6 .photo-button img').attr('src','../assets/icons/camera_error.svg').attr('disabled','disabled')
+        $('.page-6 .photo-button').attr('disabled','disabled')
+        $('.page-8 .done-button').click()
+    }else{
+        swapPages('.page-6', '.page-7')
+    }
 })
 
 $('.page-7 .back-button').click(() => {
@@ -83,7 +89,12 @@ $('.page-6 .next-button').click(() => {
 // UTILITY FUNCTIONS
 
 showPicture = function () {
-    $('.page-6 #picture').attr('src', picture)
+    if(picture == undefined) {
+        console.log('error')
+    }else{
+
+        $('.page-6 #picture').attr('src', picture)
+    }
 }
 
 let lastId = '';
@@ -129,14 +140,15 @@ let picture;
 //     link.click();
 // }
 
-startWebcam = function () {
+startWebcam = async function () {
     console.log(`start`);
-    webcam.start()
+    return webcam.start()
         .then(result => {
             console.log("webcam started");
         })
         .catch(err => {
             console.log(err);
+            return false;
         });
 }
 
