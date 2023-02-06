@@ -1,9 +1,9 @@
 let type = ''
 
 // SHOW FIRST MODAL
-$('.flex-container button').click(() => {
-    $('#position-modal').removeClass('hidden');
-})
+// $('.flex-container button').click(() => {
+//     $('#position-modal').removeClass('hidden');
+// })
 
 
 // BUTTONS LINK
@@ -26,14 +26,18 @@ $('.page-4 .back-button').click(() => {
 })
 
 $('.page-4 .start-button').click(() => {
-    //TODO avvio scanner
+    //async
     startScan().then((message) => {
-        console.log(`message: ${JSON.stringify(message)}`);
+        // console.log(`message: ${JSON.stringify(message)}`);
+
+        // from YYMMDD to DD.MM.YY
         let date = '';
         if (message['date'] != undefined && message['date'] != '') {
             date = message['date'].match(/.{1,2}/g)??[];
             date = date[2] + '.' + date[1] + '.' + date[0]
         }
+
+        // Lower case name and surname
         let name = '';
         if (message['name'] != undefined && message['name'] != '') {
             name = message['name'].split(' ');
@@ -42,6 +46,7 @@ $('.page-4 .start-button').click(() => {
             name = name.join(' ');
         } 
 
+        // from nation to nationality
         let nation = '';
         if (message['nation'] != undefined && message['nation'] != '') {
             switch (message['nation']) {
@@ -63,7 +68,7 @@ $('.page-4 .start-button').click(() => {
             }
         }
 
-
+        // Save all on local storage 
         localStorage.setItem('name', name);
         localStorage.setItem('sex', sex);
         localStorage.setItem('nation', nation);
@@ -72,10 +77,12 @@ $('.page-4 .start-button').click(() => {
         
         window.location = 'picture.html';
     })
+
+    // show scanner loader
     swapPages('.page-4', '.page-5');
-    // fare await della scann -> salvare sul local storage e quando torna cambiare pagina
 })
 
+// modal button
 $('.page-4 .help-button').click(() => {
     $('.page-4 .modal').removeClass('hidden');
 })
@@ -97,8 +104,8 @@ startScan = async function () {
         await $.get("../core/operation.php", {
             op: "barcode"
         }, ).done((message) => {
-            // console.log(' message: ' + message)
             message = JSON.parse(message);
+
             //error while reading
             if (message['result'] == false) {
                 console.log(message['data']);
@@ -109,16 +116,15 @@ startScan = async function () {
         })
     }
 
-    // scan user information
+    // scan user MRZ information
     console.log(`scan user info`);
     result = await readUserInfo();
-    // console.log(`result: ${result}`);
     result = JSON.parse(result);
 
     var answer = {}
+    // Error while reading
     if (result['result'] == false) {
         console.log(result['data']);
-        // displayReadValues('','','',code)
         answer = {
             name: '',
             nation: '',
@@ -126,10 +132,8 @@ startScan = async function () {
             date: '',
             code: code
         }
-        return answer;
     } else {
         result = result['data']
-        // displayReadValues(result[0] + ' ' + result[1],result[3],result[2],code)
         answer = {
             name: result[0] + ' ' + result[1],
             nation: result[3],
@@ -137,49 +141,10 @@ startScan = async function () {
             date: result[4],
             code: code
         }
-        return answer;
     }
+    return answer;
 }
 
-$('#position-modal button').click(async () => {
-    //TODO quando ritorna salvo i valori sul local storage e faccio la swap alla prossima pagina
-    var code = '';
-    var result;
-
-    //if id-card read barcode
-    if (type == 'card') {
-        console.log(`scan card`);
-
-        await $.get("../core/operation.php", {
-            op: "barcode"
-        }, ).done((message) => {
-
-            message = JSON.parse(message);
-            //error while reading
-            if (message['result'] == false) {
-                console.log(message['data']);
-            } else {
-                code = message['data']
-                console.log(`code:${code}`);
-            }
-        })
-    }
-
-    // scan user information
-    console.log(`scan user info`);
-    result = await readUserInfo();
-    result = JSON.parse(result);
-
-    if (result['result'] == false) {
-        displayReadValues('', '', '', code)
-    } else {
-        result = result['data']
-        displayReadValues(result[0] + ' ' + result[1], result[3], result[2], code)
-    }
-
-    $('#position-modal').addClass('hidden');
-    $('#response-modal').removeClass('hidden');
-})
 
 readUserInfo = function () {
     // request to read user information
@@ -189,62 +154,62 @@ readUserInfo = function () {
     })
 }
 
-displayReadValues = function (name, nation, sex, code) {
-    $('#name-field input').val(name);
-    $('#nation-field input').val(nation);
-    $('#sex-field input').val(sex);
-    $('#cf-field input').val(code);
-}
+// displayReadValues = function (name, nation, sex, code) {
+//     $('#name-field input').val(name);
+//     $('#nation-field input').val(nation);
+//     $('#sex-field input').val(sex);
+//     $('#cf-field input').val(code);
+// }
 
 
 // SAVE DATA
-$('#response-modal button').click(() => {
-    // $('#response-modal').addClass('hidden');
+// $('#response-modal button').click(() => {
+//     // $('#response-modal').addClass('hidden');
 
-    //check if every input has been filled
-    var error = false;
-    var identifiers = ['#name-input', '#nation-input', '#sex-input', '#code-input']
+//     //check if every input has been filled
+//     var error = false;
+//     var identifiers = ['#name-input', '#nation-input', '#sex-input', '#code-input']
 
-    identifiers.forEach(id => {
-        if ($(id).val() == '') {
-            $(id).css('border', '1px solid red');
-            error = true;
-        } else {
-            $(id).css('border', '1px solid black');
-        }
-    });
+//     identifiers.forEach(id => {
+//         if ($(id).val() == '') {
+//             $(id).css('border', '1px solid red');
+//             error = true;
+//         } else {
+//             $(id).css('border', '1px solid black');
+//         }
+//     });
 
-    if (error) {
-        return;
-    }
+//     if (error) {
+//         return;
+//     }
 
-    // save the information on the local storage
-    localStorage.setItem('name', $('#name-input').val());
-    localStorage.setItem('nation', $('#nation-input').val())
-    localStorage.setItem('sex', $('#sex-input').val())
-    localStorage.setItem('code', $('#code-input').val())
+//     // save the information on the local storage
+//     localStorage.setItem('name', $('#name-input').val());
+//     localStorage.setItem('nation', $('#nation-input').val())
+//     localStorage.setItem('sex', $('#sex-input').val())
+//     localStorage.setItem('code', $('#code-input').val())
 
-    saveData().then((message) => {
-        message = JSON.parse(message);
-        if (message['result'] == false) {
-            console.log(`ERRORE`);
-            //TODO show error message
-        } else {
-            window.location = './picture.html';
-        }
-    });
-})
+//     saveData().then((message) => {
+//         message = JSON.parse(message);
+//         if (message['result'] == false) {
+//             console.log(`ERRORE`);
+//             //TODO show error message
+//         } else {
+//             window.location = './picture.html';
+//         }
+//     });
+// })
 
-saveData = function () {
-    console.log(`salvo i dati`);
-    return $.post("../core/operation.php", {
-        op: "saveData",
-        name: localStorage.getItem('name'),
-        nation: localStorage.getItem('nation'),
-        sex: localStorage.getItem('sex'),
-        code: localStorage.getItem('code'),
-    }).done((message) => {
-        console.log(`message: ${message}`);
-        // window.location = 'index.html';
-    })
-}
+// saveData = function () {
+//     console.log(`salvo i dati`);
+//     return $.post("../core/operation.php", {
+//         op: "saveData",
+//         name: localStorage.getItem('name'),
+//         nation: localStorage.getItem('nation'),
+//         sex: localStorage.getItem('sex'),
+//         code: localStorage.getItem('code'),
+//     }).done((message) => {
+//         console.log(`message: ${message}`);
+//         // window.location = 'index.html';
+//     })
+// }

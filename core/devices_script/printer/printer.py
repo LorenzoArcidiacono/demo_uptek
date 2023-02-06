@@ -47,7 +47,6 @@ def printer_errorneous_state(prn, error_states=PRINTER_ERROR_STATES):
     return 0
 
 def startPrint():
-    # print('ok1')
     printer_name = "BK-C310(U) 1" # or get_printer_names()[0]
     prn = printer.OpenPrinter(printer_name)
     error = printer_errorneous_state(prn)

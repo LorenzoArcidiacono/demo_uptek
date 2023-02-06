@@ -3,6 +3,7 @@
 if (isset($_GET['op']) && $_GET['op'] == 'barcode') {
     $command = escapeshellcmd('./devices_script/scanner/readBarCode.py');
     $output = shell_exec('python ' . $command); 
+    // check if error occurred
     if(!isset($output)|| (strpos($output, 'error')>=0 && strpos($output, 'error') !== false) || $output == "\n"){
         if($output == "\n"){
             echo json_encode(['result'=>false, 'data'=>'Error while reading bar code']);
@@ -18,6 +19,7 @@ if (isset($_GET['op']) && $_GET['op'] == 'barcode') {
 else if (isset($_GET['op']) && $_GET['op'] == 'info') {
     $command = escapeshellcmd('./devices_script/scanner/getUserData.py');
     $output = shell_exec('python ' . $command.' '.$_GET['type'] );
+    // check if error occurred
     if(!isset($output)|| (strpos($output, 'error')>=0 && strpos($output, 'error') !== false )){
         if($output == null){
             echo json_encode(['result'=>false, 'data'=>'Error while reading OCR code']);
@@ -37,12 +39,10 @@ else if (isset($_GET['op']) && $_GET['op'] == 'info') {
 
 //PRINT RECEIPT
 else if (isset($_POST['op']) && $_POST['op'] == 'print') {
-    // echo $_GET['name'].','. $_GET['nation'].','. $_GET['sex'].','. $_GET['code'];
     $command = escapeshellcmd('./devices_script/printer/printer.py');
     $output = shell_exec('python ' . $command . ' ' . $_POST['name'] . ' ' .  $_POST['room']);
     
-    // echo 'recived:'.$output;
-
+    // check if error occurred
     if(!isset($output)|| (strpos($output, 'error')>=0 && strpos($output, 'error') !== false)){
         echo json_encode(['result'=>false, 'data'=>$output]);
     }else{
@@ -67,7 +67,7 @@ else if (isset($_POST['op']) && $_POST['op'] == 'saveData') {
     }
     // close the file
     fclose($f);
-    echo json_encode(['result'=>true, 'data'=>''.$_POST['room']]);
+    echo json_encode(['result'=>true, 'data'=>'Data saved successfully']);
 
 } 
 

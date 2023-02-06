@@ -1,3 +1,5 @@
+
+// Set value to display
 $('.name').text(localStorage.getItem('name'))
 $('.room-number').text(localStorage.getItem('room'))
 
@@ -16,7 +18,7 @@ $('.page-9 .next-button').click(() => {
 })
 
 $('.page-11 .home-button').click(() => {
-    // clean up
+    // clean up user's information
     localStorage.removeItem('name');
     localStorage.removeItem('date');
     localStorage.removeItem('room');
@@ -27,7 +29,7 @@ $('.page-11 .home-button').click(() => {
     window.location = 'index.html'
 })
 
-// loader animation
+// printer's loader animation
 startLoader = function () {
     let animation_time = 4000;
     let percentage = 0;
@@ -47,7 +49,7 @@ startLoader = function () {
     }, animation_time / 100)
 }
 
-
+// prints the receipt
 printInformation = function () {
     console.log('Start Print')
     $.post("../core/operation.php", {
@@ -55,13 +57,10 @@ printInformation = function () {
         name: localStorage.getItem('name'),
         room: localStorage.getItem('room'),
     }).done((message) => {
-        console.log(`message: ${message}`);
         message = JSON.parse(message);
         if (message['result'] == false) {
             console.log(`${message['data']}`);
             //TODO show error message
-        } else {
-            // window.location = 'index.html';
         }
     })
 }

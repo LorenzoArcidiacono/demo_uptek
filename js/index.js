@@ -1,9 +1,8 @@
-$('.main-container').css('background-image', 'url("../assets/bkg-hotel.png")')
 
 let idle_timeout = 5000;
 // let animation_delay = 1000;
 
-// start slider after 5s
+// start slider after idle_timeout milliseconds
 let slider_timeout = setTimeout(() => window.location = './slider.html', idle_timeout)
 
 
@@ -30,7 +29,6 @@ $('.select-button').on('click', () => {
     //delete timeout
     clearTimeout(slider_timeout)
     
-
     if (!open) {
         $('.select-dropdown').animate({
             height: '320px',
@@ -53,7 +51,6 @@ $('.select-button').on('click', () => {
 
 swapTo = function (id) {
 
-    console.log('click');
     $('.select-button .selected').removeClass('selected');
     $(`.select-button #${id}`).addClass('selected');
 
