@@ -1,3 +1,5 @@
+@use "base" as *;
+
 /* --- UTILITY --- */
 .hidden {
     display: none !important;
@@ -12,9 +14,19 @@
 }
 
 .touch-overlay {
-    width: 100%;
-    height: 100%;
+    width: 1080px;
+    height: 1920px;
     background-color:transparent;
     position: fixed;
     z-index: 3;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items:flex-start;
+
+    .icon-overlay{
+        color: $orange;
+        margin-top: 130px;
+        margin-right: 130px;
+    }
 }
