@@ -1,5 +1,5 @@
+// Animation to swap between teo pages
 swapPages = function(from,to,time=400){
-    // console.log('swap');
     let animation_time = time;
     $(to).css('width', '0');
     $(from).animate({

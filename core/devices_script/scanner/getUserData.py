@@ -27,7 +27,6 @@ try:
     ser = serial.Serial( port="COM130", baudrate=9600, bytesize=8, timeout=4, stopbits=serial.STOPBITS_ONE )
 except:
     print ('error while opening serial port')
-# print(sys.argv[1])
 
 ser.write(b'\x16M\rallena0!') #disable all symbols
 ser.read(10)
@@ -40,7 +39,6 @@ ser.write(b'\x16T\r') #trigger command SYN T CR
 
 r = ser.readline() #wait timeout before exit
 line = r.decode('utf8')
-# print('OCR:'+line)
 
 ser.write(b'\x16U\r') #release trigger command SYN U CR
 
