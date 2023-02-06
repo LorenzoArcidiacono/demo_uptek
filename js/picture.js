@@ -60,6 +60,9 @@ $('.page-6 .photo-button').click(() => {
 
 $('.page-6 .next-button').click(() => {
     //TODO save all info & photo
+    if(!checkValues()){
+        return;
+    }
     var room = Math.floor(Math.random() * 300).toString().padStart(3, '0')
 
     localStorage.setItem('name', $('#name').text());
@@ -76,6 +79,9 @@ $('.page-6 .next-button').click(() => {
 
 })
 
+
+// UTILITY FUNCTIONS
+
 showPicture = function () {
     $('.page-6 #picture').attr('src', picture)
 }
@@ -91,6 +97,21 @@ displayModal = function (identifier) {
 saveValue = function () {
     $(lastId).text($('.modal #text').val())
     $('.modal').addClass('hidden')
+}
+
+checkValues = function(){
+    var check = true;
+    var identifiers = ['name', 'sex','date','nation', 'code']
+    identifiers.forEach(id => {
+        console.log($('#'+id).text())
+        if($('#'+id).text() == ''){
+            check = false;
+            $('#'+id+'+ span').css('color','red');
+        }else{
+            $('#'+id+'+ span').css('color','#414141');
+        }
+    });
+    return check;
 }
 
 // WEBCAM
