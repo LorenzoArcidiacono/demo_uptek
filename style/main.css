@@ -82,6 +82,9 @@ fieldset .material-symbols-outlined {
   justify-content: center;
   align-items: center;
 }
+.circle-button:disabled, .circle-button-photo:disabled, .large-circle-button:disabled {
+  background-color: #803910;
+}
 
 .camera-button {
   width: 220px;
@@ -344,7 +347,7 @@ fieldset .material-symbols-outlined {
 }
 
 .orange-card {
-  background-image: url("../assets/card-orange-2-bkg.svg");
+  background-image: url("../assets/card-orange-bkg.png");
   z-index: 40;
 }
 
