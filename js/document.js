@@ -70,7 +70,7 @@ $('.page-4 .start-button').click(() => {
         localStorage.setItem('date', date);
         localStorage.setItem('code', message['code']);
 
-        window.location = 'picture.html';
+        // window.location = 'picture.html';
     })
     swapPages('.page-4', '.page-5');
     // fare await della scann -> salvare sul local storage e quando torna cambiare pagina
@@ -97,6 +97,7 @@ startScan = async function () {
         await $.get("../core/operation.php", {
             op: "barcode"
         }, ).done((message) => {
+            // console.log(' message: ' + message)
             message = JSON.parse(message);
             //error while reading
             if (message['result'] == false) {
@@ -111,10 +112,12 @@ startScan = async function () {
     // scan user information
     console.log(`scan user info`);
     result = await readUserInfo();
+    // console.log(`result: ${result}`);
     result = JSON.parse(result);
 
     var answer = {}
     if (result['result'] == false) {
+        console.log(result['data']);
         // displayReadValues('','','',code)
         answer = {
             name: '',

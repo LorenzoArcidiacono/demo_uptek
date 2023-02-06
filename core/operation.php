@@ -2,14 +2,31 @@
 // READ BARCODE
 if (isset($_GET['op']) && $_GET['op'] == 'barcode') {
     $command = escapeshellcmd('./devices_script/scanner/readBarCode.py');
-    $output = shell_exec('python ' . $command);
-    echo json_encode(['result'=>true, 'data'=>$output]);
+    $output = shell_exec('python ' . $command); 
+    if(!isset($output)|| (strpos($output, 'error')>=0 && strpos($output, 'error') !== false) || $output == "\n"){
+        if($output == "\n"){
+            echo json_encode(['result'=>false, 'data'=>'Error while reading bar code']);
+        }else{
+            echo json_encode(['result'=>false, 'data'=>$output]);
+        }
+    }else{
+        echo json_encode(['result'=>true, 'data'=>$output]);
+    }
 } 
 
 // READ MRZ
 else if (isset($_GET['op']) && $_GET['op'] == 'info') {
     $command = escapeshellcmd('./devices_script/scanner/getUserData.py');
     $output = shell_exec('python ' . $command.' '.$_GET['type'] );
+    if(!isset($output)|| (strpos($output, 'error')>=0 && strpos($output, 'error') !== false )){
+        if($output == null){
+            echo json_encode(['result'=>false, 'data'=>'Error while reading OCR code']);
+            return;
+        }else{
+            echo json_encode(['result'=>false, 'data'=>$output]);
+            return;
+        }
+    }
     if (isset($output)) {
         $list = explode(' ', $output);
         echo json_encode(['result'=>true, 'data'=>$list]);

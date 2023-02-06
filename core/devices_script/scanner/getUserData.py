@@ -23,10 +23,10 @@ def retriveInformationPassport(mrz):
 
     print(fields.name,fields.surname,fields.sex,get_country(fields.country), fields.birth_date)
 
-
-ser = serial.Serial( port="COM130", baudrate=9600, bytesize=8, timeout=4, stopbits=serial.STOPBITS_ONE )
-
-
+try:
+    ser = serial.Serial( port="COM130", baudrate=9600, bytesize=8, timeout=4, stopbits=serial.STOPBITS_ONE )
+except:
+    print ('error while opening serial port')
 # print(sys.argv[1])
 
 ser.write(b'\x16M\rallena0!') #disable all symbols
