@@ -12,7 +12,7 @@
   - operation.php: riceve le chiamate AJAX e lancia gli script python
   - devices_script:
     - printer:
-      - input.txt && output.txt: testo del biglietto da stampare
+      - input.txt && output.txt: testo del biglietto da stampare $NAME$ e $ROOM$ vengono cambiati a run time con quelli corretti
       - printer.py: script per la stampante
     - scanner:
       - getUserData.py: script per la lettura del codice MRZ presente sui documenti
@@ -34,13 +34,13 @@
   
 ## Da sistemare
 
-[ ] centratura logo
-[ ] traduzioni
-[ ] bordo pagination
-[ ] avvio lettore in automatico oppure timeout all'avvio
-[ ] finto documento (?)
-[ ] bottone indietro sul lettura documento non funzione
-[ ] pagination bordi
-[ ] no matite, input text
-[x] posizione touch icon 
-[x] bloccare zoom
+- [ ] centratura logo
+- [ ] traduzioni
+- [ ] bordo pagination
+- [ ] avvio lettore in automatico oppure timeout all'avvio
+- [ ] finto documento (?)
+- [ ] bottone indietro sul lettura documento non funzione
+- [ ] pagination bordi
+- [ ] no matite, input text
+- [x] posizione touch icon 
+- [x] bloccare zoom
