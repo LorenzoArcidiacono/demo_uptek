@@ -303,7 +303,7 @@ body {
     background-image: url("../assets/page-1-bkg.svg");
 
     .done-button{
-        @include circle(180px)
+        @include circle(150px)
     }
     .pagination{
         margin-bottom: 50px;

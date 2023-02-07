@@ -386,7 +386,7 @@ input[type=text]:focus {
   position: fixed;
   top: 0;
   z-index: 20;
-  background-color: #414141c1;
+  background-color: rgba(65, 65, 65, 0.7568627451);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -735,7 +735,7 @@ body {
   background-image: url("../assets/page-1-bkg.svg");
 }
 .page-8 .done-button {
-  width: 180px;
+  width: 150px;
   aspect-ratio: 1/1;
   border-radius: 200px;
 }
