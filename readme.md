@@ -48,3 +48,5 @@
 - [ ] sistemare paginazione
 - [ ] check valori form
 - [ ] collegare tutti i bottoni
+- [ ] salvare csv
+- [ ] salvare immagine
