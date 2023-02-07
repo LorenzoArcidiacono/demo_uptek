@@ -502,6 +502,8 @@ body {
   height: 150px;
   border-radius: 30px;
   margin-bottom: 170px;
+  display: flex;
+  justify-content: space-evenly;
 }
 .page-2 .list {
   margin-top: 80px;
