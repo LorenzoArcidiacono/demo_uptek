@@ -1,8 +1,11 @@
 # Demo UpTek
 
 ## Informazioni generali
+
 - pin per accedere a window: 8468
 - collegare tutti i devices tramite porte usb e collegare la stampante all'alimentatore (cavo rosso e nero )
+- lanciare xampp e far partire il server
+- andare su localhost/demo_uptek/app/
 
 ## Struttura cartelle
 - app: contiene i file HTML
