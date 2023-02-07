@@ -13,11 +13,14 @@ $('.pagination .back-button').click(() => {
 
 $('#scan-card').click(() => {
     type = 'card';
+    $('#barcode-scan-image').addClass("card");
     scanAndSave();
     swapPages('.page-3', '.page-5');
+    $('#barcode-scan-image').addClass("card");
 })
 $('#scan-passport').click(() => {
     type = 'passport';
+    $('#barcode-scan-image').addClass("passport");
     scanAndSave();
     swapPages('.page-3', '.page-5');
 })

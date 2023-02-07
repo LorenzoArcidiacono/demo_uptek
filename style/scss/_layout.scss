@@ -127,15 +127,27 @@ body {
     text-align: center;
     background-image: url("../assets/page-1-bkg.svg");
 
-    .desc {
-        margin-top: 300px;
-    }
     .corner-border {
         margin-top: 80px;
 
         .barcode-scan {
             z-index: 2;
             position: fixed;
+        }
+    }
+
+    .stream {
+        .line {
+            background: $light-gray;
+        }
+        .circle-button:not(.selected) {
+            border: 5px solid $light-gray;
+            background-color: transparent;
+
+            &.past {
+                background: $light-gray;
+                border: 5px solid $light-gray;
+            }
         }
     }
 }
