@@ -8,25 +8,93 @@ let type = ''
 
 // BUTTONS LINK
 $('.pagination .back-button').click(() => {
-    console.log(`click`);
     history.back()
 })
 
 $('#scan-card').click(() => {
     type = 'card';
-    swapPages('.page-3', '.page-4');
+    scanAndSave();
+    swapPages('.page-3', '.page-5');
 })
 $('#scan-passport').click(() => {
     type = 'passport';
-    swapPages('.page-3', '.page-4');
+    scanAndSave();
+    swapPages('.page-3', '.page-5');
 })
 
-$('.page-4 .back-button').click(() => {
-    swapPages('.page-4', '.page-3');
-})
+// $('.page-4 .back-button').click(() => {
+//     swapPages('.page-4', '.page-3');
+// })
 
-$('.page-4 .start-button').click(() => {
-    //async
+// $('.page-4 .start-button').click(() => {
+//     //async
+//     startScan().then((message) => {
+//         // console.log(`message: ${JSON.stringify(message)}`);
+
+//         // from YYMMDD to DD.MM.YY
+//         let date = '';
+//         if (message['date'] != undefined && message['date'] != '') {
+//             date = message['date'].match(/.{1,2}/g)??[];
+//             date = date[2] + '.' + date[1] + '.' + date[0]
+//         }
+
+//         // Lower case name and surname
+//         let name = '';
+//         if (message['name'] != undefined && message['name'] != '') {
+//             name = message['name'].split(' ');
+//             name[0] = name[0][0].toUpperCase() + name[0].slice(1).toLowerCase();
+//             name[1] = name[1][0].toUpperCase() + name[1].slice(1).toLowerCase();
+//             name = name.join(' ');
+//         } 
+
+//         // from nation to nationality
+//         let nation = '';
+//         if (message['nation'] != undefined && message['nation'] != '') {
+//             switch (message['nation']) {
+//                 case 'Italy':
+//                     nation = "Italiana";
+//                     break;
+//             }
+//         }
+
+//         let sex = '';
+//         if (message['sex'] != undefined && message['sex'] != '') {
+//             switch (message['sex']) {
+//                 case 'M':
+//                     sex = 'Uomo';
+//                     break;
+//                 case 'F':
+//                     sex = 'Donna';
+//                     break;
+//             }
+//         }
+
+//         // Save all on local storage 
+//         localStorage.setItem('name', name);
+//         localStorage.setItem('sex', sex);
+//         localStorage.setItem('nation', nation);
+//         localStorage.setItem('date', date);
+//         localStorage.setItem('code', message['code']);
+        
+//         window.location = 'picture.html';
+//     })
+
+//     // show scanner loader
+//     swapPages('.page-4', '.page-5');
+// })
+
+// modal button
+// $('.page-4 .help-button').click(() => {
+//     $('.page-4 .modal').removeClass('hidden');
+// })
+
+// $('.page-4 .close-modal').click(() => {
+//     $('.page-4 .modal').addClass('hidden');
+// })
+
+// SCANNER
+
+scanAndSave = function(){
     startScan().then((message) => {
         // console.log(`message: ${JSON.stringify(message)}`);
 
@@ -77,21 +145,8 @@ $('.page-4 .start-button').click(() => {
         
         window.location = 'picture.html';
     })
+}
 
-    // show scanner loader
-    swapPages('.page-4', '.page-5');
-})
-
-// modal button
-$('.page-4 .help-button').click(() => {
-    $('.page-4 .modal').removeClass('hidden');
-})
-
-$('.page-4 .close-modal').click(() => {
-    $('.page-4 .modal').addClass('hidden');
-})
-
-// SCANNER
 
 startScan = async function () {
     var code = '';
