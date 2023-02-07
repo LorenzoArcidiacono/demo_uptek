@@ -17,15 +17,14 @@ p {
 }
 
 input[type="text"] {
-    width: 700px;
-    text-align: center;
-    height: fit-content;
+    width: 575px;
+    height: 84px;
     border: none;
-
-    background-color: transparent;
-    @include font-dimension(600, 48px);
-    color: $dark-gray;
-    text-overflow: ellipsis;
+    border-radius: 10px;
+    background-color: $light-gray;
+    @include font-dimension(400, 32px);
+    color: white;
+    padding-left:40px ;
 }
 
 input[type="text"]:focus {
@@ -33,31 +32,40 @@ input[type="text"]:focus {
     border: none;
 }
 
-fieldset {
-    border: none;
+.form {
+    
+    background-color: $blue;
+    border-radius: 20px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    text-align: start;
-    gap: 30px;
+    row-gap: 20px;
+    padding-top: 40px;
 
-    legend {
-        color: $dark-gray;
-        text-align: left;
-        @include font-dimension(600, 48px);
-        margin-bottom: 30px;
-    }
+    fieldset {
+        border: none;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        text-align: start;
+        // gap: 30px;
 
-    p {
-        @include font-dimension(400, 48px);
-        width: 300px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+        legend {
+            color: white;
+            // text-align: left;
+            @include font-dimension(600, 32px);
+            margin-bottom: 25px;
+        }
 
-    .material-symbols-outlined {
-        transform: scale(2);
-        font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
+        input[type="text"]{
+            color: $dark-gray;
+        }
+
+        .material-symbols-outlined {
+            transform: scale(2);
+            font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
+        }
     }
 }
 
@@ -67,8 +75,21 @@ fieldset {
     @include circle(145px);
     @include base-button($orange, white);
 
-    &:disabled{
+    &:disabled {
         background-color: $dark-orange;
+    }
+}
+
+.pill-button{
+    width: 224px;
+    height: 116px;
+    border-radius: 77px;
+    background-color: $orange;
+    color: $light-gray;
+    border: none;
+
+    span{
+        @include font-dimension(500,48px)
     }
 }
 
@@ -460,11 +481,11 @@ fieldset {
     &::after {
         content: "";
         display: block;
-        width: 64%;
+        width: 70%;
         height: 0;
-        padding-bottom: 70%;
+        padding-bottom: 65%;
         position: absolute;
-        top: 40%;
+        top: 50%;
         left: 50%;
         z-index: 2;
         transform: translate(-50%, -50%);

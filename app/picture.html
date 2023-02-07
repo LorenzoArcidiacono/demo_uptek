@@ -25,7 +25,7 @@
                     onclick="saveValue()">chevron_right</span></button>
         </div>
         <div class="first-header ">
-            <h1>Ecco il tuo documento!</h1>
+            <h1>Ecco i tuoi dati</h1>
             <p class="desc">Correggi eventuali errori</p>
             <div class="pagination">
                 <button class="icon-button back-button"><span class="material-symbols-outlined">chevron_left</span></button>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="empty-div-small"></div>
             </div>
-            <button class="circle-button-photo"><img src="../assets/icons/camera.svg" alt=""></button>
+            <!-- <button class="circle-button-photo"><img src="../assets/icons/camera.svg" alt=""></button> -->
         </div>
         <div class="second-header hidden">
             <button class="circle-button photo-button"><img src="../assets/icons/camera.svg" alt=""></button>
@@ -50,39 +50,37 @@
             <button class="circle-button next-button"><span
                     class="material-symbols-outlined">chevron_right</span></button>
         </div>
-        <fieldset>
-            <p id="name">Chiara Rossi</p>
-            <span class="material-symbols-outlined " onclick="displayModal('#name')">edit</span>
-        </fieldset>
-        <div class="information">
+        <div class="form">
             <fieldset>
-                <legend>Sesso</legend>
-                <p id="sex">Donna</p>
-                <span class="material-symbols-outlined" onclick="displayModal('#sex')">edit</span>
+                <legend>Nome e cognome</legend>
+                <input type="text" id="name" value="Chiara Rossi">
             </fieldset>
             <fieldset>
-                <legend>Data di nascita</legend>
-                <p id="date">11.03.1997</p>
-                <span class="material-symbols-outlined" onclick="displayModal('#date')">edit</span>
+                <legend>Sesso</legend>
+                <input type="text" id="sex" value="Donna">
             </fieldset>
             <fieldset>
                 <legend>Nazionalità</legend>
-                <p id="nation">Italiana</p>
-                <span class="material-symbols-outlined" onclick="displayModal('#nation')">edit</span>
+                <input type="text" id="nation" value="Italiana">
+            </fieldset>
+            <fieldset>
+                <legend>Data di nascita</legend>
+                <input type="text" id="date" value="11.01.96">
             </fieldset>
             <fieldset>
                 <legend>Codice fiscale</legend>
-                <p id="code">RCDLNZ96A11G702A</p>
-                <span class="material-symbols-outlined" onclick="displayModal('#code')">edit</span>
+                <input type="text" id="code" value="rcdlnz96a11g702">
             </fieldset>
         </div>
+        <button class="circle-button done-button"><span
+            class="material-symbols-outlined">done</span></button>
+        
     </div>
     </div>
     <div class="page-7 hidden">
         <div class="modal help-modal hidden">
             <div class="card">
-                <p>Posizionati di fronte alla fotocamera inquadrando il volto al centro del riquadro contrassegnato e
-                    scatta</p>
+                <p>Posizionati di fronte alla fotocamera</p>
             </div>
             <button class="circle-button close-modal"><span class="material-symbols-outlined">chevron_right</span></button>
         </div>
@@ -91,18 +89,43 @@
             <div class="display">
                 <p>Posizionati davanti alla telecamera</p>
                 <div class="camera-blur"></div>
+                <div class="pagination">
+                    <button class="icon-button back-button"><span class="material-symbols-outlined">chevron_left</span></button>
+                    <div class="stream">
+                        <div class="line"></div>
+                        <button class="circle-button"></button>
+                        <button class="circle-button selected"></button>
+                        <button class="circle-button"></button>
+                        <button class="circle-button"></button>
+                        <button class="circle-button"></button>
+                    </div>
+                    <div class="empty-div-small"></div>
+                </div>
                 <div class="corner-border"></div>
                 <div class="button-container">
-                    <button class="circle-button back-button"><span
-                            class="material-symbols-outlined">chevron_left</span></button>
+                    <!-- <button class="circle-button back-button"><span
+                            class="material-symbols-outlined">chevron_left</span></button> -->
                     <div class="camera-button"><button class="circle-button snap-photo"></button></div>
-                    <button class="circle-button help-button"><img src="../assets/icons/question.svg" alt=""></button>
+                    <!-- <button class="circle-button help-button"><img src="../assets/icons/question.svg" alt=""></button> -->
                 </div>
             </div>
         </div>
     </div>
     <div class="page-8 hidden">
         <p>Scegli o scatta nuovamente la foto</p>
+        <div class="pagination">
+            <button class="icon-button back-button"><span class="material-symbols-outlined">chevron_left</span></button>
+            <div class="stream">
+                <div class="line"></div>
+                <button class="circle-button"></button>
+                <button class="circle-button selected"></button>
+                <button class="circle-button"></button>
+                <button class="circle-button"></button>
+                <button class="circle-button"></button>
+                <button class="circle-button"></button>
+            </div>
+            <div class="empty-div-small"></div>
+        </div>
         <div class="square-element">
             <canvas id="canvas" class="d-none"></canvas>
         </div>

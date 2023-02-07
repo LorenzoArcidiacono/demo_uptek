@@ -7,10 +7,10 @@ $('#code').text(localStorage.getItem('code'))
 
 
 // BUTTON LINKS
-$('.pagination .back-button').click(() => history.back())
+$('.pagination .back-button').click(() => window.location = './document.html')
 
 // Start webcam button
-$('.circle-button-photo').click(async () => {
+$('.page-6 .done-button').click(async () => {
     var result = await startWebcam()
     if(result == false){
         $('.page-6 .photo-button img').attr('src','../assets/icons/camera_error.svg').attr('disabled','disabled')
