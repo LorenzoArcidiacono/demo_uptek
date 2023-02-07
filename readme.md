@@ -2,10 +2,10 @@
 
 ## Informazioni generali
 - pin per accedere a window: 8468
-- collegare tutti i devices tramite porte usb e collegare la stampante al alimentatore (cavo rosso e nero )
+- collegare tutti i devices tramite porte usb e collegare la stampante all'alimentatore (cavo rosso e nero )
 
 ## Struttura cartelle
-- app : contiene i file HTML
+- app: contiene i file HTML
 - assets:
   - icons
 - core:
