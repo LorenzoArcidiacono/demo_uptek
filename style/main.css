@@ -26,15 +26,15 @@ p {
 }
 
 input[type=text] {
-  width: 700px;
-  text-align: center;
-  height: fit-content;
+  width: 575px;
+  height: 84px;
   border: none;
-  background-color: transparent;
-  font-weight: 600;
-  font-size: 48px;
-  color: #414141;
-  text-overflow: ellipsis;
+  border-radius: 10px;
+  background-color: #eeeeee;
+  font-weight: 400;
+  font-size: 32px;
+  color: white;
+  padding-left: 40px;
 }
 
 input[type=text]:focus {
@@ -42,29 +42,33 @@ input[type=text]:focus {
   border: none;
 }
 
-fieldset {
+.form {
+  background-color: #103ce9;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  row-gap: 20px;
+  padding-top: 40px;
+}
+.form fieldset {
   border: none;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   text-align: start;
-  gap: 30px;
 }
-fieldset legend {
-  color: #414141;
-  text-align: left;
+.form fieldset legend {
+  color: white;
   font-weight: 600;
-  font-size: 48px;
-  margin-bottom: 30px;
+  font-size: 32px;
+  margin-bottom: 25px;
 }
-fieldset p {
-  font-weight: 400;
-  font-size: 48px;
-  width: 300px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.form fieldset input[type=text] {
+  color: #414141;
 }
-fieldset .material-symbols-outlined {
+.form fieldset .material-symbols-outlined {
   transform: scale(2);
   font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
 }
@@ -84,6 +88,19 @@ fieldset .material-symbols-outlined {
 }
 .circle-button:disabled, .circle-button-photo:disabled, .large-circle-button:disabled {
   background-color: #be5518;
+}
+
+.pill-button {
+  width: 224px;
+  height: 116px;
+  border-radius: 77px;
+  background-color: #ff721f;
+  color: #eeeeee;
+  border: none;
+}
+.pill-button span {
+  font-weight: 500;
+  font-size: 48px;
 }
 
 .camera-button {
@@ -457,7 +474,7 @@ html {
 }
 
 body {
-  outline: 100px solid rgba(255, 0, 0, 0);
+  outline: 100px solid rgba(255, 0, 0, 0.345);
   width: 1080px !important;
   height: 1920px !important;
   margin: 0;
@@ -493,11 +510,11 @@ body {
 .page-1 p {
   width: 680px;
 }
-.page-1 .circle-button {
+.page-1 .pill-button {
   position: fixed;
   top: 1500px;
 }
-.page-1 .circle-button span {
+.page-1 .pill-button span {
   margin-left: 7px;
 }
 
@@ -513,13 +530,15 @@ body {
   height: 150px;
   border-radius: 30px;
   margin-bottom: 170px;
+  display: flex;
+  justify-content: space-evenly;
 }
 .page-2 .list {
   margin-top: 80px;
 }
 .page-2 button {
   position: fixed;
-  top: 1080px;
+  top: 885px;
 }
 .page-2 button span {
   margin-left: 7px;
@@ -565,7 +584,6 @@ body {
 }
 
 .page-6 {
-  background-image: url("../assets/page-6-bkg.svg");
   background-size: contain;
   color: #414141;
   text-align: center;
@@ -610,15 +628,6 @@ body {
 .page-6 .second-header .next-button span {
   margin-left: 7px;
 }
-.page-6 #name {
-  width: auto;
-  max-width: 900px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-weight: 600;
-  font-size: 72px;
-}
 .page-6 .information {
   margin-left: 100px;
   display: flex;
@@ -628,6 +637,15 @@ body {
   align-items: flex-start;
   row-gap: 100px;
   column-gap: 100px;
+}
+.page-6 .form {
+  width: 824px;
+  height: 1050px;
+}
+.page-6 .done-button {
+  position: fixed;
+  top: 1575px;
+  z-index: 3;
 }
 
 .page-7 {
@@ -662,6 +680,10 @@ body {
   position: fixed;
   top: 200px;
 }
+.page-7 .camera .display .pagination {
+  position: fixed;
+  top: 445px;
+}
 .page-7 .camera .display .corner-border {
   position: fixed;
   z-index: 11;
@@ -674,8 +696,25 @@ body {
   text-align: center;
   background-image: url("../assets/page-1-bkg.svg");
 }
+.page-8 .done-button {
+  width: 180px;
+  aspect-ratio: 1/1;
+  border-radius: 200px;
+}
+.page-8 .pagination {
+  margin-bottom: 50px;
+}
+.page-8 .pagination .line {
+  background-color: #eeeeee;
+}
+.page-8 .pagination .icon-button {
+  color: #d7defb;
+}
+.page-8 .pagination .circle-button {
+  border-color: #eeeeee;
+}
 .page-8 p {
-  margin-top: 100px;
+  margin-top: 70px;
   width: 460px;
 }
 .page-8 .square-element {
@@ -775,7 +814,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 70px;
+  gap: 130px;
 }
 
 /* --- UTILITY --- */
