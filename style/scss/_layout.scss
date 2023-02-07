@@ -258,13 +258,26 @@ body {
                 text-align: center;
                 z-index: 11;
                 position: fixed;
-                top: 200px;
+                top: 227px;
             }
 
             .pagination{
                 position: fixed;
                 top: 445px;
                 z-index: 2;
+
+                .stream {
+                    .line {
+                        background: $light-gray;
+                    }
+                    .circle-button:not(.selected) {
+                        border: 5px solid $light-gray;
+                    }
+                }
+
+                .back-button {
+                    color: $light-gray;
+                }
             }
 
             .corner-border {
@@ -303,7 +316,7 @@ body {
 
     p {
         margin-top: 70px;
-        width: 460px;
+        width: 470px;
     }
     .square-element {
         width: 695px;

@@ -701,12 +701,21 @@ body {
   text-align: center;
   z-index: 11;
   position: fixed;
-  top: 200px;
+  top: 227px;
 }
 .page-7 .camera .display .pagination {
   position: fixed;
   top: 445px;
   z-index: 2;
+}
+.page-7 .camera .display .pagination .stream .line {
+  background: #eeeeee;
+}
+.page-7 .camera .display .pagination .stream .circle-button:not(.selected) {
+  border: 5px solid #eeeeee;
+}
+.page-7 .camera .display .pagination .back-button {
+  color: #eeeeee;
 }
 .page-7 .camera .display .corner-border {
   position: fixed;
@@ -739,7 +748,7 @@ body {
 }
 .page-8 p {
   margin-top: 70px;
-  width: 460px;
+  width: 470px;
 }
 .page-8 .square-element {
   width: 695px;
