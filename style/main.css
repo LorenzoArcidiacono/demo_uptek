@@ -571,7 +571,6 @@ body {
 }
 
 .page-6 {
-  background-image: url("../assets/page-6-bkg.svg");
   background-size: contain;
   color: #414141;
   text-align: center;
@@ -632,7 +631,7 @@ body {
 }
 .page-6 .done-button {
   position: fixed;
-  top: 1750px;
+  top: 1575px;
   z-index: 3;
 }
 

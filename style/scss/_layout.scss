@@ -142,7 +142,7 @@ body {
 
 .page-6 {
     @extend .flex-layout;
-    background-image: url("../assets/page-6-bkg.svg");
+    // background-image: url("../assets/page-6-bkg.svg");
     background-size: contain;
     color: $dark-gray;
     text-align: center;
@@ -220,7 +220,7 @@ body {
 
     .done-button {
         position: fixed;
-        top: 1750px;
+        top: 1575px;
         z-index: 3;
     }
 }
