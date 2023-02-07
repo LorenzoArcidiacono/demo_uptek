@@ -1,5 +1,5 @@
 
-let idle_timeout = 5000;
+let idle_timeout = 60000;
 // let animation_delay = 1000;
 
 // start slider after idle_timeout milliseconds
