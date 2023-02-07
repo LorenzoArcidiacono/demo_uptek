@@ -794,11 +794,11 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-right: -250px;
+  margin-right: -200px;
 }
 .touch-overlay .touch-icon-bkg .icon-overlay {
   color: black;
-  margin-left: 80px;
+  margin-left: 100px;
 }
 
 /* sass --watch idea/style:idea/ */
