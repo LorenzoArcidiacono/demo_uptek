@@ -264,6 +264,7 @@ body {
             .pagination{
                 position: fixed;
                 top: 445px;
+                z-index: 2;
             }
 
             .corner-border {
@@ -271,7 +272,7 @@ body {
                 z-index: 11;
                 width: 700px;
                 height: 700px;
-                top: 400px;
+                top: 609px;
             }
         }
     }
