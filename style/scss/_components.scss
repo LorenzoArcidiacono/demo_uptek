@@ -196,22 +196,34 @@ fieldset {
         height: 80px;
     }
     .stream {
-        width: 469px;
-        height: 120px;
-        border: 3px solid $dark-gray;
+        position: relative;
+        width: 576px;
+        height: 50px;
         padding: 0;
-        border-radius: 100px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        .line {
+            position: absolute;
+            height: 5px;
+            width: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background: $dark-gray;
+        }
     }
     .circle-button {
-        z-index: 2;
+        width: 40px;
+        height: 40px;
+        background-color: $orange;
         @include font-dimension(600, 60px);
+        z-index: 2;
     }
     .circle-button:not(.selected) {
-        background-color: transparent;
-        color: $dark-gray;
+        background-color: $light-gray;
+        border: 5px solid $dark-gray;
     }
 }
 
