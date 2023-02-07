@@ -37,7 +37,11 @@ ser.read(10)
 
 ser.write(b'\x16T\r') #trigger command SYN T CR
 
-r = ser.readline() #wait timeout before exit
+# r = ser.readline() #wait timeout before exit
+if sys.argv[1] == 'card':
+    r = ser.read(92) #wait timeout before exit
+else:
+    r = ser.read(89) #wait timeout before exit
 line = r.decode('utf8')
 
 ser.write(b'\x16U\r') #release trigger command SYN U CR

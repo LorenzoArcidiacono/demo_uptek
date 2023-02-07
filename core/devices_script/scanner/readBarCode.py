@@ -13,7 +13,8 @@ ser.read(10)
 
 ser.write(b'\x16T\r') #trigger
 
-r = ser.readline() 
+# r = ser.readline() 
+r = ser.read(16) 
 code = r.decode('utf8')
 print(code)
 
