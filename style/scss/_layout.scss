@@ -11,7 +11,7 @@ html {
 }
 
 body {
-    outline: 100px solid rgba(255, 0, 0, 0);
+    outline: 100px solid rgba(255, 0, 0, 0.345);
     width: 1080px !important;
     height: 1920px !important;
     margin: 0;
@@ -54,7 +54,7 @@ body {
         position: fixed;
         top: 1500px;
 
-        span{
+        span {
             margin-left: 7px;
         }
     }
@@ -86,7 +86,7 @@ body {
         position: fixed;
         top: 1080px;
 
-        span{
+        span {
             margin-left: 7px;
         }
     }
@@ -113,14 +113,13 @@ body {
         width: 550px;
     }
 
-    .modal{
-        p{
+    .modal {
+        p {
             color: $dark-gray;
             width: 575px;
-            @include font-dimension(400,40px);
+            @include font-dimension(400, 40px);
         }
     }
-    
 }
 
 .page-5 {
@@ -164,14 +163,13 @@ body {
             margin-top: 150px;
             object-fit: contain;
 
-            img{
+            img {
                 width: 900px;
                 position: relative;
                 top: -120px;
                 left: -250px;
                 aspect-ratio: 4/3;
             }
-
         }
         .photo-button {
             position: fixed;
@@ -179,7 +177,7 @@ body {
             top: 320px;
             left: 650px;
 
-            img{
+            img {
                 width: 75px;
                 aspect-ratio: 1/1;
             }
@@ -189,20 +187,20 @@ body {
             top: 1500px;
             left: 455px;
 
-            span{
+            span {
                 margin-left: 7px;
             }
         }
     }
 
-    #name {
-        width: auto;
-        max-width: 900px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        @include font-dimension(600, 72px);
-    }
+    // #name {
+    //     width: auto;
+    //     max-width: 900px;
+    //     white-space: nowrap;
+    //     overflow: hidden;
+    //     text-overflow: ellipsis;
+    //     @include font-dimension(600, 72px);
+    // }
 
     .information {
         margin-left: 100px;
@@ -214,6 +212,17 @@ body {
         row-gap: 100px;
         column-gap: 100px;
     }
+
+    .form {
+        width: 824px;
+        height: 1050px;
+    }
+
+    .done-button {
+        position: fixed;
+        top: 1750px;
+        z-index: 3;
+    }
 }
 
 .page-7 {
@@ -223,11 +232,11 @@ body {
     padding: 0;
     height: 1920px;
 
-    .help-modal{
-        p{
+    .help-modal {
+        p {
             width: 535px;
             color: $dark-gray;
-            @include font-dimension(400,40px);
+            @include font-dimension(400, 40px);
         }
     }
 
@@ -272,12 +281,12 @@ body {
         margin-top: 100px;
         width: 460px;
     }
-    .square-element{
+    .square-element {
         width: 695px;
         height: 695px;
         overflow: hidden;
-        
-        #canvas{
+
+        #canvas {
             position: relative;
             width: 1920px;
             aspect-ratio: 4/3;
@@ -326,7 +335,7 @@ body {
         z-index: 10;
         top: 1600px;
 
-        span{
+        span {
             margin-left: 7px;
         }
     }
