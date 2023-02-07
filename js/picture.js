@@ -1,9 +1,9 @@
 // Initial information displayed
-$('#name').text(localStorage.getItem('name'))
-$('#nation').text(localStorage.getItem('nation'))
-$('#sex').text(localStorage.getItem('sex'))
-$('#date').text(localStorage.getItem('date'))
-$('#code').text(localStorage.getItem('code'))
+$('#name').val(localStorage.getItem('name'))
+$('#nation').val(localStorage.getItem('nation'))
+$('#sex').val(localStorage.getItem('sex'))
+$('#date').val(localStorage.getItem('date'))
+$('#code').val(localStorage.getItem('code'))
 
 
 // BUTTON LINKS
@@ -56,10 +56,17 @@ $('.page-8 .redo-button').click(() => {
 })
 
 $('.page-8 .done-button').click(() => {
-    $('.page-6 .first-header').addClass('hidden')
-    $('.page-6 .second-header').removeClass('hidden')
-    showPicture();
-    swapPages('.page-8', '.page-6')
+    // $('.page-6 .first-header').addClass('hidden')
+    // $('.page-6 .second-header').removeClass('hidden')
+    // showPicture();
+    // swapPages('.page-8', '.page-6')
+    if(picture == undefined){
+        window.location = 'final.html'
+    }else{
+        savePhoto().then(()=>{
+            window.location = 'final.html'
+        });
+    }
 })
 
 $('.page-6 .photo-button').click(() => {
