@@ -60,6 +60,19 @@ $('.page-8 .done-button').click(() => {
     // $('.page-6 .second-header').removeClass('hidden')
     // showPicture();
     // swapPages('.page-8', '.page-6')
+
+    // get a random padded room number 
+    var room = Math.floor(Math.random() * 300).toString().padStart(3, '0')
+
+
+    localStorage.setItem('name', $('#name').val());
+    localStorage.setItem('sex', $('#sex').val());
+    localStorage.setItem('nation', $('#nation').val());
+    localStorage.setItem('date', $('#date').val());
+    localStorage.setItem('code', $('#code').val());
+    localStorage.setItem('room', room);
+
+    saveData();
     if(picture == undefined){
         window.location = 'final.html'
     }else{
