@@ -441,6 +441,10 @@ fieldset .material-symbols-outlined {
   height: 1920px !important;
 }
 
+html {
+  touch-action: none;
+}
+
 body {
   outline: 100px solid rgba(255, 0, 0, 0);
   width: 1080px !important;
@@ -802,6 +806,6 @@ body {
   margin-left: 70px;
 }
 
-/* sass --watch idea/style:idea/ */
+/* sass --watch style/style:style/ */
 
 /*# sourceMappingURL=main.css.map */
