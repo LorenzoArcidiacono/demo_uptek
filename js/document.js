@@ -8,7 +8,7 @@ let type = ''
 
 // BUTTONS LINK
 $('.pagination .back-button').click(() => {
-    history.back()
+    window.location= '../app/index.html';
 })
 
 $('#scan-card').click(() => {

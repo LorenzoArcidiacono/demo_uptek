@@ -90,6 +90,19 @@ input[type=text]:focus {
   background-color: #be5518;
 }
 
+.pill-button {
+  width: 224px;
+  height: 116px;
+  border-radius: 77px;
+  background-color: #ff721f;
+  color: #eeeeee;
+  border: none;
+}
+.pill-button span {
+  font-weight: 500;
+  font-size: 48px;
+}
+
 .camera-button {
   width: 220px;
   aspect-ratio: 1/1;
@@ -497,11 +510,11 @@ body {
 .page-1 p {
   width: 680px;
 }
-.page-1 .circle-button {
+.page-1 .pill-button {
   position: fixed;
   top: 1500px;
 }
-.page-1 .circle-button span {
+.page-1 .pill-button span {
   margin-left: 7px;
 }
 
@@ -525,7 +538,7 @@ body {
 }
 .page-2 button {
   position: fixed;
-  top: 1080px;
+  top: 885px;
 }
 .page-2 button span {
   margin-left: 7px;

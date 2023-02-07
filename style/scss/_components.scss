@@ -80,6 +80,19 @@ input[type="text"]:focus {
     }
 }
 
+.pill-button{
+    width: 224px;
+    height: 116px;
+    border-radius: 77px;
+    background-color: $orange;
+    color: $light-gray;
+    border: none;
+
+    span{
+        @include font-dimension(500,48px)
+    }
+}
+
 .camera-button {
     @include circle(220px);
     border: 10px solid $orange;
