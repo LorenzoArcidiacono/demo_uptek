@@ -241,12 +241,8 @@ input[type=text]:focus {
   align-items: center;
 }
 .pagination .stream .line {
-  position: absolute;
-  height: 5px;
   width: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  height: 5px;
   background: #414141;
 }
 .pagination .circle-button, .pagination .large-circle-button, .pagination .circle-button-photo {
@@ -258,7 +254,11 @@ input[type=text]:focus {
   z-index: 2;
 }
 .pagination .circle-button:not(.selected), .pagination .large-circle-button:not(.selected), .pagination .circle-button-photo:not(.selected) {
-  background-color: #eeeeee;
+  background-color: transparent;
+  border: 5px solid #414141;
+}
+.pagination .circle-button:not(.selected).past, .pagination .large-circle-button:not(.selected).past, .pagination .circle-button-photo:not(.selected).past {
+  background-color: #414141;
   border: 5px solid #414141;
 }
 
@@ -713,6 +713,11 @@ body {
 }
 .page-7 .camera .display .pagination .stream .circle-button:not(.selected) {
   border: 5px solid #eeeeee;
+  background-color: transparent;
+}
+.page-7 .camera .display .pagination .stream .circle-button:not(.selected).past {
+  background: #eeeeee;
+  border: 5px solid #eeeeee;
 }
 .page-7 .camera .display .pagination .back-button {
   color: #eeeeee;
@@ -743,8 +748,16 @@ body {
 .page-8 .pagination .icon-button {
   color: #d7defb;
 }
-.page-8 .pagination .circle-button {
-  border-color: #eeeeee;
+.page-8 .pagination .stream .line {
+  background: #eeeeee;
+}
+.page-8 .pagination .stream .circle-button:not(.selected) {
+  border: 5px solid #eeeeee;
+  background-color: transparent;
+}
+.page-8 .pagination .stream .circle-button:not(.selected).past {
+  background: #eeeeee;
+  border: 5px solid #eeeeee;
 }
 .page-8 p {
   margin-top: 70px;

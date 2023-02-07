@@ -272,6 +272,12 @@ body {
                     }
                     .circle-button:not(.selected) {
                         border: 5px solid $light-gray;
+                        background-color: transparent;
+
+                        &.past {
+                            background: $light-gray;
+                            border: 5px solid $light-gray;
+                        }
                     }
                 }
 
@@ -309,8 +315,19 @@ body {
             color: $light-blue;
         }
 
-        .circle-button{
-            border-color: $light-gray;
+        .stream {
+            .line {
+                background: $light-gray;
+            }
+            .circle-button:not(.selected) {
+                border: 5px solid $light-gray;
+                background-color: transparent;
+
+                &.past {
+                    background: $light-gray;
+                    border: 5px solid $light-gray;
+                }
+            }
         }
     }
 
