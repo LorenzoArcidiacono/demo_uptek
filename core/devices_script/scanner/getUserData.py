@@ -24,7 +24,7 @@ def retriveInformationPassport(mrz):
     print(fields.name,fields.surname,fields.sex,get_country(fields.country), fields.birth_date)
 
 try:
-    ser = serial.Serial( port="COM130", baudrate=9600, bytesize=8, timeout=60, stopbits=serial.STOPBITS_ONE )
+    ser = serial.Serial( port="COM130", baudrate=9600, bytesize=8, timeout=30, stopbits=serial.STOPBITS_ONE )
 except:
     print ('error while opening serial port')
 

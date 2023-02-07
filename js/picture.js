@@ -7,7 +7,7 @@ $('#code').text(localStorage.getItem('code'))
 
 
 // BUTTON LINKS
-$('.pagination .back-button').click(() => window.location = './document.js')
+$('.pagination .back-button').click(() => window.location = './document.html')
 
 // Start webcam button
 $('.circle-button-photo').click(async () => {
