@@ -261,6 +261,11 @@ body {
                 top: 200px;
             }
 
+            .pagination{
+                position: fixed;
+                top: 445px;
+            }
+
             .corner-border {
                 position: fixed;
                 z-index: 11;
@@ -277,8 +282,26 @@ body {
     text-align: center;
     background-image: url("../assets/page-1-bkg.svg");
 
+    .done-button{
+        @include circle(180px)
+    }
+    .pagination{
+        margin-bottom: 50px;
+        .line{
+            background-color: $light-gray;
+        }
+
+        .icon-button{
+            color: $light-blue;
+        }
+
+        .circle-button{
+            border-color: $light-gray;
+        }
+    }
+
     p {
-        margin-top: 100px;
+        margin-top: 70px;
         width: 460px;
     }
     .square-element {
@@ -387,5 +410,5 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 70px;
+    gap: 130px;
 }

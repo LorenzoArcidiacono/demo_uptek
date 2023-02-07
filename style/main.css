@@ -667,6 +667,10 @@ body {
   position: fixed;
   top: 200px;
 }
+.page-7 .camera .display .pagination {
+  position: fixed;
+  top: 445px;
+}
 .page-7 .camera .display .corner-border {
   position: fixed;
   z-index: 11;
@@ -679,8 +683,25 @@ body {
   text-align: center;
   background-image: url("../assets/page-1-bkg.svg");
 }
+.page-8 .done-button {
+  width: 180px;
+  aspect-ratio: 1/1;
+  border-radius: 200px;
+}
+.page-8 .pagination {
+  margin-bottom: 50px;
+}
+.page-8 .pagination .line {
+  background-color: #eeeeee;
+}
+.page-8 .pagination .icon-button {
+  color: #d7defb;
+}
+.page-8 .pagination .circle-button {
+  border-color: #eeeeee;
+}
 .page-8 p {
-  margin-top: 100px;
+  margin-top: 70px;
   width: 460px;
 }
 .page-8 .square-element {
@@ -780,7 +801,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 70px;
+  gap: 130px;
 }
 
 /* --- UTILITY --- */
