@@ -798,8 +798,8 @@ body {
 }
 .touch-overlay .touch-icon-bkg .icon-overlay {
   color: black;
-  width: 100px;
-  margin-left: 50px;
+  width: 80px;
+  margin-left: 70px;
 }
 
 /* sass --watch idea/style:idea/ */
