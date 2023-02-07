@@ -94,25 +94,26 @@ $('.page-6 .next-button').click(() => {
     }
 
     // get a random padded room number 
-    var room = Math.floor(Math.random() * 300).toString().padStart(3, '0')
+    // var room = Math.floor(Math.random() * 300).toString().padStart(3, '0')
 
-    // Save everything
-    // FIXME forse basta salvare il numero della stanza perchè il resto è già salvato
-    localStorage.setItem('name', $('#name').text());
-    localStorage.setItem('sex', $('#sex').text());
-    localStorage.setItem('nation', $('#nation').text());
-    localStorage.setItem('date', $('#date').text());
-    localStorage.setItem('code', $('#code').text());
-    localStorage.setItem('room', room);
+    // // Save everything
+    // // FIXME forse basta salvare il numero della stanza perchè il resto è già salvato
+    // localStorage.setItem('name', $('#name').text());
+    // localStorage.setItem('sex', $('#sex').text());
+    // localStorage.setItem('nation', $('#nation').text());
+    // localStorage.setItem('date', $('#date').text());
+    // localStorage.setItem('code', $('#code').text());
+    // localStorage.setItem('room', room);
 
-    saveData();
-    if(picture == undefined){
-        window.location = 'final.html'
-    }else{
-        savePhoto().then(()=>{
-            window.location = 'final.html'
-        });
-    }
+    // saveData();
+    // if(picture == undefined){
+    //     console.log('undefined')
+    //     window.location = 'final.html'
+    // }else{
+    //     savePhoto().then(()=>{
+    //         window.location = 'final.html'
+    //     });
+    // }
 
 })
 
@@ -192,15 +193,15 @@ snapPhoto = function () {
 savePhoto = function () {
     
     // set the photo's right dimension 
-    var img = new Image();
-    img.src = picture;
-    var ctx = canvas.getContext('2d');
-    canvas.width = 1024;
-    canvas.height = 768;
+    // var img = new Image();
+    // img.src = picture;
+    // var ctx = canvas.getContext('2d');
+    // canvas.width = 1024;
+    // canvas.height = 768;
 
-    ctx.drawImage(img, 0, 0, 1024, 768);
-    picture =  canvas.toDataURL();
-    
+    // ctx.drawImage(img, 0, 0, 1024, 768);
+    // picture =  canvas.toDataURL();
+    // $('body').prepend(img);
     return $.post("../core/operation.php", {
         op: "saveImage",
         image: picture,
