@@ -233,7 +233,7 @@ input[type=text]:focus {
 }
 .pagination .stream {
   position: relative;
-  width: 576px;
+  width: 750px;
   height: 50px;
   padding: 0;
   display: flex;
@@ -284,6 +284,15 @@ input[type=text]:focus {
   aspect-ratio: 1/1;
   border-radius: 50px;
   background-image: url("../assets/page-1-bkg.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.square-element.passport {
+  background-image: url("../assets/passport_scan.svg") !important;
+}
+.square-element.card, .square-element.orange-card, .square-element.blue-card {
+  background-image: url("../assets/card_scan.svg") !important;
 }
 
 .corner-border-black {
@@ -386,7 +395,7 @@ input[type=text]:focus {
   position: fixed;
   top: 0;
   z-index: 20;
-  background-color: rgba(65, 65, 65, 0.7568627451);
+  background-color: #414141c1;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -440,8 +449,8 @@ input[type=text]:focus {
 
 /* --- BARCODE SCANNER --- */
 .barcode .square-element {
-  width: 500px;
-  height: 280px;
+  width: 625px;
+  height: 399px;
   border-radius: 0;
   background-image: url("../assets/barcode.svg");
 }
@@ -457,10 +466,10 @@ input[type=text]:focus {
 }
 @keyframes scan {
   from {
-    top: 880px;
+    top: 1080px;
   }
   to {
-    top: 1230px;
+    top: 1530px;
   }
 }
 
@@ -595,15 +604,23 @@ body {
   text-align: center;
   background-image: url("../assets/page-1-bkg.svg");
 }
-.page-5 .desc {
-  margin-top: 300px;
-}
 .page-5 .corner-border {
   margin-top: 80px;
 }
 .page-5 .corner-border .barcode-scan {
   z-index: 2;
   position: fixed;
+}
+.page-5 .stream .line {
+  background: #eeeeee;
+}
+.page-5 .stream .circle-button:not(.selected) {
+  border: 5px solid #eeeeee;
+  background-color: transparent;
+}
+.page-5 .stream .circle-button:not(.selected).past {
+  background: #eeeeee;
+  border: 5px solid #eeeeee;
 }
 
 .page-6 {

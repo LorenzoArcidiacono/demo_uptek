@@ -218,7 +218,7 @@ input[type="text"]:focus {
     }
     .stream {
         position: relative;
-        width: 576px;
+        width: 750px;
         height: 50px;
         padding: 0;
         display: flex;
@@ -271,6 +271,17 @@ input[type="text"]:focus {
     aspect-ratio: 1/1;
     border-radius: 50px;
     background-image: url("../assets/page-1-bkg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    &.passport {
+        background-image: url("../assets/passport_scan.svg") !important;
+    }
+
+    &.card {
+        background-image: url("../assets/card_scan.svg") !important;
+    }
 }
 
 .corner-border-black {
@@ -444,8 +455,8 @@ input[type="text"]:focus {
 
 .barcode {
     .square-element {
-        width: 500px;
-        height: 280px;
+        width: 625px;
+        height: 399px;
         border-radius: 0;
         background-image: url("../assets/barcode.svg");
     }
@@ -463,10 +474,10 @@ input[type="text"]:focus {
 
     @keyframes scan {
         from {
-            top: 880px;
+            top: 1080px;
         }
         to {
-            top: 1230px;
+            top: 1530px;
         }
     }
 }
