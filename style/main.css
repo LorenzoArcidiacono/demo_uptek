@@ -784,12 +784,21 @@ body {
   z-index: 3;
   display: flex;
   justify-content: flex-end;
-  align-items: flex-start;
+  align-items: center;
 }
-.touch-overlay .icon-overlay {
-  color: #ff721f;
-  margin-top: 130px;
-  margin-right: 130px;
+.touch-overlay .touch-icon-bkg {
+  width: 400px;
+  aspect-ratio: 1/1;
+  border-radius: 200px;
+  background-color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: -250px;
+}
+.touch-overlay .touch-icon-bkg .icon-overlay {
+  color: black;
+  margin-left: 80px;
 }
 
 /* sass --watch idea/style:idea/ */
