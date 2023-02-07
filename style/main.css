@@ -447,6 +447,29 @@ fieldset .material-symbols-outlined {
   }
 }
 
+.camera-blur {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.camera-blur::after {
+  content: "";
+  display: block;
+  width: 64%;
+  height: 0;
+  padding-bottom: 70%;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  border: solid 1400px rgba(0, 0, 0, 0.7);
+  filter: blur(50px);
+}
+
 :root {
   width: 1080px !important;
   height: 1920px !important;
