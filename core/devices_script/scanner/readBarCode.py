@@ -2,7 +2,7 @@ import serial.tools.list_ports as portlist
 import serial
 
 try:
-    ser = serial.Serial( port="COM130", baudrate=9600, bytesize=8, timeout=4, stopbits=serial.STOPBITS_ONE )
+    ser = serial.Serial( port="COM130", baudrate=9600, bytesize=8, timeout=60, stopbits=serial.STOPBITS_ONE )
 except:
     print('error while opening serial port')
 
