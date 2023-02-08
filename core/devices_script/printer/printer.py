@@ -3,8 +3,10 @@ import win32api
 from docx import Document
 from docx.shared import Inches
 from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.shared import Mm
 import sys
 import os
+from win32printing import Printer
 
 
 PRINTER_ERROR_STATES = (
@@ -87,7 +89,10 @@ def writeImage():
 
     p = document.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    r = p.add_run()
+    p.paragraph_format.left_indent = Mm(30.4)
+    p.paragraph_format.right_indent = Mm(14.4)
+    
+    r   = p.add_run()
     # r.add_text(str)
     r.add_text('Benvenuti')
     r.add_break()
