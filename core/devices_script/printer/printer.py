@@ -89,8 +89,8 @@ def writeImage():
 
     p = document.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p.paragraph_format.left_indent = Mm(30.4)
-    p.paragraph_format.right_indent = Mm(14.4)
+    p.paragraph_format.left_indent = Mm(0.4)
+    p.paragraph_format.right_indent = Mm(0.4)
     
     r   = p.add_run()
     # r.add_text(str)
@@ -100,24 +100,24 @@ def writeImage():
     r.add_break()
     r.add_text('Nome: Lorenzo')
     r.add_break()
-    r.add_text('Stanza: 034')
+    r.add_text('Stanza: 035')
     r.add_break()
 
     # r.add_text(' do you like it?')
-    r.add_picture('./devices_script/printer/qrcode.png',width=Inches(1.0))
+    r.add_picture('./devices_script/printer/qrcode.png',width=Inches(0.6))
 
     document.save('./devices_script/printer/demo.docx')
 
 # print ('Argument List:', str(sys.argv))
 # print ('Number of arguments:', len(sys.argv), 'arguments.')
 writeImage()
-startPrint()
-if len(sys.argv) == 3:
-    result = writeToFile(sys.argv[1], sys.argv[2])
-else:
-    result = writeToFile(sys.argv[1]+' '+sys.argv[2], sys.argv[3])
+# startPrint()
+# if len(sys.argv) == 3:
+#     result = writeToFile(sys.argv[1], sys.argv[2])
+# else:
+#     result = writeToFile(sys.argv[1]+' '+sys.argv[2], sys.argv[3])
 
-if result:
-    startPrint()
-else:
-    print('error writing to file')
+# if result:
+#     startPrint()
+# else:
+#     print('error writing to file')
