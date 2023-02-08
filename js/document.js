@@ -18,15 +18,14 @@ console.log(page);
 // })
 
 
-
 // BUTTONS LINK
-$('.pagination .back-button').click(() => {
-    setTimeout(()=>{
-        $('#barcode-scan-image').removeClass("card");
-        $('#barcode-scan-image').removeClass("passport");
-    },600)
-    swapPages('.page-5','.page-3')
-})
+// $('.pagination .back-button').click(() => {
+//     setTimeout(()=>{
+//         $('#barcode-scan-image').removeClass("card");
+//         $('#barcode-scan-image').removeClass("passport");
+//     },600)
+//     swapPages('.page-5','.page-3')
+// })
 
 $('#scan-card').click(() => {
     type = 'card';
@@ -42,6 +41,11 @@ $('#scan-passport').click(() => {
     $('#barcode-scan-image').addClass("passport");
     scanAndSave();
     swapPages('.page-3', '.page-5');
+})
+
+$('.page-5 .modal .redo-button').click(() => {
+    $('.page-5 .modal').addClass('hidden')
+    scanAndSave();
 })
 
 // $('.page-4 .back-button').click(() => {
@@ -119,6 +123,12 @@ $('#scan-passport').click(() => {
 scanAndSave = function () {
     startScan().then((message) => {
         // console.log(`message: ${JSON.stringify(message)}`);
+
+        if(message == false){
+            console.log('Errore di lettura')
+            $('.page-5 .modal').removeClass('hidden')
+            return;
+        }
 
         // from YYMMDD to DD.MM.YY
         let date = '';
@@ -200,6 +210,9 @@ startScan = async function () {
 
     var answer = {}
     // Error while reading
+    if (result['result'] == false && code == ''){
+        return false;
+    }
     if (result['result'] == false) {
         console.log(result['data']);
         answer = {

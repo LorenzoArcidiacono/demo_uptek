@@ -411,6 +411,10 @@ input[type=text]:focus {
   justify-content: center;
   align-items: center;
 }
+.modal .card p, .modal .blue-card p, .modal .orange-card p {
+  width: 650px;
+  color: #414141;
+}
 .modal .circle-button, .modal .large-circle-button, .modal .circle-button-photo {
   position: fixed;
   z-index: 22;

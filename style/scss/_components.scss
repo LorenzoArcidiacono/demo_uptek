@@ -407,6 +407,11 @@ input[type="text"]:focus {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        p{
+            width: 650px;
+            color: $dark-gray;
+        }
     }
 
     .circle-button {

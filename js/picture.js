@@ -142,7 +142,7 @@ $('.page-8 .done-button').click(() => {
     // swapPages('.page-8', '.page-6')
 
     // get a random padded room number 
-    var room = Math.floor(Math.random() * 300).toString().padStart(3, '0')
+    var room = Math.floor((Math.random() * 300) +1).toString().padStart(3, '0')
 
 
     localStorage.setItem('name', $('#name').val());
