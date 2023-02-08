@@ -11,6 +11,11 @@ console.log(page);
 $('.p-1').click(() => {
     console.log('click')
     swapPages('.page-5','.page-3');
+    setTimeout(()=>{
+        $('#barcode-scan-image').removeClass("card");
+        $('#barcode-scan-image').removeClass("passport");
+
+    },600)
 })
 
 
