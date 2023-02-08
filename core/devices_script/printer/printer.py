@@ -1,5 +1,8 @@
 import win32print as printer
 import win32api
+from docx import Document
+from docx.shared import Inches
+from docx.enum.text import WD_ALIGN_PARAGRAPH
 import sys
 import os
 
@@ -54,7 +57,7 @@ def startPrint():
         print("error occurred: ", codeToString(error))
     else:
         #  Do the real work
-        print( win32api.ShellExecute(0, "print", 'output.txt', None,  "./devices_script/printer",  0) )
+        print( win32api.ShellExecute(0, "print", 'demo.docx', None,  "./devices_script/printer",  0) )
     printer.ClosePrinter(prn)
     if not error:
         print('Printed')
@@ -77,10 +80,32 @@ def writeToFile(name,room):
     print('File written')
     return True
 
+def writeImage():
+    print('ok')
+
+    document = Document()
+
+    p = document.add_paragraph()
+    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    r = p.add_run()
+    # r.add_text(str)
+    r.add_text('Benvenuti')
+    r.add_break()
+    r.add_text('Hilton Hotels & Resorts')
+    r.add_break()
+    r.add_text('Nome: Lorenzo')
+    r.add_break()
+    r.add_text('Stanza: 034')
+    r.add_break()
+
+    # r.add_text(' do you like it?')
+    r.add_picture('./devices_script/printer/qrcode.png',width=Inches(1.0))
+
+    document.save('./devices_script/printer/demo.docx')
 
 # print ('Argument List:', str(sys.argv))
 # print ('Number of arguments:', len(sys.argv), 'arguments.')
-
+writeImage();
 if len(sys.argv) == 3:
     result = writeToFile(sys.argv[1], sys.argv[2])
 else:
