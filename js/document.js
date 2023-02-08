@@ -21,7 +21,11 @@ console.log(page);
 
 // BUTTONS LINK
 $('.pagination .back-button').click(() => {
-    window.location = '../app/index.html';
+    setTimeout(()=>{
+        $('#barcode-scan-image').removeClass("card");
+        $('#barcode-scan-image').removeClass("passport");
+    },600)
+    swapPages('.page-5','.page-3')
 })
 
 $('#scan-card').click(() => {
