@@ -1,4 +1,5 @@
-Benvenuto al nostro showroom!
+    Benvenuti
+Hilton Hotels & Resorts
 
 Nome: $NAME$
 Stanza: $ROOM$

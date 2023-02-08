@@ -1,3 +1,39 @@
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const page = urlParams.get('page')
+console.log(page);
+
+
+
+// PAGE FLOW
+$('.p-1').click(() => {
+    console.log('click')
+    window.location = '../app/document.html?page=3';
+})
+$('.p-2').click(() => {
+    console.log('click')
+    window.location = '../app/document.html?page=5';
+})
+
+$('.p-3').click(() => {
+    console.log('click')
+    swapPages('.page-7','.page-6');
+})
+
+$('.p-3v2').click(() => {
+    console.log('click')
+    swapPages('.page-8','.page-6');
+})
+
+$('.p-4').click(() => {
+    console.log('click')
+    startWebcam()
+    swapPages('.page-8','.page-7');
+})
+
+
+
 // Initial information displayed
 $('#name').val(localStorage.getItem('name'))
 $('#nation').val(localStorage.getItem('nation'))
@@ -232,3 +268,18 @@ saveData = function () {
 }
 
 
+// PAGE FLOW
+if(page == 6){
+    $('.page-6').removeClass('hidden');
+    $('.page-7').addClass('hidden');
+    $('.page-8').addClass('hidden');
+}else if(page ==  7){
+    $('.page-7').removeClass('hidden');
+    $('.page-6').addClass('hidden');
+    $('.page-8').addClass('hidden');
+    startWebcam();
+}else if(page ==  8){
+    $('.page-8').removeClass('hidden');
+    $('.page-6').addClass('hidden');
+    $('.page-7').addClass('hidden');
+}

@@ -13,3 +13,4 @@ swapPages = function(from,to,time=400){
         }, animation_time);
     }, animation_time-100)
 }
+

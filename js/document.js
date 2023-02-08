@@ -1,14 +1,29 @@
 let type = ''
 
-// SHOW FIRST MODAL
-// $('.flex-container button').click(() => {
-//     $('#position-modal').removeClass('hidden');
-// })
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const page = urlParams.get('page')
+console.log(page);
+
+if(page == 3){
+    $('.page-5').addClass('hidden');
+    $('.page-3').removeClass('hidden');
+}else if(page == 5){
+    $('.page-3').addClass('hidden');
+    $('.page-5').removeClass('hidden');
+}
+
+// PAGE FLOW
+$('.p-1').click(() => {
+    console.log('click')
+    swapPages('.page-5','.page-3');
+})
+
 
 
 // BUTTONS LINK
 $('.pagination .back-button').click(() => {
-    window.location= '../app/index.html';
+    window.location = '../app/index.html';
 })
 
 $('#scan-card').click(() => {
@@ -78,7 +93,7 @@ $('#scan-passport').click(() => {
 //         localStorage.setItem('nation', nation);
 //         localStorage.setItem('date', date);
 //         localStorage.setItem('code', message['code']);
-        
+
 //         window.location = 'picture.html';
 //     })
 
@@ -97,14 +112,14 @@ $('#scan-passport').click(() => {
 
 // SCANNER
 
-scanAndSave = function(){
+scanAndSave = function () {
     startScan().then((message) => {
         // console.log(`message: ${JSON.stringify(message)}`);
 
         // from YYMMDD to DD.MM.YY
         let date = '';
         if (message['date'] != undefined && message['date'] != '') {
-            date = message['date'].match(/.{1,2}/g)??[];
+            date = message['date'].match(/.{1,2}/g) ?? [];
             date = date[2] + '.' + date[1] + '.' + date[0]
         }
 
@@ -115,7 +130,7 @@ scanAndSave = function(){
             name[0] = name[0][0].toUpperCase() + name[0].slice(1).toLowerCase();
             name[1] = name[1][0].toUpperCase() + name[1].slice(1).toLowerCase();
             name = name.join(' ');
-        } 
+        }
 
         // from nation to nationality
         let nation = '';
@@ -145,7 +160,7 @@ scanAndSave = function(){
         localStorage.setItem('nation', nation);
         localStorage.setItem('date', date);
         localStorage.setItem('code', message['code']);
-        
+
         window.location = 'picture.html';
     })
 }

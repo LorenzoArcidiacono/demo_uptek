@@ -1,3 +1,28 @@
+// PAGE FLOW
+$('.p-1').click(() => {
+    console.log('click')
+    window.location = '../app/document.html?page=3';
+})
+$('.p-2').click(() => {
+    console.log('click')
+    window.location = '../app/document.html?page=5';
+})
+
+$('.p-3').click(() => {
+    console.log('click')
+    window.location = '../app/picture.html?page=6';
+})
+
+
+$('.p-4').click(() => {
+    console.log('click')
+    window.location = '../app/picture.html?page=7';
+})
+
+$('.p-5').click(() => {
+    console.log('click')
+    window.location = '../app/picture.html?page=8';
+})
 
 // Set value to display
 $('.name').text(localStorage.getItem('name'))
@@ -44,7 +69,7 @@ startLoader = function () {
             clearInterval(interval)
             setTimeout(() => {
                 swapPages('.page-10', '.page-11');
-            },400)
+            }, 400)
         }
     }, animation_time / 100)
 }
