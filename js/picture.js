@@ -36,6 +36,16 @@ $('.page-6 .pagination .back-button').click(() => {
     window.location = '../app/document.html?page=5';
 })
 
+$('.page-7 .pagination .back-button').click(() => {
+    stopWebcam()
+    swapPages('.page-7','.page-6');
+})
+
+$('.page-8 .pagination .back-button').click(() => {
+    startWebcam()
+    swapPages('.page-8','.page-7');
+})
+
 
 
 // Initial information displayed
@@ -85,7 +95,7 @@ checkValues = function(){
 
 
 // BUTTON LINKS
-$('.pagination .back-button').click(() => window.location = './document.html')
+// $('.pagination .back-button').click(() => window.location = './document.html')
 
 // Start webcam button
 $('.page-6 .done-button').click(async () => {
@@ -97,14 +107,6 @@ $('.page-6 .done-button').click(async () => {
     }else{
         swapPages('.page-6', '.page-7')
     }
-})
-
-// Stop webcam
-$('.page-7 .back-button').click(() => {
-    $('.page-6 .first-header').removeClass('hidden')
-    $('.page-6 .second-header').addClass('hidden')
-    swapPages('.page-7', '.page-6')
-    stopWebcam()
 })
 
 // modal
@@ -123,15 +125,15 @@ $('.page-7 .snap-photo').click(() => {
     swapPages('.page-7', '.page-8')
 })
 
-$('.page-8 .back-button').click(() => {
-    swapPages('.page-8', '.page-6')
-    stopWebcam()
-})
+// $('.page-8 .back-button').click(() => {
+//     swapPages('.page-8', '.page-6')
+//     stopWebcam()
+// })
 
-$('.page-8 .redo-button').click(() => {
-    startWebcam()
-    swapPages('.page-8', '.page-7')
-})
+// $('.page-8 .redo-button').click(() => {
+//     startWebcam()
+//     swapPages('.page-8', '.page-7')
+// })
 
 $('.page-8 .done-button').click(() => {
     // $('.page-6 .first-header').addClass('hidden')

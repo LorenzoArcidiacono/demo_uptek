@@ -232,12 +232,10 @@ readUserInfo = function () {
 }
 
 // PAGE FLOW
-console.log('page: '+page)
 if(page == 3){
     $('.page-5').addClass('hidden');
     $('.page-3').removeClass('hidden');
 }else if(page == 5){
-    console.log('page 5')
     $('.page-3').addClass('hidden');
     type = localStorage.getItem('type');
     $('#barcode-scan-image').removeClass('card');
