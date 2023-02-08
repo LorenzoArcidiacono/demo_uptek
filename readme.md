@@ -50,6 +50,6 @@
 
 - [x] sistemare paginazione
 - [x] check valori form
-- [ ] collegare tutti i bottoni
-- [ ] salvare csv
+- [x] collegare tutti i bottoni
+- [x] salvare csv
 - [ ] salvare immagine

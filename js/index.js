@@ -1,6 +1,5 @@
 
 let idle_timeout = 60000;
-// let animation_delay = 1000;
 
 // start slider after idle_timeout milliseconds
 let slider_timeout = setTimeout(() => window.location = './slider.html', idle_timeout)

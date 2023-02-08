@@ -33,7 +33,6 @@ $('.p-4').click(() => {
 })
 
 
-
 // Initial information displayed
 $('#name').val(localStorage.getItem('name'))
 $('#nation').val(localStorage.getItem('nation'))
@@ -43,7 +42,6 @@ $('#code').val(localStorage.getItem('code'))
 
 // CHECK FORM
 $(document).ready(()=>{
-    // console.log('sono qui');
     if(checkValues()){
         $('.page-6 .done-button').prop('disabled','')
     }else{
@@ -52,7 +50,6 @@ $(document).ready(()=>{
 })
 
 $('.page-6 input').on('input', ()=>{
-    // console.log('change');
     if(checkValues()){
         $('.page-6 .done-button').prop('disabled','')
     }else{
@@ -67,7 +64,6 @@ checkValues = function(){
 
     // highlights every value unset
     identifiers.forEach(id => {
-        // console.log($('#'+id).val())
         if($('#'+id).val() == ''){
             check = false;
             $('#'+id+'+ span').css('color','red');
@@ -75,7 +71,6 @@ checkValues = function(){
             $('#'+id+'+ span').css('color','#414141');
         }
     });
-    // console.log('check:'+check)
     return check;
 }
 
@@ -95,22 +90,6 @@ $('.page-6 .done-button').click(async () => {
     }
 })
 
-// Stop webcam
-$('.page-7 .back-button').click(() => {
-    $('.page-6 .first-header').removeClass('hidden')
-    $('.page-6 .second-header').addClass('hidden')
-    swapPages('.page-7', '.page-6')
-    stopWebcam()
-})
-
-// modal
-$('.page-7 .help-button').click(() => {
-    $('.page-7 .modal').removeClass('hidden')
-})
-
-$('.page-7 .close-modal').click(() => {
-    $('.page-7 .modal').addClass('hidden')
-})
 
 // Snap photo
 $('.page-7 .snap-photo').click(() => {
@@ -119,25 +98,11 @@ $('.page-7 .snap-photo').click(() => {
     swapPages('.page-7', '.page-8')
 })
 
-$('.page-8 .back-button').click(() => {
-    swapPages('.page-8', '.page-6')
-    stopWebcam()
-})
-
-$('.page-8 .redo-button').click(() => {
-    startWebcam()
-    swapPages('.page-8', '.page-7')
-})
 
 $('.page-8 .done-button').click(() => {
-    // $('.page-6 .first-header').addClass('hidden')
-    // $('.page-6 .second-header').removeClass('hidden')
-    // showPicture();
-    // swapPages('.page-8', '.page-6')
 
     // get a random padded room number 
     var room = Math.floor(Math.random() * 300).toString().padStart(3, '0')
-
 
     localStorage.setItem('name', $('#name').val());
     localStorage.setItem('sex', $('#sex').val());
@@ -155,67 +120,6 @@ $('.page-8 .done-button').click(() => {
         });
     }
 })
-
-$('.page-6 .photo-button').click(() => {
-    startWebcam()
-    swapPages('.page-6', '.page-7')
-})
-
-$('.page-6 .next-button').click(() => {
-    //TODO save all info & photo
-    if(!checkValues()){
-        return;
-    }
-
-    // get a random padded room number 
-    // var room = Math.floor(Math.random() * 300).toString().padStart(3, '0')
-
-    // // Save everything
-    // // FIXME forse basta salvare il numero della stanza perchè il resto è già salvato
-    // localStorage.setItem('name', $('#name').text());
-    // localStorage.setItem('sex', $('#sex').text());
-    // localStorage.setItem('nation', $('#nation').text());
-    // localStorage.setItem('date', $('#date').text());
-    // localStorage.setItem('code', $('#code').text());
-    // localStorage.setItem('room', room);
-
-    // saveData();
-    // if(picture == undefined){
-    //     console.log('undefined')
-    //     window.location = 'final.html'
-    // }else{
-    //     savePhoto().then(()=>{
-    //         window.location = 'final.html'
-    //     });
-    // }
-
-})
-
-
-// UTILITY FUNCTIONS
-showPicture = function () {
-    if(picture == undefined) {
-        console.log('error: picture undefined')
-    }else{
-        $('.page-6 #picture').attr('src', picture)
-    }
-}
-
-let lastId = '';
-displayModal = function (identifier) {
-    console.log(`click`);
-    lastId = identifier;
-    $('.page-6 .modal #text').val($(identifier).text())
-    $('.page-6 .modal').removeClass('hidden')
-}
-
-// 
-saveValue = function () {
-    $(lastId).text($('.modal #text').val())
-    $('.modal').addClass('hidden')
-    localStorage.setItem(lastId, $('#'+lastId).text());
-}
-
 
 
 // WEBCAM
@@ -294,14 +198,18 @@ saveData = function () {
 
 // PAGE FLOW
 if(page == 6){
+
     $('.page-6').removeClass('hidden');
     $('.page-7').addClass('hidden');
     $('.page-8').addClass('hidden');
+
 }else if(page ==  7){
+
     $('.page-7').removeClass('hidden');
     $('.page-6').addClass('hidden');
     $('.page-8').addClass('hidden');
     startWebcam();
+
 }else if(page ==  8){
     
     picture = localStorage.getItem('photo');
