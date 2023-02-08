@@ -32,6 +32,10 @@ $('.p-4').click(() => {
     swapPages('.page-8','.page-7');
 })
 
+$('.page-6 .pagination .back-button').click(() => {
+    window.location = '../app/document.html?page=5';
+})
+
 
 
 // Initial information displayed
