@@ -847,9 +847,10 @@ body {
 .page-11 .desc {
   width: 600px;
 }
-.page-11 .circle-button {
+.page-11 .pill-button {
   position: fixed;
   top: 1500px;
+  width: 440px;
 }
 
 /* --- CONTAINERS --- */

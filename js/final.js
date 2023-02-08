@@ -51,7 +51,7 @@ $('.page-11 .home-button').click(() => {
     localStorage.removeItem('nation');
     localStorage.removeItem('sex');
 
-    window.location = 'index.html'
+    window.location = 'slider.html'
 })
 
 // printer's loader animation

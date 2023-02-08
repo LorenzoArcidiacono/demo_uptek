@@ -48,8 +48,8 @@
 - [x] posizione touch icon 
 - [x] bloccare zoom
 
-- [ ] sistemare paginazione
-- [ ] check valori form
+- [x] sistemare paginazione
+- [x] check valori form
 - [ ] collegare tutti i bottoni
 - [ ] salvare csv
 - [ ] salvare immagine
