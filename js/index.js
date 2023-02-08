@@ -1,20 +1,10 @@
 
-let idle_timeout = 60000;
-// let animation_delay = 1000;
-
-// start slider after idle_timeout milliseconds
-let slider_timeout = setTimeout(() => window.location = './slider.html', idle_timeout)
 
 
 // BUTTONS LINK
 $('#page-1-btn').click(() => {
     swapPages('.page-1','.page-2')
     clearTimeout(slider_timeout)
-    setTimeout(() => {
-        swapPages('.page-2','.page-1')
-        slider_timeout = setTimeout(() => window.location = './slider.html', idle_timeout)
-
-    },idle_timeout)
 })
 
 $('#page-2-btn').click(() => {
@@ -26,8 +16,6 @@ let open = false;
 let duration = 500;
 let lastSelected = 'IT';
 $('.select-button').on('click', () => {
-    //delete timeout
-    clearTimeout(slider_timeout)
     
     if (!open) {
         $('.select-dropdown').animate({
@@ -37,8 +25,6 @@ $('.select-button').on('click', () => {
         $('.select-button span').text('expand_less')
         open = true;
     } else {
-        // Restart timeout
-        slider_timeout = setTimeout(() => window.location = './slider.html', idle_timeout)
         
         $('.select-dropdown').animate({
             height: '0px',
