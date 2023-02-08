@@ -5,13 +5,7 @@ const urlParams = new URLSearchParams(queryString);
 const page = urlParams.get('page')
 console.log(page);
 
-if(page == 3){
-    $('.page-5').addClass('hidden');
-    $('.page-3').removeClass('hidden');
-}else if(page == 5){
-    $('.page-3').addClass('hidden');
-    $('.page-5').removeClass('hidden');
-}
+
 
 // PAGE FLOW
 $('.p-1').click(() => {
@@ -28,6 +22,7 @@ $('.pagination .back-button').click(() => {
 
 $('#scan-card').click(() => {
     type = 'card';
+    localStorage.setItem('type', type);
     $('#barcode-scan-image').addClass("card");
     scanAndSave();
     swapPages('.page-3', '.page-5');
@@ -35,6 +30,7 @@ $('#scan-card').click(() => {
 })
 $('#scan-passport').click(() => {
     type = 'passport';
+    localStorage.setItem('type', type);
     $('#barcode-scan-image').addClass("passport");
     scanAndSave();
     swapPages('.page-3', '.page-5');
@@ -225,6 +221,18 @@ readUserInfo = function () {
         op: "info",
         type: type
     })
+}
+
+// PAGE FLOW
+if(page == 3){
+    $('.page-5').addClass('hidden');
+    $('.page-3').removeClass('hidden');
+}else if(page == 5){
+    $('.page-3').addClass('hidden');
+    type = localStorage.getItem('type');
+    $('#barcode-scan-image').addClass(type);
+    scanAndSave();
+    $('.page-5').removeClass('hidden');
 }
 
 // displayReadValues = function (name, nation, sex, code) {

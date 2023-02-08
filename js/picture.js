@@ -222,6 +222,8 @@ stopWebcam = function () {
 
 snapPhoto = function () {
     picture = webcam.snap();
+    localStorage.setItem('photo', picture)
+    
 }
 
 
@@ -279,6 +281,18 @@ if(page == 6){
     $('.page-8').addClass('hidden');
     startWebcam();
 }else if(page ==  8){
+    
+    picture = localStorage.getItem('photo');
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    var img = new Image;
+    img.onload = function(){
+        ctx.scale(0.4,0.3)
+        ctx.translate(0, -100);
+        ctx.drawImage(img, 0, 0, 800, 600);
+    }
+    img.src = picture;
+    
     $('.page-8').removeClass('hidden');
     $('.page-6').addClass('hidden');
     $('.page-7').addClass('hidden');
