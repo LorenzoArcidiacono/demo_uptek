@@ -14,7 +14,6 @@ $('.p-1').click(() => {
     setTimeout(()=>{
         $('#barcode-scan-image').removeClass("card");
         $('#barcode-scan-image').removeClass("passport");
-
     },600)
 })
 
@@ -235,6 +234,8 @@ if(page == 3){
 }else if(page == 5){
     $('.page-3').addClass('hidden');
     type = localStorage.getItem('type');
+    $('#barcode-scan-image').removeClass('card');
+    $('#barcode-scan-image').removeClass('passport');
     $('#barcode-scan-image').addClass(type);
     scanAndSave();
     $('.page-5').removeClass('hidden');
