@@ -84,7 +84,8 @@ def startPrint():
 
 def writeToFile(name,room):
     document = Document()
-
+    section = document.sections[0]
+    section.page_height = Mm(100)
     p = document.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p.paragraph_format.left_indent = Mm(0.4)
