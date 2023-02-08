@@ -97,6 +97,12 @@ body {
         width: 883px;
         text-align: center;
     }
+
+    .pagination {
+        .icon-button {
+            color: $light-gray;
+        }
+    }
 }
 
 .page-4 {

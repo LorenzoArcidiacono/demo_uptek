@@ -583,6 +583,9 @@ body {
   width: 883px;
   text-align: center;
 }
+.page-3 .pagination .icon-button {
+  color: #eeeeee;
+}
 
 .page-4 {
   color: #414141;
