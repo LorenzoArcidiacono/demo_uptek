@@ -41,6 +41,44 @@ $('#sex').val(localStorage.getItem('sex'))
 $('#date').val(localStorage.getItem('date'))
 $('#code').val(localStorage.getItem('code'))
 
+// CHECK FORM
+$(document).ready(()=>{
+    // console.log('sono qui');
+    if(checkValues()){
+        $('.page-6 .done-button').prop('disabled','')
+    }else{
+        $('.page-6 .done-button').prop('disabled','true')
+    }
+})
+
+$('.page-6 input').on('input', ()=>{
+    // console.log('change');
+    if(checkValues()){
+        $('.page-6 .done-button').prop('disabled','')
+    }else{
+        $('.page-6 .done-button').prop('disabled','true')
+    }
+})
+
+// Check if every value is set
+checkValues = function(){
+    var check = true;
+    var identifiers = ['name', 'sex','date','nation', 'code']
+
+    // highlights every value unset
+    identifiers.forEach(id => {
+        // console.log($('#'+id).val())
+        if($('#'+id).val() == ''){
+            check = false;
+            $('#'+id+'+ span').css('color','red');
+        }else{
+            $('#'+id+'+ span').css('color','#414141');
+        }
+    });
+    // console.log('check:'+check)
+    return check;
+}
+
 
 // BUTTON LINKS
 $('.pagination .back-button').click(() => window.location = './document.html')
@@ -178,23 +216,7 @@ saveValue = function () {
     localStorage.setItem(lastId, $('#'+lastId).text());
 }
 
-// Check if every value is set
-checkValues = function(){
-    var check = true;
-    var identifiers = ['name', 'sex','date','nation', 'code']
 
-    // highlights every value unset
-    identifiers.forEach(id => {
-        console.log($('#'+id).text())
-        if($('#'+id).text() == ''){
-            check = false;
-            $('#'+id+'+ span').css('color','red');
-        }else{
-            $('#'+id+'+ span').css('color','#414141');
-        }
-    });
-    return check;
-}
 
 // WEBCAM
 const webcamElement = document.getElementById('webcam');
@@ -292,7 +314,7 @@ if(page == 6){
         ctx.drawImage(img, 0, 0, 800, 600);
     }
     img.src = picture;
-    
+
     $('.page-8').removeClass('hidden');
     $('.page-6').addClass('hidden');
     $('.page-7').addClass('hidden');
