@@ -925,7 +925,15 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-right: -200px;
+  margin-right: -400px;
+}
+.touch-overlay .touch-icon-bkg.in {
+  animation: slidein 0.5s forwards;
+  animation-timing-function: ease-out;
+}
+.touch-overlay .touch-icon-bkg.out {
+  animation: slideout 0.5s forwards;
+  animation-timing-function: ease-out;
 }
 .touch-overlay .touch-icon-bkg .icon-overlay {
   color: black;
@@ -933,6 +941,22 @@ body {
   margin-left: 70px;
 }
 
+@keyframes slidein {
+  0% {
+    margin-right: -400px;
+  }
+  100% {
+    margin-right: -200px;
+  }
+}
+@keyframes slideout {
+  0% {
+    margin-right: -200px;
+  }
+  100% {
+    margin-right: -400px;
+  }
+}
 /* sass --watch style/scss:style/ */
 
 /*# sourceMappingURL=main.css.map */

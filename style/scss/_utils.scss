@@ -30,7 +30,19 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        margin-right: -200px;
+        margin-right: -400px;
+
+        &.in {
+            animation: slidein 0.5s forwards;
+            animation-timing-function: ease-out;
+    
+        }
+
+        &.out {
+            animation: slideout 0.5s forwards;
+            animation-timing-function: ease-out;
+    
+        }
 
         .icon-overlay{
             color: black;
@@ -38,4 +50,14 @@
             margin-left:70px ;
         }
     }
+}
+
+@keyframes slidein {
+    0% { margin-right: -400px; }
+    100% { margin-right: -200px; }
+}
+
+@keyframes slideout {
+    0% { margin-right: -200px; }
+    100% { margin-right: -400px; }
 }
