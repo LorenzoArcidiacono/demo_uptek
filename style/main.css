@@ -398,7 +398,7 @@ input[type=text]:focus {
   position: fixed;
   top: 0;
   z-index: 20;
-  background-color: rgba(65, 65, 65, 0.7568627451);
+  background-color: #414141c1;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -630,6 +630,9 @@ body {
   color: #414141;
   text-align: center;
 }
+.page-6 .pagination {
+  max-width: 824px;
+}
 .page-6 .first-header {
   display: flex;
   flex-direction: column;
@@ -726,6 +729,7 @@ body {
   position: fixed;
   top: 445px;
   z-index: 2;
+  max-width: 824px;
 }
 .page-7 .camera .display .pagination .icon-button {
   color: #eeeeee;
@@ -763,6 +767,7 @@ body {
 }
 .page-8 .pagination {
   margin-bottom: 50px;
+  max-width: 824px;
 }
 .page-8 .pagination .line {
   background-color: #eeeeee;

@@ -159,6 +159,10 @@ body {
     color: $dark-gray;
     text-align: center;
 
+    .pagination {
+        max-width: 824px;
+    }
+
     .first-header {
         display: flex;
         flex-direction: column;
@@ -277,6 +281,7 @@ body {
                 position: fixed;
                 top: 445px;
                 z-index: 2;
+                max-width: 824px;
 
                 .icon-button {
                     color: $light-gray;
@@ -323,6 +328,7 @@ body {
     }
     .pagination{
         margin-bottom: 50px;
+        max-width: 824px;
         .line{
             background-color: $light-gray;
         }
