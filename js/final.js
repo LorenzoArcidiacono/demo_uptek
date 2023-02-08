@@ -28,11 +28,14 @@ $('.p-5').click(() => {
 $('.name').text(localStorage.getItem('name'))
 $('.room-number').text(localStorage.getItem('room'))
 
+$('.page-9 .pagination .back-button').click(() => {
+    window.location = '../app/picture.html?page=8';
+})
 
 // BUTTON LINKS
-$('.page-9 .back-button').click(() => {
-    history.back();
-})
+// $('.page-9 .back-button').click(() => {
+//     history.back();
+// })
 
 $('.page-9 .next-button').click(() => {
     swapPages('.page-9', '.page-10');
