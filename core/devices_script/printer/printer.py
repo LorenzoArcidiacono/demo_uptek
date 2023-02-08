@@ -64,60 +64,84 @@ def startPrint():
     if not error:
         print('Printed')
 
+# def writeToFile(name,room):
+#     try:
+#         with open('./devices_script/printer/input.txt', 'r') as f:
+#             str = f.read()
+#     except:
+#         return False
+
+#     str = str.replace('$NAME$', name)
+#     str = str.replace('$ROOM$', room)
+
+#     try:
+#         with open('./devices_script/printer/output.txt', 'w') as f:
+#             f.write(str)
+#     except:
+#         return False
+#     print('File written')
+#     return True
+
 def writeToFile(name,room):
-    try:
-        with open('./devices_script/printer/input.txt', 'r') as f:
-            str = f.read()
-    except:
-        return False
-
-    str = str.replace('$NAME$', name)
-    str = str.replace('$ROOM$', room)
-
-    try:
-        with open('./devices_script/printer/output.txt', 'w') as f:
-            f.write(str)
-    except:
-        return False
-    print('File written')
-    return True
-
-def writeImage():
-    print('ok')
-
     document = Document()
 
     p = document.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p.paragraph_format.left_indent = Mm(0.4)
     p.paragraph_format.right_indent = Mm(0.4)
-    
-    r   = p.add_run()
-    # r.add_text(str)
+    r = p.add_run()
+      
     r.add_text('Benvenuti')
     r.add_break()
     r.add_text('Hilton Hotels & Resorts')
     r.add_break()
-    r.add_text('Nome: Lorenzo')
+    r.add_text('Nome: '+name)
     r.add_break()
-    r.add_text('Stanza: 035')
+    r.add_text('Stanza: '+room)
     r.add_break()
-
-    # r.add_text(' do you like it?')
+    r.add_break()
+    r.add_break()
     r.add_picture('./devices_script/printer/qrcode.png',width=Inches(0.6))
 
     document.save('./devices_script/printer/demo.docx')
+    return True
+
+# def writeImage():
+#     print('ok')
+
+#     document = Document()
+
+#     p = document.add_paragraph()
+#     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+#     p.paragraph_format.left_indent = Mm(0.4)
+#     p.paragraph_format.right_indent = Mm(0.4)
+    
+#     r   = p.add_run()
+#     # r.add_text(str)
+#     r.add_text('Benvenuti')
+#     r.add_break()
+#     r.add_text('Hilton Hotels & Resorts')
+#     r.add_break()
+#     r.add_text('Nome: Lorenzo')
+#     r.add_break()
+#     r.add_text('Stanza: 035')
+#     r.add_break()
+
+#     # r.add_text(' do you like it?')
+#     r.add_picture('./devices_script/printer/qrcode.png',width=Inches(0.6))
+
+#     document.save('./devices_script/printer/demo.docx')
 
 # print ('Argument List:', str(sys.argv))
 # print ('Number of arguments:', len(sys.argv), 'arguments.')
-writeImage()
+# writeImage()
 # startPrint()
-# if len(sys.argv) == 3:
-#     result = writeToFile(sys.argv[1], sys.argv[2])
-# else:
-#     result = writeToFile(sys.argv[1]+' '+sys.argv[2], sys.argv[3])
+if len(sys.argv) == 3:
+    result = writeToFile(sys.argv[1], sys.argv[2])
+else:
+    result = writeToFile(sys.argv[1]+' '+sys.argv[2], sys.argv[3])
 
-# if result:
-#     startPrint()
-# else:
-#     print('error writing to file')
+if result:
+    startPrint()
+else:
+    print('error writing to file')
