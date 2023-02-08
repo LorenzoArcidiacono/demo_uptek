@@ -1,7 +1,6 @@
 $( document ).ready(function() {
     var enter = 1;
     setInterval(()=>{
-        console.log(enter);
         if(enter == 1) {
             $('#touch-icon-bkg').removeClass("out");
             $('#touch-icon-bkg').addClass("in");
