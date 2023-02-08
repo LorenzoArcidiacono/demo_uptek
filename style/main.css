@@ -87,7 +87,8 @@ input[type=text]:focus {
   align-items: center;
 }
 .circle-button:disabled, .circle-button-photo:disabled, .large-circle-button:disabled {
-  background-color: #be5518;
+  background-color: #9A9A9A;
+  color: #C6C6C6;
 }
 
 .pill-button {
@@ -224,6 +225,7 @@ input[type=text]:focus {
   justify-content: center;
   align-items: center;
   gap: 40px;
+  max-width: 920px;
 }
 .pagination .icon-button {
   color: #414141;
@@ -395,7 +397,7 @@ input[type=text]:focus {
   position: fixed;
   top: 0;
   z-index: 20;
-  background-color: rgba(65, 65, 65, 0.7568627451);
+  background-color: #414141c1;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -610,6 +612,9 @@ body {
   z-index: 2;
   position: fixed;
 }
+.page-5 .icon-button {
+  color: #eeeeee;
+}
 .page-5 .stream .line {
   background: #eeeeee;
 }
@@ -723,6 +728,9 @@ body {
   position: fixed;
   top: 445px;
   z-index: 2;
+}
+.page-7 .camera .display .pagination .icon-button {
+  color: #eeeeee;
 }
 .page-7 .camera .display .pagination .stream .line {
   background: #eeeeee;

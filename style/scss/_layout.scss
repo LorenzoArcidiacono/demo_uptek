@@ -136,6 +136,10 @@ body {
         }
     }
 
+    .icon-button {
+        color: $light-gray;
+    }
+
     .stream {
         .line {
             background: $light-gray;
@@ -277,6 +281,10 @@ body {
                 position: fixed;
                 top: 445px;
                 z-index: 2;
+
+                .icon-button {
+                    color: $light-gray;
+                }
 
                 .stream {
                     .line {
