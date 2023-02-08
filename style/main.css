@@ -398,7 +398,7 @@ input[type=text]:focus {
   position: fixed;
   top: 0;
   z-index: 20;
-  background-color: #414141c1;
+  background-color: rgba(65, 65, 65, 0.7568627451);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -410,6 +410,10 @@ input[type=text]:focus {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.modal .card p, .modal .blue-card p, .modal .orange-card p {
+  width: 650px;
+  color: #414141;
 }
 .modal .circle-button, .modal .large-circle-button, .modal .circle-button-photo {
   position: fixed;
