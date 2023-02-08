@@ -105,7 +105,8 @@ def writeImage():
 
 # print ('Argument List:', str(sys.argv))
 # print ('Number of arguments:', len(sys.argv), 'arguments.')
-writeImage();
+writeImage()
+startPrint()
 if len(sys.argv) == 3:
     result = writeToFile(sys.argv[1], sys.argv[2])
 else:
